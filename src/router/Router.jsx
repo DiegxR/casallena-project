@@ -1,12 +1,16 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import AppStar from '../components/appStar/AppStar'
+import AppStart from '../components/appStar/AppStart'
+import SignIn from '../login/signIn/SignIn'
+
+
 
 const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path='/' element={<AppStar/> }/>
+                <Route path='/' element={<AppStart />} />
+                <Route path='/login' element={<SignIn />} />
             </Routes>
         </BrowserRouter>
     )
