@@ -1,7 +1,12 @@
 import React from "react";
+import FooterMenu from "../../components/footerMenu/FooterMenu";
 
 const Perfil = () => {
-  return <div>Perfil</div>;
+  return (
+    <main>
+      <FooterMenu />
+    </main>
+  );
 };
 
 export default Perfil;
