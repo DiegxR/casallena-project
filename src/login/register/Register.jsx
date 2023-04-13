@@ -27,11 +27,20 @@ const Register = () => {
 
         <label htmlFor="" className="registerSec__label">
           <input
+            type="email"
+            className="registerSec__input"
+            placeholder="Email"
+          />
+          Email
+        </label>
+
+        <label htmlFor="" className="registerSec__label">
+          <input
             type="text"
             className="registerSec__input"
-            placeholder="País"
+            placeholder="Ciudad"
           />
-          País
+          Ciudad
         </label>
 
         <label htmlFor="" className="registerSec__label">
@@ -45,7 +54,7 @@ const Register = () => {
 
         <label htmlFor="" className="registerSec__label">
           <input
-            type="text"
+            type="password"
             className="registerSec__input"
             placeholder="Contraseña"
           />
@@ -54,7 +63,7 @@ const Register = () => {
 
         <label htmlFor="" className="registerSec__label">
           <input
-            type="text"
+            type="password"
             className="registerSec__input"
             placeholder="Confirmar contraseña"
           />
