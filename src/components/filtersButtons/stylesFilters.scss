@@ -1,0 +1,17 @@
+.secButtonsFilters {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  scroll-snap-type: x mandatory;
+  overflow: auto;
+}
+.secButtonsFilters::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .secButtonsFilters {
+    justify-content: center;
+  }
+}

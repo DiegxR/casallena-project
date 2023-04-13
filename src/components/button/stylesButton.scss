@@ -1,0 +1,41 @@
+@use "../../vars.scss" as v;
+
+.item {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+
+.primaryButton {
+  border: none;
+  border-radius: 30px;
+  padding: 10px;
+  background-color: v.$grayButton;
+  color: v.$gray_font;
+  transition: 0.5s;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  &:hover {
+    background-color: v.$main_color;
+    color: v.$white_color;
+    transition: 0.5s;
+  }
+}
+.primaryButton__active {
+  @extend .primaryButton;
+  background-color: v.$main_color;
+  color: v.$white_color;
+}
+
+.labelPrimary {
+  border: none;
+  border-radius: 0;
+  background-color: v.$main_color;
+  color: v.$white_color;
+  padding: 2px 5px;
+}
+
+.labelSecondary {
+  @extend .labelPrimary;
+  background-color: v.$secondary_color;
+}

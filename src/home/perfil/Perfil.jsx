@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FooterMenu from "../../components/footerMenu/FooterMenu";
+import "./stylesPerfil.scss";
 
 const Perfil = () => {
   return (
-    <main>
+    <main className="secPerfil">
       <FooterMenu />
     </main>
   );

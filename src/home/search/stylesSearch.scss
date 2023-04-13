@@ -1,5 +1,5 @@
-@use "../../vars.scss" as v;
-.secInicio {
+@use ".././../vars.scss" as v;
+.secSearch {
   width: 100%;
   height: 100vh;
   background-color: v.$primary_black;
