@@ -1,7 +1,12 @@
 import React from "react";
+import FooterMenu from "../../components/footerMenu/FooterMenu";
 
 const Search = () => {
-  return <div>Search</div>;
+  return (
+    <main>
+      <FooterMenu />
+    </main>
+  );
 };
 
 export default Search;

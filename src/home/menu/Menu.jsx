@@ -1,13 +1,13 @@
 import React from "react";
-import "./stylesComunity.scss";
+import "./stylesMenu.scss";
 import FooterMenu from "../../components/footerMenu/FooterMenu";
 
-const Comunity = () => {
+const Menu = () => {
   return (
-    <main>
+    <main className="secMenu">
       <FooterMenu />
     </main>
   );
 };
 
-export default Comunity;
+export default Menu;
