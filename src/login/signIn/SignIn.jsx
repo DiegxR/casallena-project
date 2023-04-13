@@ -3,13 +3,15 @@ import './styles.scss'
 import logo from '../../assets/logo.svg'
 import { AiOutlineGoogle } from "react-icons/ai";
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router';
 
 const SignIn = () => {
+  const navigate = useNavigate()
   return (
     <motion.section
       initial={{ x: '100%' }}
       transition={{ duration: 1, ease: 'easeIn' }}
-      exit={{opacity: 1}}
+      exit={{x: -window.innerWidth}}
       animate={{ x: '0%' }}
     className='login'>
       <article className='login_container'>
@@ -27,7 +29,7 @@ const SignIn = () => {
             <span>Contraseña</span>
           </label>
           <div className='login_buttons'>
-            <button type='button'>CREAR UNA CUENTA</button>
+            <button type='button' onClick={()=> navigate('/register')}>CREAR UNA CUENTA</button>
             <button type='submit'>ENTREMOS</button>
           </div>
         </form>
