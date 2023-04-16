@@ -5,6 +5,10 @@
     background: v.$primary_black;
     height: 100vh;
     width: 100%;
+    overflow: hidden;
+    &_error{
+        color: v.$main_color
+    }
     &_container{
         width: 100%;
         display: flex;

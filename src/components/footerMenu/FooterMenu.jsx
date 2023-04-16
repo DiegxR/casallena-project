@@ -7,7 +7,6 @@ import { BiHappyBeaming } from "react-icons/bi";
 import { FaUser } from "react-icons/fa";
 import { CiMenuKebab } from "react-icons/ci";
 import { useLocation, useNavigate } from "react-router";
-import { useEffect } from "react";
 
 const FooterMenu = () => {
   const menu = [
@@ -15,25 +14,25 @@ const FooterMenu = () => {
       id: 0,
       icon: <BsFillHouseDoorFill className="iconFooter iconhome" />,
       option: "Inicio",
-      path: "/",
+      path: "/home",
     },
     {
       id: 1,
       icon: <GoSearch className="iconFooter" />,
       option: "Búsqueda",
-      path: "/comunity",
+      path: "/search",
     },
     {
       id: 2,
       icon: <BiHappyBeaming className="iconFooter" />,
       option: "Comunidad",
-      path: "/profile",
+      path: "/comunity",
     },
     {
       id: 3,
       icon: <FaUser className="iconFooter" />,
       option: "Perfil",
-      path: "/search",
+      path: "/profile",
     },
     {
       id: 4,

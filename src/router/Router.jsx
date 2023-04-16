@@ -8,6 +8,7 @@ import Perfil from "../home/perfil/Perfil";
 import Search from "../home/search/Search";
 import Menu from "../home/menu/Menu";
 import Register from "../login/register/Register";
+import LoadPhotoUser from "../login/register/loadPhotoUser/LoadPhotoUser";
 
 const Router = () => {
   return (
@@ -21,6 +22,7 @@ const Router = () => {
         <Route path="/search" element={<Search />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/photouser" element={<LoadPhotoUser/>}/>
       </Routes>
     </BrowserRouter>
   );
