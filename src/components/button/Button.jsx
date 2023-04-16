@@ -5,7 +5,7 @@ const Button = ({ style, width = 0, children, action }) => {
   return (
     <button
       onClick={action}
-      className={`item ${width !== 0 ? "width" : ""}   ${
+      className={`${
         style == 1
           ? "primaryButton"
           : style === 2
@@ -14,6 +14,7 @@ const Button = ({ style, width = 0, children, action }) => {
           ? "labelPrimary"
           : "labelSecondary"
       }`}
+      style={{ width: `${width}` }}
     >
       {children}
     </button>
