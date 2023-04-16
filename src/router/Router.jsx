@@ -8,6 +8,7 @@ import Perfil from "../home/perfil/Perfil";
 import Search from "../home/search/Search";
 import Menu from "../home/menu/Menu";
 import Register from "../login/register/Register";
+import PlayDetail from "../home/playDetail/PlayDetail";
 
 const Router = () => {
   return (
@@ -21,6 +22,7 @@ const Router = () => {
         <Route path="/search" element={<Search />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/playDetail" element={<PlayDetail />}></Route>
       </Routes>
     </BrowserRouter>
   );

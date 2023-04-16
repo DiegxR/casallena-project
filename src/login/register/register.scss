@@ -54,3 +54,13 @@
   cursor: pointer;
   border: none;
 }
+
+@media (min-width: 992px) {
+  .registerSec__form {
+    flex-direction: row;
+    height: fit-content;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 10px;
+  }
+}

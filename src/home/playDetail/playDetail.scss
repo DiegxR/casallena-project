@@ -1,0 +1,124 @@
+@import "../../vars.scss";
+
+.PlayDetailSec {
+  background-image: url(https://www.broadwaycollection.com/wp-content/uploads/cache/MoulinRouge_Prod_1920x1080-1z9kf2kuyj2nrc8967qjbv1ctnjotpxqarmcnnqx9mn8.webp);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.arrowLeft {
+  cursor: pointer;
+}
+
+.arrows {
+  display: flex;
+  padding: 10px 10px;
+  justify-content: space-between;
+}
+
+.playDetailContainer {
+  height: 100vh;
+  background-color: $white_color;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  margin-top: 200px;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  ul {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+}
+
+.playDetail {
+  gap: 20px;
+  display: flex;
+  align-items: center;
+
+  p:first-child {
+    background-color: $secondary_color;
+    color: $white_color;
+    width: fit-content;
+    padding: 0 10px;
+  }
+
+  .playDetail_img {
+    border-radius: 15px;
+    height: 200px;
+  }
+}
+
+.dataContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .data_options {
+    display: flex;
+    justify-content: space-around;
+    section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .rectangle {
+        width: 30px;
+        height: 10px;
+        background-color: $main_color;
+        transform: translateY(15px);
+      }
+      .hideRectangle {
+        display: none;
+      }
+    }
+  }
+  .data {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .data_img {
+      width: 100%;
+      border-radius: 5px;
+    }
+  }
+}
+
+.data_title:hover {
+  color: $main_color;
+  cursor: pointer;
+}
+
+.reservation {
+  bottom: 0;
+  z-index: 3;
+  width: 100%;
+  position: fixed;
+  font-size: 20px;
+  background-color: $white_color;
+
+  gap: 10px;
+  display: flex;
+  padding: 10px 10px;
+  align-items: center;
+  justify-content: space-between;
+
+  p {
+    font-weight: 800;
+  }
+  button {
+    background-color: $main_color;
+    font-size: 16px;
+    color: $white_color;
+    border: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .data {
+    flex-direction: row-reverse;
+  }
+}
