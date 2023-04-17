@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FooterMenu from "../../components/footerMenu/FooterMenu";
 import { useDispatch, useSelector } from "react-redux";
 import './perfil.scss'

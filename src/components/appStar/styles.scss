@@ -1,14 +1,16 @@
-@use '../../vars.scss' as v;
-body{
-    background-color: v.$main_color; 
+@use "../../vars.scss" as v;
+body {
+  background-color: v.$main_color;
+  overflow-x: hidden;
 }
 .appstart {
-    width: 100%;
-    height: 100vh;
-    background-color: v.$main_color;
-    display: grid;
-    place-items: center;
-    &_img {
-        width: 100px;
-    }
+  width: 100%;
+  height: 100vh;
+  background-color: v.$main_color;
+  display: grid;
+  place-items: center;
+
+  &_img {
+    width: 100px;
+  }
 }

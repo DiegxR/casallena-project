@@ -4,7 +4,7 @@ import FooterMenu from "../../components/footerMenu/FooterMenu";
 
 const Comunity = () => {
   return (
-    <main>
+    <main className="secComunity">
       <FooterMenu />
     </main>
   );
