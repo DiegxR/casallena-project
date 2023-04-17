@@ -1,32 +1,43 @@
 @use "../../vars.scss" as v;
+
 .login {
   display: grid;
   place-items: center;
   background: v.$primary_black;
   height: 100vh;
   width: 100%;
+
+  &_error {
+    color: v.$main_color
+  }
+
   &_container {
     width: 100%;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2rem;
   }
+
   &_title {
     display: flex;
     align-items: baseline;
     gap: 8px;
     color: v.$white_color;
+
     img {
       width: 48px;
     }
+
     h1 {
       font-size: 48px;
       font-family: v.$Exo;
       font-weight: 700;
     }
   }
+
   &_form {
     display: flex;
     gap: 20px;
@@ -34,17 +45,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     label {
       width: 250px;
       display: flex;
       flex-direction: column;
       color: v.$white_color;
+
       span {
         font-size: 11px;
         padding: 5px 15px;
         font-weight: 300;
       }
     }
+
     input {
       display: flex;
       border: none;
@@ -54,15 +68,18 @@
       border-radius: 5px;
       outline: none;
       background-color: transparent;
+
       &::placeholder {
         color: v.$white_color;
         font-weight: 500;
       }
     }
   }
+
   &_buttons {
     display: flex;
     gap: 15px;
+
     button {
       background: v.$main_color;
       color: v.$white_color;
@@ -74,6 +91,7 @@
       cursor: pointer;
     }
   }
+
   &_google {
     display: flex;
     color: v.$white_color;
@@ -85,8 +103,25 @@
     width: 250px;
     border-radius: 7px;
     cursor: pointer;
+
     &-icon {
       font-size: 22px;
+    }
+
+    &_google {
+      display: flex;
+      color: v.$white_color;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: 1px solid v.$white_color;
+      padding: 5px;
+      width: 220px;
+      border-radius: 7px;
+
+      &-icon {
+        font-size: 22px;
+      }
     }
   }
 }

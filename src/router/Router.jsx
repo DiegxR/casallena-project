@@ -9,6 +9,7 @@ import Search from "../home/search/Search";
 import Menu from "../home/menu/Menu";
 import Register from "../login/register/Register";
 import PlayDetail from "../home/playDetail/PlayDetail";
+import LoadPhotoUser from "../login/register/loadPhotoUser/LoadPhotoUser";
 
 export const Appcontext = createContext({});
 
@@ -46,6 +47,7 @@ const Router = () => {
           <Route path="/menu" element={<Menu />} />
           <Route path="/register" element={<Register />} />
           <Route path="/detail" element={<PlayDetail />} />
+          <Route path="/photouser" element={<LoadPhotoUser />} />
         </Routes>
       </BrowserRouter>
     </Appcontext.Provider>

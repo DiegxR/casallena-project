@@ -1,0 +1,21 @@
+@import '../../vars.scss';
+.perfil{
+    display: flex;
+    flex-direction: column;
+    background-color: $white_color;
+    height: 100vh;
+    padding: 5px;
+    &_header{
+        padding: 20px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        img{
+            width: 120px;
+        }
+        button{
+            padding: 5px;
+            border-radius: 18px;
+        }
+    }
+}

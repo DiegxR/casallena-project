@@ -1,19 +1,21 @@
 @import "../../vars.scss";
 .registerSec {
   width: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
   flex-direction: column;
   padding: 30px;
   background-color: $primary_black;
+  overflow: hidden;
 }
 
 .registerSec__form {
   flex-direction: column;
   justify-content: center;
   display: flex;
-  height: 100vh;
-  width: 320px;
+  height: 100%;
+  width: 300px;
   gap: 20px;
 }
 
@@ -43,7 +45,9 @@
   padding: 10px;
   background: transparent;
 }
-
+body{
+  background-color: $primary_black;
+}
 .registerSec__btn {
   background-color: $main_color;
   color: $white_color;

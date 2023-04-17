@@ -7,7 +7,6 @@ import { BiHappyBeaming } from "react-icons/bi";
 import { FaUser } from "react-icons/fa";
 import { CiMenuKebab } from "react-icons/ci";
 import { useLocation, useNavigate } from "react-router";
-import { useEffect } from "react";
 
 const FooterMenu = () => {
   const menu = [
