@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./stylesCards.scss";
 import Button from "../button/Button";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
+import { Appcontext } from "../../router/Router";
+import { useNavigate } from "react-router";
 
 const Card = ({ type }) => {
+  const { width } = useContext(Appcontext);
+  const navigate = useNavigate();
   return (
     <>
       {type === 1 ? (
@@ -16,9 +20,16 @@ const Card = ({ type }) => {
             backgroundPosition: "center",
             backgroundSize: "cover",
           }}
+          onClick={() => {
+            navigate("/detail");
+          }}
         >
           <article className="CardSlider__sec1">
-            <Button style={4} children={"Consigue tus boletas"} />
+            <Button
+              style={4}
+              children={"Consigue tus boletas"}
+              width={width >= 768 ? "200px" : "150px"}
+            />
           </article>
 
           <figcaption className="CardSlider__sec2">
@@ -34,10 +45,18 @@ const Card = ({ type }) => {
               "url(https://cdn.euroinnova.edu.es/img/subidasEditor/dise%C3%B1o%20sin%20t%C3%ADtulo%20-%202021-04-17t172218-1618697022.929)",
             backgroundPosition: "center",
             backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+          }}
+          onClick={() => {
+            navigate("/detail");
           }}
         >
           <article className="CardObra__sec1">
-            <Button style={4} children={"50% Estudiantes"} border={1} />
+            <Button
+              style={4}
+              children={"50% Estudiantes"}
+              width={width >= 768 ? "150px" : "137px"}
+            />
           </article>
           <figcaption className="CardObra__sec2">
             <article className="article1Obra">

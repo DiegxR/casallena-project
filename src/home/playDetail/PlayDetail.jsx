@@ -6,7 +6,21 @@ import "./playDetail.scss";
 
 const PlayDetail = () => {
   const [currentOpt, setCurrentOpt] = useState(0);
-  const [currentInfo, setCurrentInfo] = useState({});
+  const [currentInfo, setCurrentInfo] = useState({
+    id: 0,
+    name: "Datos",
+    description:
+      "Una adaptación del cuento En la diestra de dios padre de Tomas Carrasquilla.",
+    img: [
+      "https://www.elcorteingles.es/entradas/blog/wp-content/uploads/2020/05/G%C3%A9neros-teatrales.jpg",
+      "https://humanidades.com/wp-content/uploads/2018/10/teatro-5-e1583803340193.jpg",
+      "https://cba.ucb.edu.bo/blog/wp-content/uploads/2021/04/dos-hombres-mujeres-mimo-artista-mirando-traves-cortina-roja_23-2147891618.jpg",
+    ],
+    duration: 105,
+    date: "13/06/23",
+    gendre: "Dramático",
+    age: 0,
+  });
 
   const arrayinfo = [
     {

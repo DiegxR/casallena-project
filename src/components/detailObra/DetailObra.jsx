@@ -1,20 +1,49 @@
 import React from "react";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "./stylesDetailObra.scss";
 
-const DetailObra = ({ op = 0, info = {} }) => {
+const DetailObra = ({ op = 0, info }) => {
   return (
     <>
       {op === 0 ? (
-        <div className="data">
+        <div className="data" style={{ width: "100%" }}>
           <p>
             Pieza corta en dos actos que narra la historia de tres amigos y un
             sirviente que, luego de encontrarse en una glamurosa fiesta,
             descubren el cadáver de su anfitrión
           </p>
-          <img
-            className="data_img"
-            src="https://www.broadwaycollection.com/wp-content/uploads/cache/MoulinRouge_Prod_1920x1080-1z9kf2kuyj2nrc8967qjbv1ctnjotpxqarmcnnqx9mn8.webp"
-            alt=""
-          />
+          <section className="carousel">
+            {info.img ? (
+              <Carousel
+                emulateTouch={true}
+                showArrows={false}
+                showThumbs={false}
+                showIndicators={false}
+                autoPlay={3000}
+                width={"90%"}
+                infiniteLoop={true}
+                showStatus={false}
+              >
+                {info.img.map((item, index) => (
+                  <figure>
+                    <img
+                      src={item}
+                      alt=""
+                      className="img_carousel"
+                      style={{
+                        height: "440px",
+                        objectFit: "cover",
+                        borderRadius: "8px",
+                      }}
+                    />
+                  </figure>
+                ))}
+              </Carousel>
+            ) : (
+              <></>
+            )}
+          </section>
         </div>
       ) : op === 1 ? (
         <div className="dataContainer">

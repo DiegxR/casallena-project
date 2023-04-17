@@ -1,82 +1,102 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "./stylesIncio.scss";
 import FooterMenu from "../../components/footerMenu/FooterMenu";
 import FilterButtons from "../../components/filtersButtons/FilterButtons";
 import Card from "../../components/card/Card";
 import { motion } from "framer-motion";
+import { Appcontext } from "../../router/Router";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const Inicio = () => {
-  const [width, setwidth] = useState(0);
-
-  const [cantObras, setCantObras] = useState(10);
-
   const secObrasCarousel = useRef();
-  useEffect(() => {
-    const resizeCarrusel = () => {
-      setwidth(
-        secObrasCarousel.current.scrollWidth -
-          secObrasCarousel.current.offsetWidth
-      );
-    };
+  const { width, filterButton } = useContext(Appcontext);
 
-    window.addEventListener("resize", resizeCarrusel);
-    return () => {
-      window.removeEventListener("resize", resizeCarrusel);
-    };
-  });
-
-  useEffect(() => {}, []);
   useEffect(() => {
-    console.log(secObrasCarousel.current.offsetWidth);
+    console.log(width);
   }, [width]);
 
   return (
     <>
-      <main className="secInicio">
+      <section className="navbarSticky">
         <FilterButtons />
-        <motion.div className="CarruselFramer">
-          <motion.div
-            drag="x"
-            ref={secObrasCarousel}
-            dragConstraints={{ right: 10, left: -width }}
-            className="secObras"
-          >
-            {[...Array(10)].map((item, index) => (
+      </section>
+
+      {filterButton !== -1 ? (
+        <section className="secFilter"></section>
+      ) : (
+        <main className="secInicio">
+          <section className="secInicio__sec1">
+            <section className="slider">
+              <Carousel
+                emulateTouch={true}
+                showThumbs={false}
+                showArrows={false}
+                showStatus={false}
+                showIndicators={false}
+                centerMode={width < 768 ? true : false}
+                centerSlidePercentage={
+                  width <= 564 ? 90 : width <= 760 && width >= 653 ? 55 : 58
+                }
+                autoPlay={width >= 768 ? true : false}
+                interval={3000}
+              >
+                {[...Array(10)].map((item, index) => (
+                  <motion.div
+                    whileTap={{ scale: 0.9 }}
+                    key={index}
+                    className={"itemSlider"}
+                  >
+                    <Card type={1} />
+                  </motion.div>
+                ))}
+              </Carousel>
+            </section>
+          </section>
+
+          <motion.div className="secInicio__sec2">
+            {[...Array(12)].map((item, index) => (
               <motion.div
+                style={{ width: `${width < 768 ? "100%" : "330px"}` }}
                 whileHover={{ translateY: -5 }}
                 whileTap={{ scale: 0.9 }}
                 key={index}
               >
-                <Card type={1} />
+                <Card type={2} />
               </motion.div>
             ))}
           </motion.div>
-        </motion.div>
-        <section className="secObra">
-          <Card type={2} />
-        </section>
-        <section className="secPopulares">
-          <h3 className="tituloPopulares">Proyectos populares</h3>
-          <motion.div
-            drag="x"
-            dragConstraints={{ right: 0, left: -width }}
-            className="secPopulares__carousel"
-          >
-            {[...Array(10)].map((item, index) => (
-              <motion.div
-                whileHover={{ translateY: -5 }}
-                whileTap={{ scale: 0.9 }}
-                key={index}
-              >
-                <Card type={3} />
-              </motion.div>
-            ))}
-          </motion.div>
-        </section>
-        <section className="secObra">
-          <Card type={2} />
-        </section>
-      </main>
+
+          <section className="secInicio__sec3">
+            <h3>Proyectos populares</h3>
+            <Carousel
+              emulateTouch={true}
+              showThumbs={false}
+              showArrows={false}
+              showStatus={false}
+              showIndicators={false}
+              centerMode={true}
+              centerSlidePercentage={
+                width <= 768
+                  ? 45
+                  : width >= 992 && width <= 1515
+                  ? 40
+                  : width >= 1800
+                  ? 20
+                  : 25
+              }
+              autoPlay={width >= 768 ? true : false}
+              interval={3000}
+            >
+              {[...Array(10)].map((item, index) => (
+                <motion.div whileTap={{ scale: 0.9 }} key={index}>
+                  <Card type={3} />
+                </motion.div>
+              ))}
+            </Carousel>
+          </section>
+        </main>
+      )}
       <FooterMenu />
     </>
   );
