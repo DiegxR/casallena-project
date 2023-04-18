@@ -2,111 +2,144 @@
       { type: 1, percent: 50 }, descuento estudiantil
       { type: 2, percent: 60 }, descuento perfil casa llena */
 
-export const generos = [
+export const filters = [
   {
     cod: 0,
+    option: "Aporte voluntario",
+    description: "Me filtra las obras con el aporte voluntario",
+  },
+  {
+    cod: 1,
+    option: "Hoy",
+    description: "Me filtra las obras del día actual",
+  },
+  {
+    cod: 2,
+    option: "Mañana",
+    description: "Me filtra las obras del día siguiente",
+  },
+  {
+    cod: 3,
+    option: "Desde 15K",
+    description:
+      "Me filtra las obras que se encuentre con un precio desde 15.000 pesos",
+  },
+  {
+    cod: 4,
+    option: "Desde 30K",
+    description:
+      "Me filtra las obras que se encuentre con un precio desde 30.000 pesos",
+  },
+  {
+    cod: 5,
+    option: "Desde 60K",
+    description:
+      "Me filtra las obras que se encuentre con un precio desde 60.000 pesos",
+  },
+  {
+    cod: 6,
     option: "Tragedia",
     description:
       "Un género teatral que representa una historia seria y sombría que generalmente termina en desgracia o tragedia.",
   },
   {
-    cod: 1,
+    cod: 7,
     option: "Comedia",
     description:
       "Un género teatral que se centra en la risa y el humor, y que generalmente termina en un final feliz.",
   },
   {
-    cod: 2,
+    cod: 8,
     option: "Drama",
     description:
       "un género teatral que representa situaciones serias y emocionales que pueden ser tanto tristes como alegres.",
   },
   {
-    cod: 3,
+    cod: 9,
     option: "Musical",
     description:
       "un género teatral que combina la música, la danza y el canto para contar una historia.",
   },
   {
-    cod: 4,
+    cod: 10,
     option: "Experimental",
     description:
       "Un género teatral que se centra en la experimentación con diferentes formas, técnicas y estilos de actuación, a menudo con un enfoque en lo abstracto y lo no convencional.",
   },
   {
-    cod: 5,
+    cod: 11,
     option: "Crueldad",
     description:
       "Un género teatral desarrollado por el dramaturgo francés Antonin Artaud, que busca provocar una experiencia emocional y física intensa en el espectador a través de la violencia, el ruido y la exageración.",
   },
   {
-    cod: 6,
+    cod: 12,
     option: "Absurdo",
     description:
       "Un género teatral que presenta situaciones que parecen sin sentido o absurdas, a menudo con el objetivo de cuestionar la naturaleza de la realidad y de la existencia humana.",
   },
   {
-    cod: 7,
+    cod: 13,
     option: "Político",
     description:
       "Un género teatral que utiliza la representación escénica para explorar y criticar temas políticos y sociales.",
   },
   {
-    cod: 8,
+    cod: 14,
     option: "Calle",
     description:
       "un género teatral que se realiza en espacios públicos, como plazas y calles, y que a menudo involucra la participación del público.",
   },
   {
-    cod: 9,
+    cod: 15,
     option: "Memoria",
     description:
       "Es un género de teatro que se centra en las experiencias personales y en la memoria del autor o de los actores",
   },
   {
-    cod: 10,
+    cod: 16,
     option: "Época",
     description:
       "Un género teatral que se centra en representar situaciones, personajes y ambientes de una época o período histórico específico.",
   },
   {
-    cod: 11,
+    cod: 17,
     option: "Misterio",
     description:
       "Un género teatral que presenta una trama llena de suspenso y que tiene un final sorprendente o inesperado.",
   },
   {
-    cod: 11,
+    cod: 18,
     option: "Ciencia ficción",
     description:
       "Un género teatral que se enfoca en temas de ciencia ficción, como viajes en el tiempo, mundos alternativos y tecnología avanzada.",
   },
   {
-    cod: 12,
+    cod: 19,
     option: "Fantasía",
     description:
       "Un género teatral que se basa en elementos mágicos o sobrenaturales, como criaturas mitológicas y poderes sobrenaturales.",
   },
   {
-    cod: 13,
+    cod: 20,
     option: "Terror",
     description:
       "Un género teatral que busca asustar al espectador, generalmente a través de situaciones aterradoras o escenas violentas.",
   },
   {
-    cod: 14,
+    cod: 21,
     option: "Documental",
     description:
       "Un género teatral que se basa en eventos reales y que utiliza técnicas teatrales para contar historias verdaderas.",
   },
   {
-    cod: 15,
+    cod: 22,
     option: "Infantil",
     description:
       "un género teatral que está dirigido específicamente a niños y que utiliza técnicas teatrales para educar y entretener a un público joven.",
   },
   {
-    cod: 16,
+    cod: 23,
     option: "Improvisación",
     description:
       "Un género teatral en el que los actores crean la historia y los personajes sobre la marcha, sin un guión preestablecido",
@@ -167,15 +200,22 @@ export const obras = [
     gendre: 1,
     description:
       "Respresentada desde 2002. Narra la historia de Peralta, un campesino a quien se le aparecen Jesús y San Pedro para retribuirle su generosidad con la gente de su pueblo.",
-    dates: ["13/04/2023"],
+    dates: [
+      {
+        date: "13/04/2023",
+        aforo: 60,
+        sold: [],
+        theater: 0,
+        sala: 0,
+      },
+    ],
     desc: [],
     price: 0,
-    theater: 0,
-    sala: 0,
+    aporte: 10000,
     score: 5,
     data: [
       {
-        id: 0,
+        cod: 0,
         name: "Datos",
         description:
           "Una adaptación del cuento En la diestra de dios padre de Tomas Carrasquilla.",
@@ -215,11 +255,33 @@ export const obras = [
     gendre: 2,
     description:
       "Es un canto de las profundas fuerzas interiores que mueven el extraño que nos habita, es una lírica de fuerzas ocultasada desde 2002. Narra la historia de Peralta, un campesino a quien se le aparecen Jesús y San Pedro para retribuirle su generosidad con la gente de su pueblo.",
-    dates: ["18/04/2023", "29/04/2023", "7/05/2023"],
+    dates: [
+      {
+        date: "13/04/2023",
+        aforo: 40,
+        sold: [],
+        theater: 0,
+        sala: 1,
+      },
+      {
+        date: "29/04/2023",
+        aforo: 40,
+        sold: [],
+        sala: 0,
+        theater: 0,
+        sala: 1,
+      },
+      {
+        date: "7/05/2023",
+        aforo: 40,
+        sold: [],
+        theater: 0,
+        sala: 1,
+      },
+    ],
     desc: [{ type: 1, percent: 50 }],
     price: 30000,
-    theater: 0,
-    sala: 0,
+    aporte: 0,
     score: 5,
     data: [
       {
@@ -263,11 +325,33 @@ export const obras = [
     gendre: 1,
     description:
       "Una comedia donde nos recuerda historias de la vida en el campo, espacios y oficios ya olvidados de nuestra ruralidad.",
-    dates: ["18/04/2023", "29/04/2023", "7/05/2023"],
+    dates: [
+      {
+        date: "20/04/2023",
+        aforo: 40,
+        sold: [],
+        theater: 2,
+        sala: 0,
+      },
+      {
+        date: "29/04/2023",
+        aforo: 40,
+        sold: [],
+        sala: 0,
+        theater: 2,
+        sala: 0,
+      },
+      {
+        date: "15/05/2023",
+        aforo: 40,
+        sold: [],
+        theater: 2,
+        sala: 0,
+      },
+    ],
     desc: [{ type: 1, percent: 50 }],
     price: 70000,
-    theater: 2,
-    sala: 0,
+    aporte: 0,
     score: 5,
     data: [
       {
@@ -311,11 +395,33 @@ export const obras = [
     gendre: 2,
     description:
       "Entonces se levanta un poco, mirando a su amante, que ahora solo ama lo que nadie sabe.",
-    dates: ["18/04/2023", "29/04/2023", "7/05/2023"],
+    dates: [
+      {
+        date: "20/04/2023",
+        aforo: 40,
+        sold: [],
+        theater: 1,
+        sala: 0,
+      },
+      {
+        date: "29/04/2023",
+        aforo: 40,
+        sold: [],
+        sala: 0,
+        theater: 1,
+        sala: 0,
+      },
+      {
+        date: "15/05/2023",
+        aforo: 40,
+        sold: [],
+        theater: 1,
+        sala: 0,
+      },
+    ],
     desc: [{ type: 1, percent: 50 }],
     price: 70000,
-    theater: 1,
-    sala: 0,
+    aporte: 0,
     score: 5,
     data: [
       {
@@ -359,11 +465,33 @@ export const obras = [
     gendre: 2,
     description:
       "El teatro físico, el grotesco y un poco de humor son los recursos expresivos que dan cuerpo a El Cadáver.",
-    dates: ["18/04/2023", "29/04/2023", "7/05/2023"],
+    dates: [
+      {
+        date: "20/04/2023",
+        aforo: 40,
+        sold: [],
+        theater: 1,
+        sala: 2,
+      },
+      {
+        date: "29/04/2023",
+        aforo: 40,
+        sold: [],
+        sala: 0,
+        theater: 1,
+        sala: 2,
+      },
+      {
+        date: "15/05/2023",
+        aforo: 40,
+        sold: [],
+        theater: 1,
+        sala: 2,
+      },
+    ],
     desc: [{ type: 1, percent: 50 }],
     price: 0,
-    theater: 1,
-    sala: 0,
+    aporte: 10000,
     score: 5,
     data: [
       {
@@ -407,11 +535,33 @@ export const obras = [
     gendre: 7,
     description:
       "Con la muerte de nuestros líderes, nos roban la alegría, la esperanza, el futuro.",
-    dates: ["18/04/2023", "29/04/2023", "7/05/2023"],
+    dates: [
+      {
+        date: "20/04/2023",
+        aforo: 40,
+        sold: [],
+        theater: 0,
+        sala: 0,
+      },
+      {
+        date: "29/04/2023",
+        aforo: 40,
+        sold: [],
+        sala: 0,
+        theater: 0,
+        sala: 0,
+      },
+      {
+        date: "15/05/2023",
+        aforo: 40,
+        sold: [],
+        theater: 0,
+        sala: 0,
+      },
+    ],
     desc: [{ type: 2, percent: 60 }],
     price: 80000,
-    theater: 0,
-    sala: 0,
+    aporte: 0,
     score: 3,
     data: [
       {
@@ -455,11 +605,33 @@ export const obras = [
     gendre: 2,
     description:
       "El teatro físico, el grotesco y un poco de humor son los recursos expresivos que dan cuerpo a El Cadáver.",
-    dates: ["18/04/2023", "29/04/2023", "7/05/2023"],
+    dates: [
+      {
+        date: "20/04/2023",
+        aforo: 40,
+        sold: [],
+        theater: 1,
+        sala: 0,
+      },
+      {
+        date: "29/04/2023",
+        aforo: 40,
+        sold: [],
+        sala: 0,
+        theater: 1,
+        sala: 0,
+      },
+      {
+        date: "15/05/2023",
+        aforo: 40,
+        sold: [],
+        theater: 1,
+        sala: 0,
+      },
+    ],
     desc: [{ type: 1, percent: 50 }],
     price: 0,
-    theater: 1,
-    sala: 0,
+    aporte: 10000,
     score: 5,
     data: [
       {
@@ -503,9 +675,33 @@ export const obras = [
     gendre: 12,
     description:
       "Zeus encadena a Prometeo por haber robado el fuego y habérselo entregado a los hombres.  ",
-    dates: ["18/04/2023", "29/04/2023", "7/05/2023"],
+    dates: [
+      {
+        date: "20/04/2023",
+        aforo: 60,
+        sold: [],
+        theater: 0,
+        sala: 0,
+      },
+      {
+        date: "29/04/2023",
+        aforo: 60,
+        sold: [],
+        sala: 0,
+        theater: 0,
+        sala: 0,
+      },
+      {
+        date: "15/05/2023",
+        aforo: 60,
+        sold: [],
+        theater: 0,
+        sala: 0,
+      },
+    ],
     desc: [{ type: 2, percent: 60 }],
     price: 30000,
+    aporte: 0,
     theater: 0,
     sala: 0,
     score: 3,
@@ -517,8 +713,8 @@ export const obras = [
           "Uno de los actos más grandes de indolencia en la historia de Colombia fue el asesinato de Jaime Garzón por parte de sicarios, paramilitares y fuerzas del estado.",
         img: [
           "https://drive.google.com/uc?export=download&id=1HC7KuWvrrM4GdrcPaIKgHoDhs1yTZWcG",
-          "https://drive.google.com/uc?export=download&id=1MWxsP1-YeAeeIvK_L4H31ErRBm7ckPFS",
-          "https://drive.google.com/uc?export=download&id=1OVw4p-6r0q9B9DbJEwtKtp8k8xHHVjvr",
+          "https://drive.google.com/uc?export=download&id=11RKVyB-mTzDnDCFo-tEtE3IjaOs7HKHd",
+          "https://drive.google.com/uc?export=download&id=18f_Wl4iHNiW1BMsXlZMq7QkwfkRbmkQY",
         ],
         duration: 120,
         age: 1,
@@ -551,9 +747,33 @@ export const obras = [
     gendre: 2,
     description:
       "No nos hacemos responsables del contenido de nuestra imaginación. ",
-    dates: ["18/04/2023", "29/04/2023", "7/05/2023"],
+    dates: [
+      {
+        date: "20/04/2023",
+        aforo: 60,
+        sold: [],
+        theater: 0,
+        sala: 0,
+      },
+      {
+        date: "29/04/2023",
+        aforo: 60,
+        sold: [],
+        sala: 0,
+        theater: 0,
+        sala: 0,
+      },
+      {
+        date: "15/05/2023",
+        aforo: 60,
+        sold: [],
+        theater: 0,
+        sala: 0,
+      },
+    ],
     desc: [{ type: 1, percent: 50 }],
     price: 50000,
+    aporte: 0,
     theater: 0,
     sala: 0,
     score: 3,

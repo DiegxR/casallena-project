@@ -10,6 +10,9 @@ import Menu from "../home/menu/Menu";
 import Register from "../login/register/Register";
 import PlayDetail from "../home/playDetail/PlayDetail";
 import LoadPhotoUser from "../login/register/loadPhotoUser/LoadPhotoUser";
+import { useDispatch, useSelector } from "react-redux";
+import { loadTeatrosAsync } from "../redux/actions/teatrosActions";
+import { getObras } from "../redux/actions/obrasActions";
 
 export const Appcontext = createContext({});
 
@@ -35,6 +38,16 @@ const Router = () => {
     };
   });
 
+  const { obras, teatros } = useSelector((store) => store);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getObras({ collectionName: "Obras", key: "", value: "" }));
+    dispatch(
+      loadTeatrosAsync({ collectionName: "Teatros", key: "", value: "" })
+    );
+  }, []);
+
   return (
     <Appcontext.Provider
       value={{
@@ -54,7 +67,7 @@ const Router = () => {
           <Route path="/search" element={<Search />} />
           <Route path="/menu" element={<Menu />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/detail" element={<PlayDetail />} />
+          <Route path="/detail/:cod" element={<PlayDetail />} />
           <Route path="/photouser" element={<LoadPhotoUser />} />
         </Routes>
       </BrowserRouter>
