@@ -15,6 +15,13 @@ export const Appcontext = createContext({});
 
 const Router = () => {
   const [filterButton, setFilterButton] = useState(-1);
+  const [formatterPeso, setFormatterPeso] = useState(
+    new Intl.NumberFormat("es-CO", {
+      style: "currency",
+      currency: "COP",
+      minimumFractionDigits: 0,
+    })
+  );
   const [width, setwidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -34,6 +41,7 @@ const Router = () => {
         filterButton,
         setFilterButton,
         width,
+        formatterPeso,
       }}
     >
       <BrowserRouter>
