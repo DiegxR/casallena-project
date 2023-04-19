@@ -16,7 +16,7 @@ const LoadPhotoUser = () => {
   useEffect(() => {
     if (error.status === true) {
       notify(error.message, "#d80416", "#d80416");
-    } else if (error.status === false) {
+    } else if (error.status === false && error.status !== '') {
       notify("Foto subida exitosamente", "#027087", "#027087");
     }
   }, [error]);

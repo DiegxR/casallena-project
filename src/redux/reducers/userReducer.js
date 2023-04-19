@@ -10,7 +10,7 @@ const initialState = {
         id: ''
     },
     error: {
-        status: null,
+        status: '',
         message: ''
     },
     loading: false
@@ -41,7 +41,7 @@ export const userReducer = (state = initialState, action)=>{
                 ...state,
                 error: {
                     ...state.error,
-                    status: null
+                    status: ''
                 }
             }
         case userTypes.UPDATE_PHOTO:

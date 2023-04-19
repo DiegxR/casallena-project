@@ -51,7 +51,7 @@ export const createUserWithEmail = (data) =>{
             }
             const doc = await addDoc(collectionUsers, newUser)
             console.log(doc.id)
-            dispatch(loginUser({...newUser, id: doc.id}, {status: false, message: ''}))
+            dispatch(loginUser({...newUser, id: doc.id}, {status: '', message: ''}))
             dispatch(toggleLoading())
         }).catch((error)=>{
             dispatch(loginUser({}, {status: true, message: error.message}))
@@ -99,10 +99,9 @@ export const logoutAsync = (user) =>{
     return async (dispatch)=>{
        try {
            await signOut(auth)
-           dispatch(loginUser(user, {status: undefined, message: ''}))
+           dispatch(logout())
        } catch (error) {
         console.log(error)
-        dispatch(loginUser({}, {status: true, message: error.message}))
        }
 
     }

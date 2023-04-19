@@ -55,9 +55,10 @@ const Register = () => {
     if (error.status === true) {
       notify(error.message, "#d80416", "#d80416");
     } else if (error.status === false) {
-      notify("Ususario creado exitosamente", "#027087", "#027087");
       dispatch(toggleError());
-      navigate("/photouser");
+      setTimeout(() => {
+        navigate("/photouser");
+      }, 500);
     }
   }, [error]);
 

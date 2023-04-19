@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import AppStart from "../components/appStar/AppStart";
 import SignIn from "../login/signIn/SignIn";
 import Inicio from "../home/inicioStart/Inicio";
@@ -10,13 +10,18 @@ import Menu from "../home/menu/Menu";
 import Register from "../login/register/Register";
 import PlayDetail from "../home/playDetail/PlayDetail";
 import LoadPhotoUser from "../login/register/loadPhotoUser/LoadPhotoUser";
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from "../firebase/firebaseConfig";
+import { useDispatch } from 'react-redux'
+import { getUserCollection } from "../services/getUser";
+import { loginUser } from "../redux/actions/userActions";
 
 export const Appcontext = createContext({});
 
 const Router = () => {
   const [filterButton, setFilterButton] = useState(-1);
   const [width, setwidth] = useState(window.innerWidth);
-
+  const dispatch = useDispatch()
   useEffect(() => {
     const resizeCarrusel = () => {
       setwidth(window.innerWidth);
@@ -27,7 +32,18 @@ const Router = () => {
       window.removeEventListener("resize", resizeCarrusel);
     };
   });
-
+  useEffect(() => {
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        console.log(user)
+        const currentUser = await getUserCollection(user.uid)
+        console.log(currentUser)
+        dispatch(loginUser(currentUser, { status: false, message: '' }))
+      } else {
+        
+      }
+    })
+  }, [])
   return (
     <Appcontext.Provider
       value={{
