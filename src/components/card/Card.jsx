@@ -6,7 +6,7 @@ import { AiFillHeart } from "react-icons/ai";
 import { Appcontext } from "../../router/Router";
 import { useNavigate } from "react-router";
 
-const Card = ({ type }) => {
+const Card = ({ type, data }) => {
   const { width } = useContext(Appcontext);
   const navigate = useNavigate();
   return (
@@ -15,13 +15,12 @@ const Card = ({ type }) => {
         <figure
           className="Card CardSlider"
           style={{
-            backgroundImage:
-              "url(https://cdn.euroinnova.edu.es/img/subidasEditor/dise%C3%B1o%20sin%20t%C3%ADtulo%20-%202021-04-17t172218-1618697022.929)",
+            backgroundImage: `url(${data.img})`,
             backgroundPosition: "center",
             backgroundSize: "cover",
           }}
           onClick={() => {
-            navigate("/detail");
+            navigate(`/detail/${data.cod}`);
           }}
         >
           <article className="CardSlider__sec1">
@@ -33,7 +32,7 @@ const Card = ({ type }) => {
           </article>
 
           <figcaption className="CardSlider__sec2">
-            <h3>{"Romeo y julieta"}</h3>
+            <h3>{data.name}</h3>
             <p>{"Aporte desde 25k. Finaliza el 10 de agosto - Teatro"}</p>
           </figcaption>
         </figure>

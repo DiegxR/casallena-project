@@ -12,21 +12,29 @@ import PlayDetail from "../home/playDetail/PlayDetail";
 import LoadPhotoUser from "../login/register/loadPhotoUser/LoadPhotoUser";
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from "../firebase/firebaseConfig";
-import { useDispatch } from 'react-redux'
 import { getUserCollection } from "../services/getUser";
 import { loginUser } from "../redux/actions/userActions";
+import { useDispatch, useSelector } from "react-redux";
+import { loadTeatrosAsync } from "../redux/actions/teatrosActions";
+import { getObras } from "../redux/actions/obrasActions";
 
 export const Appcontext = createContext({});
 
 const Router = () => {
   const [filterButton, setFilterButton] = useState(-1);
+  const [formatterPeso, setFormatterPeso] = useState(
+    new Intl.NumberFormat("es-CO", {
+      style: "currency",
+      currency: "COP",
+      minimumFractionDigits: 0,
+    })
+  );
   const [width, setwidth] = useState(window.innerWidth);
   const dispatch = useDispatch()
   useEffect(() => {
     const resizeCarrusel = () => {
       setwidth(window.innerWidth);
     };
-
     window.addEventListener("resize", resizeCarrusel);
     return () => {
       window.removeEventListener("resize", resizeCarrusel);
@@ -44,12 +52,21 @@ const Router = () => {
       }
     })
   }, [])
+  const { obras, teatros } = useSelector((store) => store);
+  useEffect(() => {
+    dispatch(getObras({ collectionName: "Obras", key: "", value: "" }));
+    dispatch(
+      loadTeatrosAsync({ collectionName: "Teatros", key: "", value: "" })
+    );
+  }, []);
+
   return (
     <Appcontext.Provider
       value={{
         filterButton,
         setFilterButton,
         width,
+        formatterPeso,
       }}
     >
       <BrowserRouter>
@@ -62,7 +79,7 @@ const Router = () => {
           <Route path="/search" element={<Search />} />
           <Route path="/menu" element={<Menu />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/detail" element={<PlayDetail />} />
+          <Route path="/detail/:cod" element={<PlayDetail />} />
           <Route path="/photouser" element={<LoadPhotoUser />} />
         </Routes>
       </BrowserRouter>

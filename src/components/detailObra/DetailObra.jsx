@@ -13,7 +13,7 @@ const DetailObra = ({ op = 0, info }) => {
             sirviente que, luego de encontrarse en una glamurosa fiesta,
             descubren el cadáver de su anfitrión
           </p>
-          <section className="carousel">
+          <section className="carousel__detail">
             {info.img ? (
               <Carousel
                 emulateTouch={true}

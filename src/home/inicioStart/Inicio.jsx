@@ -8,15 +8,13 @@ import { Appcontext } from "../../router/Router";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useNavigate } from "react-router-dom";
-
-
-
-
+import { useSelector } from "react-redux";
 
 const Inicio = () => {
-  const secObrasCarousel = useRef();
   const { width, filterButton } = useContext(Appcontext);
-  
+
+  const { obras } = useSelector((store) => store.obras);
+
   useEffect(() => {
     console.log(width);
   }, [width]);
@@ -28,7 +26,18 @@ const Inicio = () => {
       </section>
 
       {filterButton !== -1 ? (
-        <section className="secFilter"></section>
+        <motion.div className="secFilter">
+          {[...Array(12)].map((item, index) => (
+            <motion.div
+              style={{ width: `${width < 768 ? "100%" : "330px"}` }}
+              whileHover={{ translateY: -5 }}
+              whileTap={{ scale: 0.9 }}
+              key={index}
+            >
+              <Card type={2} />
+            </motion.div>
+          ))}
+        </motion.div>
       ) : (
         <main className="secInicio">
           <section className="secInicio__sec1">
@@ -45,31 +54,44 @@ const Inicio = () => {
                 }
                 autoPlay={width >= 768 ? true : false}
                 interval={3000}
+                width={"100%"}
               >
-                {[...Array(10)].map((item, index) => (
-                  <motion.div
-                    whileTap={{ scale: 0.9 }}
-                    key={index}
-                    className={"itemSlider"}
-                  >
-                    <Card type={1} />
-                  </motion.div>
-                ))}
+                {obras ? (
+                  obras.map((item, index) => {
+                    if (item.price > 0) {
+                      return (
+                        <motion.div
+                          whileTap={{ scale: 0.9 }}
+                          key={index}
+                          className={"itemSlider"}
+                        >
+                          <Card type={1} data={item} />
+                        </motion.div>
+                      );
+                    }
+                  })
+                ) : (
+                  <></>
+                )}
               </Carousel>
             </section>
           </section>
 
           <motion.div className="secInicio__sec2">
-            {[...Array(12)].map((item, index) => (
-              <motion.div
-                style={{ width: `${width < 768 ? "100%" : "330px"}` }}
-                whileHover={{ translateY: -5 }}
-                whileTap={{ scale: 0.9 }}
-                key={index}
-              >
-                <Card type={2} />
-              </motion.div>
-            ))}
+            {obras ? (
+              obras.map((item, index) => (
+                <motion.div
+                  style={{ width: `${width < 768 ? "100%" : "330px"}` }}
+                  whileHover={{ translateY: -5 }}
+                  whileTap={{ scale: 0.9 }}
+                  key={index}
+                >
+                  <Card type={2} />
+                </motion.div>
+              ))
+            ) : (
+              <></>
+            )}
           </motion.div>
 
           <section className="secInicio__sec3">
@@ -93,11 +115,19 @@ const Inicio = () => {
               autoPlay={width >= 768 ? true : false}
               interval={3000}
             >
-              {[...Array(10)].map((item, index) => (
-                <motion.div whileTap={{ scale: 0.9 }} key={index}>
-                  <Card type={3} />
-                </motion.div>
-              ))}
+              {obras ? (
+                obras.map((item, index) => {
+                  if (item.score >= 4) {
+                    return (
+                      <motion.div whileTap={{ scale: 0.9 }} key={index}>
+                        <Card type={3} />
+                      </motion.div>
+                    );
+                  }
+                })
+              ) : (
+                <></>
+              )}
             </Carousel>
           </section>
         </main>
