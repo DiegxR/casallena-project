@@ -39,7 +39,6 @@ const PlayDetail = () => {
           ],
           duration: "105 min",
           date: "13/06/23",
-          gendre: "Dramático",
           age: 0,
         },
         {
@@ -57,7 +56,7 @@ const PlayDetail = () => {
             "Recuerda llegar al teatro con un mínimo de 15 minutos antes de la funsión.",
         },
       ],
-
+      gendre: "Dramático",
       info: "Respresentada desde 2002. Narra la historia de Peralta, un campesino a quien se le aparecen Jesús y San Pedro para retribuirle su generosidad con la gente de su pueblo.",
       img: "",
       dates: ["13/04/2023"],

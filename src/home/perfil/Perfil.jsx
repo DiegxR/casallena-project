@@ -5,6 +5,7 @@ import './perfil.scss'
 import Swal from "sweetalert2";
 import { logoutAsync } from "../../redux/actions/userActions";
 import { useNavigate } from "react-router";
+import NoAuth from "../../components/noAuth/NoAuth";
 const Perfil = () => {
   const { user } = useSelector(store => store.user)
   const dispatch = useDispatch()
@@ -26,8 +27,8 @@ const Perfil = () => {
     });
   }
   console.log(user)
-  return (
-    <main className="perfil">
+  return <>
+    {user.name ? <main className="perfil">
       <section className="perfil_container">
         <section className="perfil_header">
           <img src={user.photo} alt="" />
@@ -39,8 +40,8 @@ const Perfil = () => {
         </article>
       </section>
       <FooterMenu />
-    </main>
-  );
+    </main> : <NoAuth/>}
+  </>
 };
 
 export default Perfil;

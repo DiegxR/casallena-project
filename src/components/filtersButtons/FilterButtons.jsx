@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./stylesFilters.scss";
 import Button from "../button/Button";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
@@ -6,6 +6,7 @@ import { Appcontext } from "../../router/Router";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import logo from "../../assets/logo.svg";
+import { motion } from "framer-motion";
 
 const FilterButtons = ({ position = 0 }) => {
   const filters = [
@@ -42,10 +43,15 @@ const FilterButtons = ({ position = 0 }) => {
   ];
 
   const { filterButton, setFilterButton, width } = useContext(Appcontext);
+  const [show, setShow] = useState(false);
 
   const actionFilter = (item) => {
     setFilterButton(item.id);
   };
+
+  useEffect(() => {
+    console.log(show);
+  }, [show]);
 
   return (
     <>
@@ -57,28 +63,48 @@ const FilterButtons = ({ position = 0 }) => {
               <h2>CasaLlena</h2>
             </figcaption>
           </figure>
-          {filterButton !== -1 ? (
-            <BsFillArrowLeftCircleFill
-              className="iconLeft"
+          {show ? (
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ rotate: 360, scale: 1 }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+              }}
               onClick={() => {
                 setFilterButton(-1);
+                setShow(false);
               }}
-            />
+              style={{ display: "flex", alignItems: "center" }}
+            >
+              <BsFillArrowLeftCircleFill className="iconLeft" />
+            </motion.div>
           ) : (
-            <></>
+            <motion.div
+              initial={{ scale: 1 }}
+              animate={{ scale: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <BsFillArrowLeftCircleFill className="iconLeft" />
+            </motion.div>
           )}
           {filters.map((item, index) => (
-            <>
+            <motion.div
+              animate={{ x: filterButton !== -1 ? 10 : 0 }}
+              key={index}
+              whileTap={{ scale: 0.9 }}
+            >
               <Button
-                key={item.id}
                 children={item.option}
                 style={filterButton === item.id ? 2 : 1}
                 action={() => {
                   actionFilter(item);
+                  setShow(true);
                 }}
                 width={"145px"}
               />
-            </>
+            </motion.div>
           ))}
         </section>
       ) : (
@@ -99,12 +125,22 @@ const FilterButtons = ({ position = 0 }) => {
             >
               {filterButton !== -1 ? (
                 <section className="secIconSlider">
-                  <BsFillArrowLeftCircleFill
-                    className="iconLeft"
-                    onClick={() => {
-                      setFilterButton(-1);
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
                     }}
-                  />
+                  >
+                    <BsFillArrowLeftCircleFill
+                      className="iconLeft"
+                      onClick={() => {
+                        setFilterButton(-1);
+                      }}
+                    />
+                  </motion.div>
                 </section>
               ) : (
                 <></>
@@ -112,7 +148,7 @@ const FilterButtons = ({ position = 0 }) => {
               {filters.map((item, index) => {
                 return (
                   <Button
-                    key={item.id}
+                    key={index}
                     children={item.option}
                     style={filterButton === item.id ? 2 : 1}
                     width={"150px"}
