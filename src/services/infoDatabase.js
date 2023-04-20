@@ -149,8 +149,8 @@ export const filters = [
 export const teatros = [
   {
     cod: 0,
-    name: "Pequeño teatro",
-    location: { lat: "", long: "" },
+    name: "Elemental Teatro",
+    location: { lat: 6.2217993, long: -75.5021417 },
     salas: [
       {
         cod: 0,
@@ -162,8 +162,8 @@ export const teatros = [
   },
   {
     cod: 1,
-    name: "Teatro Matacandelas",
-    location: { lat: "", long: "" },
+    name: "Pequeño Teatro",
+    location: { lat: 6.2475208, long: -75.5616535 },
     salas: [
       {
         cod: 0,
@@ -175,8 +175,21 @@ export const teatros = [
   },
   {
     cod: 2,
-    name: "Acción Impro",
-    location: { lat: "", long: "" },
+    name: "Teatro Metropolitano",
+    location: { lat: 6.2430224, long: -75.5774573 },
+    salas: [
+      {
+        cod: 0,
+        cantTotal: 40,
+        cantDisp: 40,
+        cantOcupados: 0,
+      },
+    ],
+  },
+  {
+    cod: 2,
+    name: "Teatro Lido",
+    location: { lat: 6.2523713, long: -75.5644412 },
     salas: [
       {
         cod: 0,
@@ -796,6 +809,212 @@ export const obras = [
         name: "Lugar",
         location: { lat: "", long: "" },
         direccion: "Cl. 9 #43B - 80, Medellín, El Poblado,",
+      },
+      {
+        cod: 2,
+        name: "Avisos",
+        infoPublico:
+          "El uso del tapacocas tanto dentro como fuera de la sala no es obligatorio.",
+        infoTeatro:
+          "Recuerda llegar al teatro con un mínimo de 15 minutos antes de la funsión.",
+      },
+    ],
+    comments: [],
+  },
+  {
+    cod: 7,
+    name: "La Casa de Bernarda Alba",
+    img: "https://drive.google.com/uc?export=download&id=1EkDD4gx_5hwjqKsKufdyyzuif3IGqxNL",
+    imgDetail:
+      "https://drive.google.com/uc?export=download&id=1K5huA_jQ9sh6pc6_OGSv_WqDxEA7duan",
+    imgPost:
+      "https://drive.google.com/uc?export=download&id=1YRE_zYoWkE2ana3p8lO27djCZQ-zSP34",
+    gendre: 1,
+    description:
+      "La Casa de Bernarda Alba, la última obra maestra escrita por Federico García Lorca, en la que se conjugan con éxito la poesía con la naturalidad, la belleza con la verosimilitud, “Es poesía hecha carne”, como lo expresaba el poeta.",
+    dates: [
+      {
+        date: "20/04/2023",
+        aforo: 60,
+        sold: [],
+        theater: 0,
+        sala: 0,
+      },
+      {
+        date: "29/04/2023",
+        aforo: 60,
+        sold: [],
+        sala: 0,
+        theater: 0,
+        sala: 0,
+      },
+      {
+        date: "15/05/2023",
+        aforo: 60,
+        sold: [],
+        theater: 0,
+        sala: 0,
+      },
+    ],
+    desc: [{ type: 1, percent: 50 }],
+    price: 50000,
+    aporte: 0,
+    score: 4,
+    data: [
+      {
+        id: 0,
+        name: "Datos",
+        description:
+          "Nuestra versión es una mirada enfática acerca del sufrimiento de los discriminados, los esclavizados de todo tipo, una mirada humana del totalitarismo, social, político y religioso. Somos fieles a las críticas y reflexiones sociales y políticas de Lorca; nos parece necesario encontrar el sustrato profundo en este clásico, la fuerza contestataria y la huella histórica revelada con estoicismo en esta pieza capital para el teatro universal; nos dejamos llevar plenamente de la mano sabia de Lorca que guía nuestro camino artístico en este montaje.",
+        img: [
+          "https://drive.google.com/uc?export=download&id=1HC7KuWvrrM4GdrcPaIKgHoDhs1yTZWcG",
+          "https://drive.google.com/uc?export=download&id=1MWxsP1-YeAeeIvK_L4H31ErRBm7ckPFS",
+          "https://drive.google.com/uc?export=download&id=1OVw4p-6r0q9B9DbJEwtKtp8k8xHHVjvr",
+        ],
+        duration: 90,
+        age: 1,
+      },
+      {
+        cod: 1,
+        name: "Lugar",
+        location: { lat: "", long: "" },
+        direccion: "Cl. 9 #43B - 80, Medellín, El Poblado,",
+      },
+      {
+        cod: 2,
+        name: "Avisos",
+        infoPublico:
+          "El uso del tapacocas tanto dentro como fuera de la sala no es obligatorio.",
+        infoTeatro:
+          "Recuerda llegar al teatro con un mínimo de 15 minutos antes de la funsión.",
+      },
+    ],
+    comments: [],
+  },
+  {
+    cod: 7,
+    name: "El inspector",
+    img: "https://drive.google.com/uc?export=download&id=1EkDD4gx_5hwjqKsKufdyyzuif3IGqxNL",
+    imgDetail:
+      "https://drive.google.com/uc?export=download&id=1K5huA_jQ9sh6pc6_OGSv_WqDxEA7duan",
+    imgPost:
+      "https://drive.google.com/uc?export=download&id=1YRE_zYoWkE2ana3p8lO27djCZQ-zSP34",
+    gendre: 2,
+    description:
+      "La pieza original de Nikolai Gogol es un clásico de la dramaturgia rusa en donde se abordan temas que parecen réplicas de nuestra propia cultura, plasmadas en la sociedad rusa del siglo XIX.",
+    dates: [
+      {
+        date: "20/04/2023",
+        aforo: 60,
+        sold: [],
+        theater: 0,
+        sala: 0,
+      },
+      {
+        date: "29/04/2023",
+        aforo: 60,
+        sold: [],
+        sala: 0,
+        theater: 0,
+        sala: 0,
+      },
+      {
+        date: "15/05/2023",
+        aforo: 60,
+        sold: [],
+        theater: 0,
+        sala: 0,
+      },
+    ],
+    desc: [{ type: 1, percent: 50 }],
+    price: 50000,
+    aporte: 0,
+    score: 3,
+    data: [
+      {
+        id: 0,
+        name: "Datos",
+        description:
+          "En esta obra aparecen dibujados desde el funcionario de más alto rango y el alcalde del pueblo, hasta los cargos más bajos, los sirvientes. Sin embargo, la versión que verán en el teatro es una adaptación a la Latinoamérica contemporánea, en donde se resaltan aquellos aspectos de la cultura rusa que se replican en la nuestra; tales como la corrupción y la veneración por lo extranjero.",
+        img: [
+          "https://drive.google.com/uc?export=download&id=1HC7KuWvrrM4GdrcPaIKgHoDhs1yTZWcG",
+          "https://drive.google.com/uc?export=download&id=1MWxsP1-YeAeeIvK_L4H31ErRBm7ckPFS",
+          "https://drive.google.com/uc?export=download&id=1OVw4p-6r0q9B9DbJEwtKtp8k8xHHVjvr",
+        ],
+        duration: 90,
+        age: 1,
+      },
+      {
+        cod: 1,
+        name: "Lugar",
+      },
+      {
+        cod: 2,
+        name: "Avisos",
+        infoPublico:
+          "El uso del tapacocas tanto dentro como fuera de la sala no es obligatorio.",
+        infoTeatro:
+          "Recuerda llegar al teatro con un mínimo de 15 minutos antes de la funsión.",
+      },
+    ],
+    comments: [],
+  },
+  {
+    cod: 7,
+    name: "Lloro Sólo por Verte Triste",
+    img: "",
+    imgDetail:
+      "",
+    imgPost:
+      "",
+    gender: 2,
+    description:
+      "Lloro solo por verte triste, es una puesta en escena que recorre poéticamente pensamientos, sentimientos y sensaciones de algunos heterónimos de Fernando Pessoa.",
+    dates: [
+      {
+        date: "20/04/2023",
+        aforo: 60,
+        sold: [],
+        theater: 0,
+        sala: 0,
+      },
+      {
+        date: "29/04/2023",
+        aforo: 60,
+        sold: [],
+        sala: 0,
+        theater: 0,
+        sala: 0,
+      },
+      {
+        date: "15/05/2023",
+        aforo: 60,
+        sold: [],
+        theater: 0,
+        sala: 0,
+      },
+    ],
+    desc: [{ type: 1, percent: 50 }],
+    price: 50000,
+    aporte: 0,
+    score: 3,
+    data: [
+      {
+        id: 0,
+        name: "Datos",
+        description:
+          "El misterio, el amor, el silencio, la muerte, están presentes en este acto ceremonial y teatral en el que cada espectador podrá adentrarse en sus abismos existenciales.",
+        img: [
+          "",
+          "",
+          "",
+        ],
+        duration: 50,
+        age: 1,
+      },
+      {
+        cod: 1,
+        name: "Lugar",
       },
       {
         cod: 2,

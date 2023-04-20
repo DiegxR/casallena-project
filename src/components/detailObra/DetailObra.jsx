@@ -5,6 +5,7 @@ import "./stylesDetailObra.scss";
 import { AiOutlineClockCircle, AiOutlineCalendar } from "react-icons/ai";
 import { FaTheaterMasks } from "react-icons/fa";
 import { BsPersonSquare } from "react-icons/bs";
+import MapContainer from "../MapContainer/MapContainer";
 
 const DetailObra = ({ op = 0, info }) => {
   return (
@@ -80,7 +81,7 @@ const DetailObra = ({ op = 0, info }) => {
       ) : op === 1 ? (
         <div className="dataContainer">
           <div className="data">
-            <p>Cl. 47 #4347, Medellín, La Candelaria</p>
+            <MapContainer lat={6.2442} lng={-75.5812} />
           </div>
         </div>
       ) : (
