@@ -1,0 +1,20 @@
+@import "../../vars.scss";
+
+.ComunityFuncSec {
+  display: flex;
+  justify-content: space-around;
+
+  .ComunityFunc_container {
+    color: $gray_font;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .ComunityFunc_item {
+      font-size: 25px;
+      cursor: pointer;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
+}

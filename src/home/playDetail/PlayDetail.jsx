@@ -37,7 +37,7 @@ const PlayDetail = () => {
             "https://humanidades.com/wp-content/uploads/2018/10/teatro-5-e1583803340193.jpg",
             "https://cba.ucb.edu.bo/blog/wp-content/uploads/2021/04/dos-hombres-mujeres-mimo-artista-mirando-traves-cortina-roja_23-2147891618.jpg",
           ],
-          duration: 105,
+          duration: "105 min",
           date: "13/06/23",
           age: 0,
         },
