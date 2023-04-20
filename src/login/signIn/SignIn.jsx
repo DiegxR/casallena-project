@@ -48,9 +48,9 @@ const SignIn = () => {
     });
   }, []);
 
-  // const uploadDataBase = () => {
-  //   uploadArray(filters, "Filtros");
-  // };
+  const uploadDataBase = () => {
+    uploadArray(obras, "Obras");
+  };
 
   return (
     <motion.section
@@ -105,7 +105,7 @@ const SignIn = () => {
           <AiOutlineGoogle className="login_google-icon" />
           <span>Entrar con Google</span>
         </button>
-        {/* <button onClick={uploadDataBase}>Subir a la base de datos</button> */}
+        <button onClick={uploadDataBase}>Subir a la base de datos</button>
       </article>
       {loading ? <Loading /> : <></>}
     </motion.section>
