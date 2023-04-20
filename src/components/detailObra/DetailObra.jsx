@@ -2,6 +2,9 @@ import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./stylesDetailObra.scss";
+import { AiOutlineClockCircle, AiOutlineCalendar } from "react-icons/ai";
+import { FaTheaterMasks } from "react-icons/fa";
+import { BsPersonSquare } from "react-icons/bs";
 
 const DetailObra = ({ op = 0, info }) => {
   return (
@@ -26,7 +29,7 @@ const DetailObra = ({ op = 0, info }) => {
                 showStatus={false}
               >
                 {info.img.map((item, index) => (
-                  <figure>
+                  <figure key={index}>
                     <img
                       src={item}
                       alt=""
@@ -44,6 +47,35 @@ const DetailObra = ({ op = 0, info }) => {
               <></>
             )}
           </section>
+          <div className="data_DDGA">
+            <div className="data_DDGA--item">
+              <AiOutlineClockCircle />
+              <p>
+                <span>Duración: </span> 105 min
+              </p>
+            </div>
+
+            <div className="data_DDGA--item">
+              <AiOutlineCalendar />
+              <p>
+                <span>Fecha de inicio: </span> 8 de junio 2022
+              </p>
+            </div>
+
+            <div className="data_DDGA--item">
+              <FaTheaterMasks />
+              <p>
+                <span>Género: </span> Dramático
+              </p>
+            </div>
+
+            <div className="data_DDGA--item">
+              <BsPersonSquare />
+              <p>
+                <span>Edad: </span> Niños desde los 10 años en adelante
+              </p>
+            </div>
+          </div>
         </div>
       ) : op === 1 ? (
         <div className="dataContainer">
