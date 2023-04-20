@@ -123,7 +123,7 @@ const FilterButtons = ({ position = 0 }) => {
               centerSlidePercentage={width < 524 ? 55 : 40}
               infiniteLoop={false}
             >
-              {filterButton !== -1 ? (
+              {show ? (
                 <section className="secIconSlider">
                   <motion.div
                     initial={{ scale: 0 }}
@@ -138,12 +138,19 @@ const FilterButtons = ({ position = 0 }) => {
                       className="iconLeft"
                       onClick={() => {
                         setFilterButton(-1);
+                        setShow(false);
                       }}
                     />
                   </motion.div>
                 </section>
               ) : (
-                <></>
+                <motion.div
+                  initial={{ scale: 1 }}
+                  animate={{ scale: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <BsFillArrowLeftCircleFill className="iconLeft" />
+                </motion.div>
               )}
               {filters.map((item, index) => {
                 return (
@@ -154,6 +161,7 @@ const FilterButtons = ({ position = 0 }) => {
                     width={"150px"}
                     action={() => {
                       actionFilter(item);
+                      setShow(true);
                     }}
                   />
                 );

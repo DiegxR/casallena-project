@@ -26,16 +26,20 @@ const Inicio = () => {
 
       {filterButton !== -1 ? (
         <motion.div className="secFilter">
-          {[...Array(12)].map((item, index) => (
-            <motion.div
-              style={{ width: `${width < 768 ? "100%" : "330px"}` }}
-              whileHover={{ translateY: -5 }}
-              whileTap={{ scale: 0.9 }}
-              key={index}
-            >
-              <Card type={2} />
-            </motion.div>
-          ))}
+          {obras ? (
+            obras.map((item, index) => (
+              <motion.div
+                style={{ width: `${width < 768 ? "100%" : "330px"}` }}
+                whileHover={{ translateY: -5 }}
+                whileTap={{ scale: 0.9 }}
+                key={index}
+              >
+                <Card type={2} data={item} />
+              </motion.div>
+            ))
+          ) : (
+            <></>
+          )}
         </motion.div>
       ) : (
         <main className="secInicio">
@@ -85,7 +89,7 @@ const Inicio = () => {
                   whileTap={{ scale: 0.9 }}
                   key={index}
                 >
-                  <Card type={2} />
+                  <Card type={2} data={item} />
                 </motion.div>
               ))
             ) : (
@@ -104,7 +108,7 @@ const Inicio = () => {
               centerMode={true}
               centerSlidePercentage={
                 width <= 768
-                  ? 45
+                  ? 60
                   : width >= 992 && width <= 1515
                   ? 40
                   : width >= 1800
@@ -119,7 +123,7 @@ const Inicio = () => {
                   if (item.score >= 4) {
                     return (
                       <motion.div whileTap={{ scale: 0.9 }} key={index}>
-                        <Card type={3} />
+                        <Card type={3} data={item} />
                       </motion.div>
                     );
                   }
