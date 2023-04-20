@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { Appcontext } from "../../router/Router";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Inicio = () => {
@@ -17,7 +18,7 @@ const Inicio = () => {
   useEffect(() => {
     console.log(width);
   }, [width]);
-
+  
   return (
     <>
       <section className="navbarSticky">

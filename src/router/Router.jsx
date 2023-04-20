@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import AppStart from "../components/appStar/AppStart";
 import SignIn from "../login/signIn/SignIn";
 import Inicio from "../home/inicioStart/Inicio";
@@ -10,6 +10,10 @@ import Menu from "../home/menu/Menu";
 import Register from "../login/register/Register";
 import PlayDetail from "../home/playDetail/PlayDetail";
 import LoadPhotoUser from "../login/register/loadPhotoUser/LoadPhotoUser";
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from "../firebase/firebaseConfig";
+import { getUserCollection } from "../services/getUser";
+import { loginUser } from "../redux/actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
 import { loadTeatrosAsync } from "../redux/actions/teatrosActions";
 import { getObras } from "../redux/actions/obrasActions";
@@ -26,21 +30,29 @@ const Router = () => {
     })
   );
   const [width, setwidth] = useState(window.innerWidth);
-
+  const dispatch = useDispatch()
   useEffect(() => {
     const resizeCarrusel = () => {
       setwidth(window.innerWidth);
     };
-
     window.addEventListener("resize", resizeCarrusel);
     return () => {
       window.removeEventListener("resize", resizeCarrusel);
     };
   });
-
+  useEffect(() => {
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        console.log(user)
+        const currentUser = await getUserCollection(user.uid)
+        console.log(currentUser)
+        dispatch(loginUser(currentUser, { status: false, message: '' }))
+      } else {
+        
+      }
+    })
+  }, [])
   const { obras, teatros } = useSelector((store) => store);
-  const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(getObras({ collectionName: "Obras", key: "", value: "" }));
     dispatch(
