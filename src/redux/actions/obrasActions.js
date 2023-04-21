@@ -46,3 +46,22 @@ export const getFilters = (data) => {
     }
   };
 };
+
+const getCurrentObra = (obra) =>{
+  return {
+    type: dataTypes.UPDATE_OBRA,
+    payload: obra
+  }
+}
+
+export const getCurrentObraAsync = (cod) =>{
+  return async(dispatch) =>{
+    try {
+      const obra = await getCollection({collectionName: 'Obras', key: 'cod', value: Number(cod)})
+      dispatch(getCurrentObra(obra[0]))
+      console.log(obra)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}

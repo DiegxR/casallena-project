@@ -1,34 +1,36 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import logo from '../../assets/logo.svg'
 
-const MapContainer = ({google, lat, lng}) => {
-    const mapStyles = {
-      width: '100%',
-      height: '100vh'
-    };
-    return (
-      <Map
-        google={google}
-        zoom={14}
-        style={mapStyles}
-        onClick={(e) =>console.log(e)}
-        initialCenter={{
-          lat: lat,
-          lng: lng
-        }}
-      >
-        <Marker
-    position={{
+const MapContainer = ({ google, lat, lng}) => {
+ 
+  const mapStyles = {
+    width: '90%',
+    height: '85%',
+    alignSelf: 'center',
+    borderRadius: '12px'
+  };
+ 
+  return (
+    <Map
+      google={google}
+      zoom={14}
+      style={mapStyles}
+      initialCenter={{
         lat: lat,
         lng: lng
       }}
-    title={'AAAAA'}
-    icon={logo}
-  />
-      </Map>
-    );
-  }
+    >
+      <Marker
+        position={{
+          lat: lat,
+          lng: lng
+        }}
+        icon={<img src={logo} alt="" />}
+      />
+    </Map>
+  );
+}
 
 
 export default GoogleApiWrapper({

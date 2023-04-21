@@ -3,6 +3,7 @@ import { dataTypes } from "../types/dataTypes";
 const initialState = {
   obras: [],
   filters: [],
+  currentObra: {}
 };
 
 export const obrasReducer = (state = initialState, action) => {
@@ -18,7 +19,11 @@ export const obrasReducer = (state = initialState, action) => {
         ...state,
         filters: [...action.payload],
       };
-
+    case dataTypes.UPDATE_OBRA:
+      return {
+        ...state,
+        currentObra: action.payload
+      }
     default:
       return state;
   }

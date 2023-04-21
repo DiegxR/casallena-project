@@ -19,14 +19,14 @@ const AppStart = () => {
   useEffect(() => {
     setTimeout(() => {
       setExit(true)
-    }, 2400)
+    }, 2300)
     setTimeout(() => {
       navigate('/login')
-    }, 2600)
+    }, 3000)
   }, [])
   return (
     <motion.section 
-    animate={exit ? {x: -window.innerWidth} : ''}
+    animate={exit ? {opacity: -2, duration: 1} : ''}
     transition={{ duration: 1.2}}
     className='appstart'>
       <motion.svg

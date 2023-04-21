@@ -81,7 +81,7 @@ const DetailObra = ({ op = 0, info }) => {
       ) : op === 1 ? (
         <div className="dataContainer">
           <div className="data">
-            <MapContainer lat={6.2442} lng={-75.5812} />
+            <MapContainer lat={6.2425332} lng={-75.5745005} />
           </div>
         </div>
       ) : (

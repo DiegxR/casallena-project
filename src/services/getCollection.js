@@ -2,8 +2,6 @@ import { getDocs, collection, where, query } from "firebase/firestore";
 import { dataBase } from "../firebase/firebaseConfig";
 import { notify } from "./notify";
 
-
-
 export const getCollection = async (data) => {
   try {
     const docs = [];

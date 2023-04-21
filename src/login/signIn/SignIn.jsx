@@ -35,9 +35,7 @@ const SignIn = () => {
   useEffect(() => {
     if (error.status === true) {
       notify(error.message, "#d80416", "#d80416");
-    } else if (error.status === false) {
-      Swal.fire(`Bienvenido ${user.name}`);
-    }
+    } 
     onAuthStateChanged(auth, async (user) => {
       if (user) {
         console.log(user);
@@ -105,7 +103,7 @@ const SignIn = () => {
           <AiOutlineGoogle className="login_google-icon" />
           <span>Entrar con Google</span>
         </button>
-        <button onClick={uploadDataBase}>Subir a la base de datos</button>
+        {/* <button onClick={uploadDataBase}>Subir a la base de datos</button> */}
       </article>
       {loading ? <Loading /> : <></>}
     </motion.section>

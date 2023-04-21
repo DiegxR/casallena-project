@@ -9,18 +9,31 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
 
 const Inicio = () => {
   const { width, filterButton } = useContext(Appcontext);
-
+  const { user } = useSelector((store) => store.user);
   const { obras } = useSelector((store) => store.obras);
-
+  useEffect(() => {
+    Swal.fire({ 
+      title: `Bienvenido ${user.name}`,
+      color: '#fff',
+    background: '#0d1314',
+      confirmButtonColor: '#d80416',
+      confirmButtonText: 'Continuar'})
+  }, [])
+  
   useEffect(() => {
     console.log(width);
   }, [width]);
   
   return (
-    <>
+    <motion.div
+    initial={{opacity: -1}}
+    transition={{duration: 0.6}}
+    animate={{opacity: 1}}
+    >
       <section className="navbarSticky">
         <FilterButtons />
       </section>
@@ -137,7 +150,7 @@ const Inicio = () => {
         </main>
       )}
       <FooterMenu />
-    </>
+    </motion.div>
   );
 };
 

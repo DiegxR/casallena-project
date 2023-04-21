@@ -43,9 +43,7 @@ const Router = () => {
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
       if (user) {
-        console.log(user)
         const currentUser = await getUserCollection(user.uid)
-        console.log(currentUser)
         dispatch(loginUser(currentUser, { status: false, message: '' }))
       } else {
         

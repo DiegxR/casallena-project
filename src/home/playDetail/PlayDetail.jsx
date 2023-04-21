@@ -3,8 +3,24 @@ import { BiArrowBack } from "react-icons/bi";
 import { GiShare } from "react-icons/gi";
 import DetailObra from "../../components/detailObra/DetailObra";
 import "./playDetail.scss";
+import { useParams } from "react-router";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getCollection } from "../../services/getCollection";
+import { getCurrentObraAsync } from "../../redux/actions/obrasActions";
+import Swal from "sweetalert2";
 
 const PlayDetail = () => {
+  const { cod } = useParams()
+  const dispatch = useDispatch()
+  const { currentObra } = useSelector(store => store.obras)
+  useEffect(() => {
+    dispatch(getCurrentObraAsync(cod))
+  }, [])
+  useEffect(() => {
+
+  }, [currentObra])
+
   const [currentOpt, setCurrentOpt] = useState(0);
   const [currentInfo, setCurrentInfo] = useState({
     id: 0,
@@ -73,12 +89,24 @@ const PlayDetail = () => {
       sala: 0,
     },
   ];
-
+  const copyURLToClipboard = () => {
+    const currentURL = window.location.href;
+    navigator.clipboard.writeText(currentURL);
+    Swal.fire({
+      title: 'Link de la obra copiado',
+      text: '¡Puedes compartilo con tus amigos!',
+      color: '#fff',
+      background: '#0d1314',
+      confirmButtonColor: '#d80416',
+      confirmButtonText: 'Continuar',
+      icon: 'success'
+    })
+  };
   return (
     <section className="PlayDetailSec">
       <div className="arrows">
         <BiArrowBack className="arrowLeft" />
-        <GiShare className="arrowLeft" />
+        <GiShare onClick={copyURLToClipboard} className="arrowLeft" />
       </div>
 
       <div className="playDetailContainer">
@@ -111,9 +139,8 @@ const PlayDetail = () => {
               >
                 <h3>{item.name}</h3>
                 <div
-                  className={`rectangle ${
-                    currentOpt === item.id ? "" : "hideRectangle"
-                  }`}
+                  className={`rectangle ${currentOpt === item.id ? "" : "hideRectangle"
+                    }`}
                 ></div>
               </section>
             ))}

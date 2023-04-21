@@ -56,9 +56,7 @@ const Register = () => {
       notify(error.message, "#d80416", "#d80416");
     } else if (error.status === false) {
       dispatch(toggleError());
-      setTimeout(() => {
         navigate("/photouser");
-      }, 500);
     }
   }, [error]);
 
