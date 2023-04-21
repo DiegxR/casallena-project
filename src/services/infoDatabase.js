@@ -217,7 +217,7 @@ export const teatros = [
       },
     ],
   },
-]
+];
 export const obras = [
   {
     cod: 0,
@@ -313,7 +313,7 @@ export const obras = [
     score: 5,
     data: [
       {
-        id: 0,
+        cod: 0,
         name: "Datos",
         description:
           "Constituye otro gran experimento del teatro estático, tan caro al implacable cómico irlandés frecuentador de juegos y silencios. ",
@@ -381,7 +381,7 @@ export const obras = [
     score: 5,
     data: [
       {
-        id: 0,
+        cod: 0,
         name: "Datos",
         description:
           "Vicky Berrio una mujer extrovertida, sexy, atrevida y de risa estruendosa, presenta su stand-up comedy: Rubia, pero sencilla.",
@@ -449,7 +449,7 @@ export const obras = [
     score: 5,
     data: [
       {
-        id: 0,
+        cod: 0,
         name: "Datos",
         description:
           "Un poema dramático firmado con su nombre y escrito originalmente en inglés. Está dedicado a la figura del joven amante del gran emperador Adriano y su supuesto suicidio.",
@@ -517,7 +517,7 @@ export const obras = [
     score: 5,
     data: [
       {
-        id: 0,
+        cod: 0,
         name: "Datos",
         description:
           "Pieza corta en dos actos que narra la historia de tres amigos y un sirviente que, luego de encontrarse en una glamurosa fiesta, descubren el cadáver de su anfitrión",
@@ -582,10 +582,10 @@ export const obras = [
     desc: [{ type: 2, percent: 60 }],
     price: 80000,
     aporte: 0,
-    score: 3,
+    score: 5,
     data: [
       {
-        id: 0,
+        cod: 0,
         name: "Datos",
         description:
           "Uno de los actos más grandes de indolencia en la historia de Colombia fue el asesinato de Jaime Garzón por parte de sicarios, paramilitares y fuerzas del estado.",
@@ -653,7 +653,7 @@ export const obras = [
     score: 5,
     data: [
       {
-        id: 0,
+        cod: 0,
         name: "Datos",
         description:
           "Pieza corta en dos actos que narra la historia de tres amigos y un sirviente que, luego de encontrarse en una glamurosa fiesta, descubren el cadáver de su anfitrión",
@@ -720,10 +720,10 @@ export const obras = [
     desc: [{ type: 2, percent: 60 }],
     price: 30000,
     aporte: 0,
-    score: 3,
+    score: 5,
     data: [
       {
-        id: 0,
+        cod: 0,
         name: "Datos",
         description:
           "Es una obra inspirada en el poema Prometheus de Goethe. Encontraremos un Prometeo que defendiendo la liberación del ser humano se enfrenta y desafía a Zeus.",
@@ -788,10 +788,10 @@ export const obras = [
     desc: [{ type: 1, percent: 50 }],
     price: 50000,
     aporte: 0,
-    score: 3,
+    score: 5,
     data: [
       {
-        id: 0,
+        cod: 0,
         name: "Datos",
         description:
           "Sin cambios de vestuario, sin escenografía, sin guiones o libretos, cuatro actores, un músico y un luminotécnico improvisan historias al mejor estilo cinematográfico.",
@@ -856,10 +856,10 @@ export const obras = [
     desc: [{ type: 1, percent: 50 }],
     price: 50000,
     aporte: 0,
-    score: 4,
+    score: 5,
     data: [
       {
-        id: 0,
+        cod: 0,
         name: "Datos",
         description:
           "Nuestra versión es una mirada enfática acerca del sufrimiento de los discriminados, los esclavizados de todo tipo, una mirada humana del totalitarismo, social, político y religioso. Somos fieles a las críticas y reflexiones sociales y políticas de Lorca; nos parece necesario encontrar el sustrato profundo en este clásico, la fuerza contestataria y la huella histórica revelada con estoicismo en esta pieza capital para el teatro universal.",
@@ -924,10 +924,10 @@ export const obras = [
     desc: [{ type: 1, percent: 50 }],
     price: 50000,
     aporte: 0,
-    score: 3,
+    score: 5,
     data: [
       {
-        id: 0,
+        cod: 0,
         name: "Datos",
         description:
           "En esta obra aparecen dibujados desde el funcionario de más alto rango y el alcalde del pueblo, hasta los cargos más bajos, los sirvientes. Sin embargo, la versión que verán en el teatro es una adaptación a la Latinoamérica contemporánea, en donde se resaltan aquellos aspectos de la cultura rusa que se replican en la nuestra; tales como la corrupción y la veneración por lo extranjero.",
@@ -995,7 +995,7 @@ export const obras = [
     score: 5,
     data: [
       {
-        id: 0,
+        cod: 0,
         name: "Datos",
         description:
           "La novela Angelitos empantanados se compone de tres extensos monólogos: El pretendiente, Angelita y Miguel Ángel y El tiempo de la ciénaga, que configuran la historia de dos jóvenes colegiales, Angelita Rodante y Miguel Ángel Valderrama, pertenecientes a la burguesía caleña de finales de los años 60.",
@@ -1060,10 +1060,10 @@ export const obras = [
     desc: [{ type: 1, percent: 50 }],
     price: 40000,
     aporte: 0,
-    score: 5,
+    score: 4,
     data: [
       {
-        id: 0,
+        cod: 0,
         name: "Datos",
         description:
           "Un piloto sufre un accidente en el desierto y se encuentra con un niño, a quien llama el Principito y quien le cuenta sobre todos los planetas que ha visitado y las decepciones que ha tenido",
@@ -1131,7 +1131,7 @@ export const obras = [
     score: 5,
     data: [
       {
-        id: 0,
+        cod: 0,
         name: "Datos",
         description:
           "Se precisa una voluntad consciente y determinante para recordar y testimoniar la sangre derramada de una guerra suspendida en el tiempo. Incendios, no es una obra lejana, es una obra increíblemente cercana a lo que ha sido el conflicto armado en Colombia.",
@@ -1189,10 +1189,10 @@ export const obras = [
     desc: [{ type: 0, percent: 30 }],
     price: 70000,
     aporte: 0,
-    score: 5,
+    score: 4,
     data: [
       {
-        id: 0,
+        cod: 0,
         name: "Datos",
         description:
           "Este relato nos seduce con todo ese encanto mágico, enigmático y supersticioso que se le atribuye a la figura del Gato y que en el cuento se convierte en ajusticiador.",
@@ -1257,10 +1257,10 @@ export const obras = [
     desc: [{ type: 1, percent: 50 }],
     price: 50000,
     aporte: 0,
-    score: 3,
+    score: 4,
     data: [
       {
-        id: 0,
+        cod: 0,
         name: "Datos",
         description:
           "El misterio, el amor, el silencio, la muerte, están presentes en este acto ceremonial y teatral en el que cada espectador podrá adentrarse en sus abismos existenciales.",
@@ -1289,7 +1289,7 @@ export const obras = [
   },
   {
     cod: 16,
-    name: "Diálogo en el Jardín de Palacio",
+    name: "Diálogo en el Jardín",
     img: "https://drive.google.com/uc?export=download&id=1gUIpY8w8twyYYd3VLVcaHzAraMkbtJN8",
     imgDetail:
       "https://drive.google.com/uc?export=download&id=1mKEdFPBOo7v0PrZ1ALSuHuEi31-K91QU",
@@ -1324,10 +1324,10 @@ export const obras = [
     desc: [{ type: 1, percent: 50 }],
     price: 0,
     aporte: 15000,
-    score: 4,
+    score: 5,
     data: [
       {
-        id: 0,
+        cod: 0,
         name: "Datos",
         description:
           "El tiempo cronológico se ha detenido en un instante tal vez pretérito, tal vez presente o tal vez futuro, de ahí la permanencia de estos seres en un espacio onírico o real.",
@@ -1386,7 +1386,7 @@ export const obras = [
     score: 5,
     data: [
       {
-        id: 0,
+        cod: 0,
         name: "Datos",
         description:
           "Historias Fantástica, improvisaciones en las que los niños participan, música, luces y un nuevo mundo por descubrir.",
@@ -1446,7 +1446,7 @@ export const obras = [
     score: 5,
     data: [
       {
-        id: 0,
+        cod: 0,
         name: "Datos",
         description:
           "En situación queda reflejando un país como el nuestro, en donde el hambre y la pobreza son cada día mayores, producto de la corrupción y manipulación desde el poder, el cual es representado en la obra por “la vieja”.",
@@ -1502,10 +1502,10 @@ export const obras = [
     desc: [{ type: 2, percent: 60 }],
     price: 0,
     aporte: 20000,
-    score: 3,
+    score: 5,
     data: [
       {
-        id: 0,
+        cod: 0,
         name: "Datos",
         description:
           "Por encima de los personajes, a manera de “gran hermano”, se encuentra una figura fantasmagórica desde donde se dan todas las ordenes a través de un altoparlante.",
@@ -1565,7 +1565,7 @@ export const obras = [
     score: 5,
     data: [
       {
-        id: 0,
+        cod: 0,
         name: "Datos",
         description:
           "Macbeth, un general del ejército escocés, es abordado por tres brujas, quienes le pronostican que muy pronto será barón de Cawdor y rey de Escocia.",
@@ -1575,212 +1575,6 @@ export const obras = [
           "https://drive.google.com/uc?export=download&id=1Obxllqk6Mi1W_HnBN9ZG1rtKiDp2-4TU",
         ],
         duration: 90,
-        age: 1,
-      },
-      {
-        cod: 1,
-        name: "Lugar",
-      },
-      {
-        cod: 2,
-        name: "Avisos",
-        infoPublico:
-          "El uso del tapacocas tanto dentro como fuera de la sala no es obligatorio.",
-        infoTeatro:
-          "Recuerda llegar al teatro con un mínimo de 15 minutos antes de la funsión.",
-      },
-    ],
-    comments: [],
-  },
-  {
-    cod: 7,
-    name: "La Casa de Bernarda Alba",
-    img: "https://drive.google.com/uc?export=download&id=1EkDD4gx_5hwjqKsKufdyyzuif3IGqxNL",
-    imgDetail:
-      "https://drive.google.com/uc?export=download&id=1K5huA_jQ9sh6pc6_OGSv_WqDxEA7duan",
-    imgPost:
-      "https://drive.google.com/uc?export=download&id=1YRE_zYoWkE2ana3p8lO27djCZQ-zSP34",
-    gendre: 1,
-    description:
-      "La Casa de Bernarda Alba, la última obra maestra escrita por Federico García Lorca, en la que se conjugan con éxito la poesía con la naturalidad, la belleza con la verosimilitud, “Es poesía hecha carne”, como lo expresaba el poeta.",
-    dates: [
-      {
-        date: "20/04/2023",
-        aforo: 60,
-        sold: [],
-        theater: 0,
-        sala: 0,
-      },
-      {
-        date: "29/04/2023",
-        aforo: 60,
-        sold: [],
-        sala: 0,
-        theater: 0,
-        sala: 0,
-      },
-      {
-        date: "15/05/2023",
-        aforo: 60,
-        sold: [],
-        theater: 0,
-        sala: 0,
-      },
-    ],
-    desc: [{ type: 1, percent: 50 }],
-    price: 50000,
-    aporte: 0,
-    score: 4,
-    data: [
-      {
-        id: 0,
-        name: "Datos",
-        description:
-          "Nuestra versión es una mirada enfática acerca del sufrimiento de los discriminados, los esclavizados de todo tipo, una mirada humana del totalitarismo, social, político y religioso. Somos fieles a las críticas y reflexiones sociales y políticas de Lorca; nos parece necesario encontrar el sustrato profundo en este clásico, la fuerza contestataria y la huella histórica revelada con estoicismo en esta pieza capital para el teatro universal; nos dejamos llevar plenamente de la mano sabia de Lorca que guía nuestro camino artístico en este montaje.",
-        img: [
-          "https://drive.google.com/uc?export=download&id=1HC7KuWvrrM4GdrcPaIKgHoDhs1yTZWcG",
-          "https://drive.google.com/uc?export=download&id=1MWxsP1-YeAeeIvK_L4H31ErRBm7ckPFS",
-          "https://drive.google.com/uc?export=download&id=1OVw4p-6r0q9B9DbJEwtKtp8k8xHHVjvr",
-        ],
-        duration: 90,
-        age: 1,
-      },
-      {
-        cod: 1,
-        name: "Lugar",
-        location: { lat: "", long: "" },
-        direccion: "Cl. 9 #43B - 80, Medellín, El Poblado,",
-      },
-      {
-        cod: 2,
-        name: "Avisos",
-        infoPublico:
-          "El uso del tapacocas tanto dentro como fuera de la sala no es obligatorio.",
-        infoTeatro:
-          "Recuerda llegar al teatro con un mínimo de 15 minutos antes de la funsión.",
-      },
-    ],
-    comments: [],
-  },
-  {
-    cod: 7,
-    name: "El inspector",
-    img: "https://drive.google.com/uc?export=download&id=1EkDD4gx_5hwjqKsKufdyyzuif3IGqxNL",
-    imgDetail:
-      "https://drive.google.com/uc?export=download&id=1K5huA_jQ9sh6pc6_OGSv_WqDxEA7duan",
-    imgPost:
-      "https://drive.google.com/uc?export=download&id=1YRE_zYoWkE2ana3p8lO27djCZQ-zSP34",
-    gendre: 2,
-    description:
-      "La pieza original de Nikolai Gogol es un clásico de la dramaturgia rusa en donde se abordan temas que parecen réplicas de nuestra propia cultura, plasmadas en la sociedad rusa del siglo XIX.",
-    dates: [
-      {
-        date: "20/04/2023",
-        aforo: 60,
-        sold: [],
-        theater: 0,
-        sala: 0,
-      },
-      {
-        date: "29/04/2023",
-        aforo: 60,
-        sold: [],
-        sala: 0,
-        theater: 0,
-        sala: 0,
-      },
-      {
-        date: "15/05/2023",
-        aforo: 60,
-        sold: [],
-        theater: 0,
-        sala: 0,
-      },
-    ],
-    desc: [{ type: 1, percent: 50 }],
-    price: 50000,
-    aporte: 0,
-    score: 3,
-    data: [
-      {
-        id: 0,
-        name: "Datos",
-        description:
-          "En esta obra aparecen dibujados desde el funcionario de más alto rango y el alcalde del pueblo, hasta los cargos más bajos, los sirvientes. Sin embargo, la versión que verán en el teatro es una adaptación a la Latinoamérica contemporánea, en donde se resaltan aquellos aspectos de la cultura rusa que se replican en la nuestra; tales como la corrupción y la veneración por lo extranjero.",
-        img: [
-          "https://drive.google.com/uc?export=download&id=1HC7KuWvrrM4GdrcPaIKgHoDhs1yTZWcG",
-          "https://drive.google.com/uc?export=download&id=1MWxsP1-YeAeeIvK_L4H31ErRBm7ckPFS",
-          "https://drive.google.com/uc?export=download&id=1OVw4p-6r0q9B9DbJEwtKtp8k8xHHVjvr",
-        ],
-        duration: 90,
-        age: 1,
-      },
-      {
-        cod: 1,
-        name: "Lugar",
-      },
-      {
-        cod: 2,
-        name: "Avisos",
-        infoPublico:
-          "El uso del tapacocas tanto dentro como fuera de la sala no es obligatorio.",
-        infoTeatro:
-          "Recuerda llegar al teatro con un mínimo de 15 minutos antes de la funsión.",
-      },
-    ],
-    comments: [],
-  },
-  {
-    cod: 7,
-    name: "Lloro Sólo por Verte Triste",
-    img: "",
-    imgDetail:
-      "",
-    imgPost:
-      "",
-    gender: 2,
-    description:
-      "Lloro solo por verte triste, es una puesta en escena que recorre poéticamente pensamientos, sentimientos y sensaciones de algunos heterónimos de Fernando Pessoa.",
-    dates: [
-      {
-        date: "20/04/2023",
-        aforo: 60,
-        sold: [],
-        theater: 0,
-        sala: 0,
-      },
-      {
-        date: "29/04/2023",
-        aforo: 60,
-        sold: [],
-        sala: 0,
-        theater: 0,
-        sala: 0,
-      },
-      {
-        date: "15/05/2023",
-        aforo: 60,
-        sold: [],
-        theater: 0,
-        sala: 0,
-      },
-    ],
-    desc: [{ type: 1, percent: 50 }],
-    price: 50000,
-    aporte: 0,
-    score: 3,
-    data: [
-      {
-        id: 0,
-        name: "Datos",
-        description:
-          "El misterio, el amor, el silencio, la muerte, están presentes en este acto ceremonial y teatral en el que cada espectador podrá adentrarse en sus abismos existenciales.",
-        img: [
-          "",
-          "",
-          "",
-        ],
-        duration: 50,
         age: 1,
       },
       {

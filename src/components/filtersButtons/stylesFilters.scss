@@ -1,102 +1,31 @@
 @use "../../vars.scss" as v;
-.secButtonsFilters {
-  width: 100%;
-  height: 70px;
-  padding: 20px;
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
-  background-color: v.$secondary_black;
-}
 
 .iconLeft {
   color: v.$white_color;
   font-size: 25px;
   cursor: pointer;
-  transform: translateY(5px);
 }
 
 .CarruselButtons {
   width: 100%;
   height: 70px;
-  background-color: v.$secondary_black;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-right: 20px;
-  .secIconMobile {
-    width: 20%;
+  transition: 0.5s;
+  background: transparent;
+
+  .secIcon {
+    width: 10%;
     height: inherit;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    img {
-      width: 35px;
-      height: 40px;
-      object-fit: cover;
-    }
-  }
-  .secCarrusel {
-    width: 80%;
-    .secIconSlider .iconLeft {
-      width: 250px;
-    }
-  }
-}
-.logoDesktop {
-  display: none;
-}
-
-@media (min-width: 768px) {
-  .iconLeft {
-    transform: translateY(0);
-  }
-  .CarruselButtons {
-    .secIconMobile {
-      width: 30%;
-      img {
-        width: 40px;
-        height: 40px;
-      }
-    }
-    .secCarrusel {
-      width: 70%;
-    }
+    padding: 0 30px;
   }
 }
 
-@media (min-width: 992px) {
-  .secButtonsFilters {
-    justify-content: center;
-  }
-  .iconLeft {
-    transform: translateY(0);
-  }
-}
-
-@media (min-width: 1350px) {
-  .logoDesktop {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    transform: translateX(30px);
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    left: 0;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    figcaption {
-      h2 {
-        font-size: 20px;
-        font-family: v.$Exo;
-        color: v.$white_color;
-      }
-    }
-  }
+.backgroundScroll {
+  transition: 0.5s;
+  background-color: v.$secondary_black;
 }

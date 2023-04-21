@@ -6,17 +6,17 @@ import { AiFillHeart } from "react-icons/ai";
 import { Appcontext } from "../../router/Router";
 import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
+import { IoIosInformationCircle } from "react-icons/io";
 
 const Card = ({ type, data }) => {
   const { formatterPeso } = useContext(Appcontext);
   const { width } = useContext(Appcontext);
   const { teatros } = useSelector((store) => store.teatros);
   const obtainInfoTeatro = (id) => {
-    console.log(id);
     let teaInfo = [];
     if (teatros.length > 0) {
       teaInfo = teatros.filter((teatro) => teatro.cod === Number(id));
-      console.log(teaInfo);
+
       return teaInfo[0].name;
     }
     return "Teatro plaza";
@@ -29,7 +29,7 @@ const Card = ({ type, data }) => {
     let descuento = desc.find(
       (item) => item.type === 0 || item.type === 1 || item.type === 2
     );
-    console.log(descuento);
+
     if (descuento) {
       return descuento.type === 0
         ? "30% General"
@@ -86,11 +86,13 @@ const Card = ({ type, data }) => {
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
           }}
-          onClick={() => {
-            navigate(`/detail/${data.cod}`);
-          }}
         >
           <article className="CardObra__sec1">
+            {data.price === 0 ? (
+              <IoIosInformationCircle className="iconInfo" />
+            ) : (
+              <></>
+            )}
             <Button
               style={4}
               children={showDesc(data.desc)}
@@ -111,7 +113,10 @@ const Card = ({ type, data }) => {
                     : `${formatterPeso.format(showPrice(data.price))} K`}
                 </h2>
               </div>
-              <section style={{ marginTop: "3px" }}>
+              <section
+                style={{ marginTop: "3px", cursor: "pointer" }}
+                onClick={() => navigate(`/detail/${data.cod}`)}
+              >
                 <Button style={3} children={"Reserva ahora"} width={1} />
               </section>
             </article>
@@ -126,7 +131,9 @@ const Card = ({ type, data }) => {
               <p>{obtainInfoTeatro(data.dates[0].theater)}</p>
             </article>
             <article className="secIcons">
-              <AiOutlineHeart className="iconHeart" />
+              <div>
+                <AiOutlineHeart className="iconHeart secIcons" />
+              </div>
             </article>
           </figcaption>
         </figure>

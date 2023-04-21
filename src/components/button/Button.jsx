@@ -1,7 +1,9 @@
 import React from "react";
 import "./stylesButton.scss";
+import { useNavigate } from "react-router";
 
 const Button = ({ style, width = 0, children, action }) => {
+  const navigate = useNavigate();
   return (
     <button
       onClick={action}
@@ -14,7 +16,10 @@ const Button = ({ style, width = 0, children, action }) => {
           ? "labelPrimary"
           : "labelSecondary"
       }`}
-      style={{ width: `${width}` }}
+      style={{
+        width: `${width}`,
+        cursor: `${style === 3 || style === 1 ? "pointer" : "none"}`,
+      }}
     >
       {children}
     </button>

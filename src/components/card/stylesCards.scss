@@ -45,7 +45,7 @@
 .CardObra {
   @extend .Card;
   width: 100%;
-  cursor: pointer;
+
   &__sec1 {
     width: 100%;
     height: 120px;
@@ -53,6 +53,12 @@
     align-items: start;
     justify-content: start;
     transform: translateY(-5px);
+    .iconInfo {
+      font-size: 30px;
+      position: absolute;
+      transform: translate(310px, 15px);
+      cursor: pointer;
+    }
   }
   &__sec2 {
     width: 100%;
@@ -101,8 +107,8 @@
 
 .CardPrincipal {
   @extend .Card;
-  width: 200px;
-  height: 192px;
+  width: 300px;
+  height: 200px;
   border-radius: 20px;
   cursor: pointer;
   img {
@@ -121,29 +127,40 @@
     .secTextos {
       display: flex;
       flex-direction: column;
+      justify-content: start;
       gap: 3px;
+      padding: 10px;
       h3 {
         font-size: 14px;
         font-weight: 700;
-        text-align: left;
         margin: 0;
+        padding: 0;
+        text-align: left;
       }
       p {
         font-size: 12px;
         font-weight: 300;
+        margin: 0;
+        padding: 0;
         text-align: left;
       }
     }
     .secIcons {
-      width: 22px;
-      height: 22px;
-      border-radius: 20px;
-      background-color: v.$white_color;
-      color: v.$primary_black;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 12px;
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 22px;
+        height: 22px;
+        border-radius: 20px;
+        background-color: v.$white_color;
+        color: v.$primary_black;
+
+        font-size: 12px;
+      }
     }
   }
 }
@@ -171,8 +188,12 @@
 
   .CardObra {
     height: 350px;
+
     &__sec1 {
       height: 270px;
+      .iconInfo {
+        transform: translate(285px, 20px);
+      }
     }
     &__sec2 {
       height: 80px;
@@ -188,11 +209,33 @@
       }
     }
   }
+  .CardPrincipal {
+    width: 600px;
+    height: 400px;
+    img {
+      width: 100%;
+      height: 300px;
+      border-radius: 20px 20px 0 0;
+      object-fit: cover;
+    }
+    &__sec1 {
+      .secIcons {
+        div {
+          width: 30px;
+          height: 30px;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
 }
 
 @media (min-width: 992px) {
   .CardObra {
     width: 300px;
+    .iconInfo {
+      transform: translate(260px, 15px);
+    }
     &__sec2 {
       padding: 10px 15px;
 
@@ -206,8 +249,23 @@
       }
     }
   }
-
   .CardPrincipal {
-    width: 350px;
+    width: 600px;
+    height: 400px;
+    img {
+      width: 100%;
+      height: 300px;
+      border-radius: 20px 20px 0 0;
+      object-fit: cover;
+    }
+    &__sec1 {
+      .secIcons {
+        div {
+          width: 30px;
+          height: 30px;
+          font-size: 1rem;
+        }
+      }
+    }
   }
 }
