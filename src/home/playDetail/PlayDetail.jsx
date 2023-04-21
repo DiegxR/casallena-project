@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import { GiShare } from "react-icons/gi";
+import { useNavigate } from "react-router";
 import DetailObra from "../../components/detailObra/DetailObra";
 import "./playDetail.scss";
 
 const PlayDetail = () => {
+  const navigate = useNavigate();
   const [currentOpt, setCurrentOpt] = useState(0);
   const [currentInfo, setCurrentInfo] = useState({
     id: 0,
@@ -75,9 +77,10 @@ const PlayDetail = () => {
   ];
 
   return (
+    
     <section className="PlayDetailSec">
       <div className="arrows">
-        <BiArrowBack className="arrowLeft" />
+        <BiArrowBack onClick={() => navigate(-1)} className="arrowLeft" />
         <GiShare className="arrowLeft" />
       </div>
 

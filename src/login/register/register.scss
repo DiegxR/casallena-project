@@ -34,7 +34,7 @@
   color: $white_color;
   display: flex;
   gap: 7px;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 1px;
 }
 
@@ -45,9 +45,15 @@
   padding: 10px;
   background: transparent;
 }
+.errorMsg{
+  color: $main_color;
+  font-size: 13px;
+}
+
 body{
   background-color: $primary_black;
 }
+
 .registerSec__btn {
   background-color: $main_color;
   color: $white_color;
@@ -57,14 +63,4 @@ body{
   width: fit-content;
   cursor: pointer;
   border: none;
-}
-
-@media (min-width: 992px) {
-  .registerSec__form {
-    flex-direction: row;
-    height: fit-content;
-    flex-wrap: wrap;
-    width: 100%;
-    gap: 10px;
-  }
 }
