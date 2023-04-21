@@ -70,6 +70,7 @@ const Register = () => {
     >
       <AiOutlineArrowLeft onClick={() => navigate(-1)} className="arrowLeft" />
       <form onSubmit={handleSubmit(onSubmit)} className="registerSec__form">
+
         <label htmlFor="" className="registerSec__label">
           <input
             {...register("email", { required: "El email es requerido" })}
@@ -78,29 +79,29 @@ const Register = () => {
             placeholder="Email"
           />
           Email
-          {errors.email ? <span>{errors.email.message}</span> : <></>}
+          {errors.email ? <span className='errorMsg'>{errors.email.message}</span> : <></>}
         </label>
 
         <label htmlFor="" className="registerSec__label">
           <input
-            {...register("location", { required: "" })}
+            {...register("location", { required: "La Ciudad es requerida" })}
             type="text"
             className="registerSec__input"
             placeholder="Ciudad"
           />
           Ciudad
-          {errors.location ? <span>{errors.location.message}</span> : <></>}
+          {errors.location ? <span className='errorMsg'>{errors.location.message}</span> : <></>}
         </label>
 
         <label htmlFor="" className="registerSec__label">
           <input
-            {...register("name", { required: "" })}
+            {...register("name", { required: "El nombre es requerido" })}
             type="text"
             className="registerSec__input"
             placeholder="Nombre de usuario"
           />
           Nombre de usuario
-          {errors.location ? <span>{errors.location.message}</span> : <></>}
+          {errors.name ? <span className='errorMsg'>{errors.name.message}</span> : <></>}
         </label>
 
         <label htmlFor="" className="registerSec__label">
@@ -110,23 +111,27 @@ const Register = () => {
             className="registerSec__input"
             placeholder="Contraseña"
           />
-          {errorPass !== "" ? <span>{errorPass}</span> : ""}
           Contraseña
+          {errors.password ? <span className='errorMsg'>{errors.password.message}</span> : <></>}
+          {errorPass !== "" ? <span className='errorMsg'>{errorPass}</span> : ""}
         </label>
+
         <label htmlFor="" className="registerSec__label">
           <input
             {...register("passwordConf", { required: "" })}
+            {...register("password", { required: "La contraseña es requerida" })}
             type="password"
             className="registerSec__input"
             placeholder="Confirmar contraseña"
             onInput={(e) => validatePasswords(e.target.value)}
           />
           Confirmar contraseña
-          {errors.passwordConf ? (
-            <span>{errors.passwordConf.message}</span>
-          ) : (
+          
+          {errors.passwordConf ? 
+            <span className='errorMsg'>{errors.passwordConf.message}</span>
+          : 
             <></>
-          )}
+          }
         </label>
 
         <button type="submit" className="registerSec__btn">

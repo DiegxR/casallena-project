@@ -12,6 +12,7 @@ const DetailObra = ({ op = 0, info }) => {
     <>
       {op === 0 ? (
         <div className="data" style={{ width: "100%" }}>
+          <div className="datatxtSlider">
           <p>
             Pieza corta en dos actos que narra la historia de tres amigos y un
             sirviente que, luego de encontrarse en una glamurosa fiesta,
@@ -36,7 +37,7 @@ const DetailObra = ({ op = 0, info }) => {
                       alt=""
                       className="img_carousel"
                       style={{
-                        height: "440px",
+                        height: "300px",
                         objectFit: "cover",
                         borderRadius: "8px",
                       }}
@@ -48,6 +49,7 @@ const DetailObra = ({ op = 0, info }) => {
               <></>
             )}
           </section>
+          </div>
           <div className="data_DDGA">
             <div className="data_DDGA--item">
               <AiOutlineClockCircle />

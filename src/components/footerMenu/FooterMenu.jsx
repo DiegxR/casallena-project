@@ -3,7 +3,7 @@ import "./stylesFooter.scss";
 //Importación de iconografia
 import { BsFillHouseDoorFill } from "react-icons/bs";
 import { GoSearch } from "react-icons/go";
-import { BiHappyBeaming } from "react-icons/bi";
+
 import { FaUser } from "react-icons/fa";
 import { CiMenuKebab } from "react-icons/ci";
 import { useLocation, useNavigate } from "react-router";
@@ -16,29 +16,12 @@ const FooterMenu = () => {
       option: "Inicio",
       path: "/home",
     },
+
     {
       id: 1,
-      icon: <GoSearch className="iconFooter" />,
-      option: "Búsqueda",
-      path: "/search",
-    },
-    {
-      id: 2,
-      icon: <BiHappyBeaming className="iconFooter" />,
-      option: "Comunidad",
-      path: "/comunity",
-    },
-    {
-      id: 3,
       icon: <FaUser className="iconFooter" />,
       option: "Perfil",
       path: "/profile",
-    },
-    {
-      id: 4,
-      icon: <CiMenuKebab className="iconFooter iconmenu" />,
-      option: "",
-      path: "/menu",
     },
   ];
   const navigate = useNavigate();

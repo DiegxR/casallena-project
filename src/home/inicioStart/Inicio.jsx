@@ -10,8 +10,11 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
+import { getCenterSlidePercentage } from "../../services/resizeCarrusel";
+import InputFilter from "../../components/inputFilter/InputFilter";
 
 const Inicio = () => {
+  const [sizeCarrusel, setSizeCarrusel] = useState(0);
   const { width, filterButton } = useContext(Appcontext);
   const { user } = useSelector((store) => store.user);
   const { obras } = useSelector((store) => store.obras);
@@ -25,9 +28,10 @@ const Inicio = () => {
   }, [])
   
   useEffect(() => {
-    console.log(width);
+    let size = getCenterSlidePercentage(width >= 768 ? 600 : 300, width, 1);
+    setSizeCarrusel(size);
   }, [width]);
-  
+
   return (
     <motion.div
     initial={{opacity: -1}}
@@ -35,6 +39,7 @@ const Inicio = () => {
     animate={{opacity: 1}}
     >
       <section className="navbarSticky">
+        <InputFilter />
         <FilterButtons />
       </section>
 
@@ -58,60 +63,6 @@ const Inicio = () => {
       ) : (
         <main className="secInicio">
           <section className="secInicio__sec1">
-            <section className="slider">
-              <Carousel
-                emulateTouch={true}
-                showThumbs={false}
-                showArrows={false}
-                showStatus={false}
-                showIndicators={false}
-                centerMode={width < 768 ? true : false}
-                centerSlidePercentage={
-                  width <= 564 ? 90 : width <= 760 && width >= 653 ? 55 : 58
-                }
-                autoPlay={width >= 768 ? true : false}
-                interval={3000}
-                width={"100%"}
-              >
-                {obras ? (
-                  obras.map((item, index) => {
-                    if (item.price > 0) {
-                      return (
-                        <motion.div
-                          whileTap={{ scale: 0.9 }}
-                          key={index}
-                          className={"itemSlider"}
-                        >
-                          <Card type={1} data={item} />
-                        </motion.div>
-                      );
-                    }
-                  })
-                ) : (
-                  <></>
-                )}
-              </Carousel>
-            </section>
-          </section>
-
-          <motion.div className="secInicio__sec2">
-            {obras ? (
-              obras.map((item, index) => (
-                <motion.div
-                  style={{ width: `${width < 768 ? "100%" : "330px"}` }}
-                  whileHover={{ translateY: -5 }}
-                  whileTap={{ scale: 0.9 }}
-                  key={index}
-                >
-                  <Card type={2} data={item} />
-                </motion.div>
-              ))
-            ) : (
-              <></>
-            )}
-          </motion.div>
-
-          <section className="secInicio__sec3">
             <h3>Proyectos populares</h3>
             <Carousel
               emulateTouch={true}
@@ -120,17 +71,9 @@ const Inicio = () => {
               showStatus={false}
               showIndicators={false}
               centerMode={true}
-              centerSlidePercentage={
-                width <= 768
-                  ? 60
-                  : width >= 992 && width <= 1515
-                  ? 40
-                  : width >= 1800
-                  ? 20
-                  : 25
-              }
-              autoPlay={width >= 768 ? true : false}
+              centerSlidePercentage={sizeCarrusel}
               interval={3000}
+              infiniteLoop={true}
             >
               {obras ? (
                 obras.map((item, index) => {
@@ -147,6 +90,22 @@ const Inicio = () => {
               )}
             </Carousel>
           </section>
+
+          <motion.div className="secInicio__sec2">
+            {obras ? (
+              obras.map((item, index) => (
+                <motion.div
+                  style={{ width: `${width < 768 ? "100%" : "330px"}` }}
+                  whileHover={{ translateY: -5 }}
+                  key={index}
+                >
+                  <Card type={2} data={item} />
+                </motion.div>
+              ))
+            ) : (
+              <></>
+            )}
+          </motion.div>
         </main>
       )}
       <FooterMenu />

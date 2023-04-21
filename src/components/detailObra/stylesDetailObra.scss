@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 20px;
+  
 }
 
 .data_DDGA {
@@ -26,6 +27,21 @@
 .data{
   display: flex;
   justify-content: center;
-  margin:  10px;
   padding: 40px 0px;
+}
+
+
+@media (min-width: 800px){
+  .datatxtSlider{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+  .carousel__detail{
+    width: 140%;
+  }
+
+  .data{
+    display: flex;
+  }
 }

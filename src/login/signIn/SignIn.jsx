@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./styles.scss";
 import logo from "../../assets/logo.svg";
 import { AiOutlineGoogle } from "react-icons/ai";
+import { AiOutlineEye } from "react-icons/ai";
+import { AiOutlineEyeInvisible } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
@@ -22,6 +24,7 @@ import { uploadArray } from "../../services/uploadCollection";
 
 const SignIn = () => {
   const navigate = useNavigate();
+  const [showPass, setShowPass] = useState(false);
   const { user, error, loading } = useSelector((store) => store.user);
   const {
     register,
@@ -71,21 +74,36 @@ const SignIn = () => {
               placeholder="Correo electrónico"
             />
             <span>Correo</span>
-            {errors.email ? <span>{errors.email.message}</span> : <></>}
+            {errors.email ? <span className='errorMsg'>{errors.email.message}</span> : <></>}
           </label>
           <label>
             <input
               {...register("password", {
                 required: "La constraseña es requerida",
               })}
-              type="password"
+              type={`${showPass ? "text" : "password"}`}
               placeholder="Contraseña"
             />
+            {!showPass ? (
+              <AiOutlineEye
+                className="login_iconShow"
+                onClick={() => {
+                  setShowPass(!showPass);
+                }}
+              />
+            ) : (
+              <AiOutlineEyeInvisible
+                className="login_iconShow"
+                onClick={() => {
+                  setShowPass(!showPass);
+                }}
+              />
+            )}
             <span>Contraseña</span>
-            {errors.password ? <span>{errors.password.message}</span> : <></>}
+            {errors.password ? <span className='errorMsg'>{errors.password.message}</span> : <></>}
           </label>
           {error.status ? (
-            <span className="login_error">Datos invalidos</span>
+            <span className="errorMsg">Datos invalidos</span>
           ) : (
             <></>
           )}
