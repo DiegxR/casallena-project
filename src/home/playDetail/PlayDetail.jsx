@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentObraAsync } from "../../redux/actions/obrasActions";
 import Swal from "sweetalert2";
+import { handleFavoritesAsync } from "../../redux/actions/userActions";
 
 const PlayDetail = () => {
   const { cod } = useParams();
@@ -16,11 +17,13 @@ const PlayDetail = () => {
   const { currentObra } = useSelector((store) => store.obras);
   useEffect(() => {
     dispatch(getCurrentObraAsync(cod));
+    
   }, []);
   useEffect(() => {
     if (currentObra.id) {
       setCurrentInfo(currentObra.data[0]);
     }
+    dispatch(handleFavoritesAsync())
   }, [currentObra]);
 
   const navigate = useNavigate();

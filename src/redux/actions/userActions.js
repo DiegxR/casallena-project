@@ -48,6 +48,8 @@ export const createUserWithEmail = (data) =>{
                 name: data.name,
                 email: user.auth.currentUser.email,
                 location: data.location,
+                favorites: [],
+                dates: []
             }
             const doc = await addDoc(collectionUsers, newUser)
             console.log(doc.id)
@@ -120,6 +122,8 @@ export const loginWithGoogle = () =>{
                 userName: user.displayName,
                 email: user.email,
                 photo: user.photoURL,
+                favorites: [],
+                dates: []
             } 
               if(!userDoc){
                   const userBase = await addDoc(collectionUsers, newUser)
@@ -134,3 +138,29 @@ export const loginWithGoogle = () =>{
         }
     }
 }
+
+const handleFavorites = (cod) => {
+    return {
+        type: userTypes.HANDLE_FAVORITES,
+        payload: cod
+    }
+}
+
+export const handleFavoritesAsync = (cod) =>{
+    return async (dispatch, getState)=>{
+        try {     
+            let currentFavorites;
+            if(getState().user.favorites.contains(cod)){
+                currentFavorites = getState().user.favortites.filter((item)=> item !== action.payload) 
+            }else{
+                currentFavorites = [...getState().user.favortites, action.payload]
+            }
+            const userRef = doc(dataBase, 'Users', getState().user.id)
+            await updateDoc(userRef, {favorites: currentFavorites})
+            dispatch(handleFavorites(cod))
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
+

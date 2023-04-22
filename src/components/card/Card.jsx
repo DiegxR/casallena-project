@@ -12,6 +12,8 @@ const Card = ({ type, data }) => {
   const { formatterPeso, setShowModal } = useContext(Appcontext);
   const { width } = useContext(Appcontext);
   const { teatros } = useSelector((store) => store.teatros);
+  const { user } = useSelector((store) => store.user);
+  console.log(data)
   const obtainInfoTeatro = (id) => {
     let teaInfo = [];
     if (teatros.length > 0) {
@@ -136,9 +138,13 @@ const Card = ({ type, data }) => {
               <p>{obtainInfoTeatro(data.dates[0].theater)}</p>
             </article>
             <article className="secIcons">
+              {user.name ? 
               <div>
-                <AiOutlineHeart className="iconHeart secIcons" />
-              </div>
+                {user.favorite.contains(data.cod) ? <AiOutlineHeart className="iconHeart2 secIcons" /> : <AiOutlineHeart className="iconHeart secIcons" />}
+              </div> 
+              : 
+              <></> }
+              
             </article>
           </figcaption>
         </figure>

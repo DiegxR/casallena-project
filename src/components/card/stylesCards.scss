@@ -7,7 +7,9 @@
   display: flex;
   flex-direction: column;
 }
-
+.iconHeart2{
+  color: v.$main_color;
+}
 .CardSlider {
   @extend .Card;
   cursor: pointer;

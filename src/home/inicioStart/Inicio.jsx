@@ -23,6 +23,7 @@ const Inicio = () => {
   useEffect(() => {
     let size = getCenterSlidePercentage(width >= 768 ? 600 : 300, width, 1);
     setSizeCarrusel(size);
+    
   }, [width]);
   useEffect(() => {
     console.log(showModal);
