@@ -40,6 +40,7 @@ const PlayDetail = () => {
       confirmButtonColor: "#d80416",
       confirmButtonText: "Continuar",
       icon: "success",
+      iconColor: 'white'
     });
   };
   return (
