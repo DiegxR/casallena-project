@@ -64,6 +64,7 @@ export const getCurrentObraAsync = (cod) => {
       const obra = await getCollection({
         collectionName: "Obras",
         key: "cod",
+        operator: '==',
         value: Number(cod),
       });
       dispatch(getCurrentObra(obra[0]));
