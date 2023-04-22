@@ -37,7 +37,7 @@ const DetailObra = ({ op = 0, info }) => {
                       alt=""
                       className="img_carousel"
                       style={{
-                        height: "300px",
+                        height: "310px",
                         objectFit: "cover",
                         borderRadius: "8px",
                       }}
@@ -82,18 +82,17 @@ const DetailObra = ({ op = 0, info }) => {
         </div>
       ) : op === 1 ? (
         <div className="dataContainer">
-          <div className="data">
-            <MapContainer lat={6.2425332} lng={-75.5745005} />
+          <div className="dataMapa">
+            <MapContainer lat={6.2425332} lng={-75.5745005} className='mapa'/>
           </div>
         </div>
       ) : (
         <div className="dataContainer">
-          <div className="data">
+          <div className="data aditionalInfo">
             <h4>Información adicional</h4>
             <p>
               El uso del tapacocas tanto dentro como fuera de la sala no es
               obligatorio.
-              <br />
               <br />
               Recuerda llegar al teatro con un mínimo de 15 minutos antes de la
               funsión.

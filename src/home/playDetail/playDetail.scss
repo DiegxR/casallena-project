@@ -49,6 +49,12 @@
     border-radius: 10px;
     height: 200px;
   }
+
+  .playDetail_txt{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
 }
 
 .dataContainer {
@@ -65,14 +71,18 @@
       align-items: center;
       .rectangle {
         width: 30px;
-        height: 10px;
+        height: 13px;
         background-color: $main_color;
-        transform: translateY(15px);
+        transform: translateY(19px);
       }
       .hideRectangle {
         display: none;
       }
     }
+  }
+  hr{
+    height: 6px;
+    background-color: black;
   }
   .data {
     gap: 10px;
@@ -84,6 +94,13 @@
       border-radius: 5px;
     }
   }
+
+  .aditionalInfo{
+    margin-top: 20px;
+    height: 30vh;
+    
+  }
+
   .data_DDGA {
     margin-bottom: 30px;
     color: red;

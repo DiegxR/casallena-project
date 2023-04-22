@@ -24,10 +24,10 @@
   }
 }
 
-.data{
+.dataMapa{
   display: flex;
-  justify-content: center;
-  padding: 40px 0px;
+  padding: 20px 0px;
+  height: 90vh;
 }
 
 
@@ -38,7 +38,7 @@
     align-items: center;
   }
   .carousel__detail{
-    width: 140%;
+    width: 190%;
   }
 
   .data{
