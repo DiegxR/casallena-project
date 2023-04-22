@@ -93,6 +93,9 @@ const Card = ({ type, data }) => {
               children={showDesc(data.desc)}
               width={width >= 768 ? "150px" : "137px"}
             />
+            <article className="secFavCard2">
+              <AiOutlineHeart className="iconHeart secIcons" />
+            </article>
             {data.price === 0 ? (
               <IoIosInformationCircle
                 className="iconInfo"
