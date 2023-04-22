@@ -13,6 +13,7 @@ import Swal from "sweetalert2";
 import { getCenterSlidePercentage } from "../../services/resizeCarrusel";
 import InputFilter from "../../components/inputFilter/InputFilter";
 import ModalAporte from "../../components/modalAporte/ModalAporte";
+import CardLoading from "../../components/cardLoading/CardLoading";
 
 const Inicio = () => {
   const [sizeCarrusel, setSizeCarrusel, showModal, setShowModal] = useState(0);
@@ -70,36 +71,43 @@ const Inicio = () => {
               interval={3000}
               infiniteLoop={true}
             >
-              {obras ? (
-                obras.map((item, index) => {
-                  if (item.score >= 4) {
-                    return (
-                      <motion.div whileTap={{ scale: 0.9 }} key={index}>
-                        <Card type={3} data={item} />
-                      </motion.div>
-                    );
-                  }
-                })
-              ) : (
-                <></>
-              )}
+              {obras
+                ? obras.map((item, index) => {
+                    if (item.score >= 4) {
+                      return (
+                        <motion.div whileTap={{ scale: 0.9 }} key={index}>
+                          <Card type={3} data={item} />
+                        </motion.div>
+                      );
+                    }
+                  })
+                : [...Array(20)].map(() => (
+                    <CardLoading
+                      width={width < 768 ? "250px" : "600px"}
+                      height={width < 768 ? "200px" : "400px"}
+                    />
+                  ))}
             </Carousel>
           </section>
 
           <motion.div className="secInicio__sec2">
-            {obras ? (
-              obras.map((item, index) => (
-                <motion.div
-                  style={{ width: `${width < 768 ? "100%" : "330px"}` }}
-                  whileHover={{ translateY: -5 }}
-                  key={index}
-                >
-                  <Card type={2} data={item} />
-                </motion.div>
-              ))
-            ) : (
-              <></>
-            )}
+            {obras
+              ? obras.map((item, index) => (
+                  <motion.div
+                    style={{ width: `${width < 768 ? "100%" : "330px"}` }}
+                    whileHover={{ translateY: -5 }}
+                    key={index}
+                  >
+                    <Card type={2} data={item} />
+                  </motion.div>
+                ))
+              : [...Array(30)].map((item, index) => (
+                  <CardLoading
+                    key={index}
+                    width={width < 768 ? "100%" : "300px"}
+                    height={width < 768 ? "184px" : "350px"}
+                  />
+                ))}
           </motion.div>
         </main>
       )}

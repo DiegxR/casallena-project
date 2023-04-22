@@ -11,17 +11,17 @@ import { getCurrentObraAsync } from "../../redux/actions/obrasActions";
 import Swal from "sweetalert2";
 
 const PlayDetail = () => {
-  const { cod } = useParams()
-  const dispatch = useDispatch()
-  const { currentObra } = useSelector(store => store.obras)
+  const { cod } = useParams();
+  const dispatch = useDispatch();
+  const { currentObra } = useSelector((store) => store.obras);
   useEffect(() => {
-    dispatch(getCurrentObraAsync(cod))
-  }, [])
+    dispatch(getCurrentObraAsync(cod));
+  }, []);
   useEffect(() => {
-    if(currentObra.id){
-      setCurrentInfo(currentObra.data[0])
+    if (currentObra.id) {
+      setCurrentInfo(currentObra.data[0]);
     }
-  }, [currentObra])
+  }, [currentObra]);
 
   const navigate = useNavigate();
   const [currentOpt, setCurrentOpt] = useState(0);
@@ -31,71 +31,77 @@ const PlayDetail = () => {
     const currentURL = window.location.href;
     navigator.clipboard.writeText(currentURL);
     Swal.fire({
-      title: 'Link de la obra copiado',
-      text: '¡Puedes compartilo con tus amigos!',
-      color: '#fff',
-      background: '#0d1314',
-      confirmButtonColor: '#d80416',
-      confirmButtonText: 'Continuar',
-      icon: 'success'
-    })
+      title: "Link de la obra copiado",
+      text: "¡Puedes compartilo con tus amigos!",
+      color: "#fff",
+      background: "#0d1314",
+      confirmButtonColor: "#d80416",
+      confirmButtonText: "Continuar",
+      icon: "success",
+    });
   };
   return (
     <>
-    {currentObra.id ? 
-    <section className="PlayDetailSec" style={{backgroundImage: `url(${currentObra.img})`}}>
-      <div className="arrows">
-        <BiArrowBack onClick={() => navigate(-1)} className="arrowLeft" />
-        <GiShare onClick={copyURLToClipboard} className="arrowLeft" />
-      </div>
-
-      <div className="playDetailContainer">
-        <div className="playDetail">
-          <img
-            src={currentObra.imgPost}
-            alt=""
-            className="playDetail_img"
-          />
-          <div className="playDetail_txt">
-            <p className="pDiscount">50% estudiantes</p>
-            <h1>{currentObra.name}</h1>
-            <p>
-              {currentObra.description}
-            </p>
+      {currentObra.id ? (
+        <section
+          className="PlayDetailSec"
+          style={{ backgroundImage: `url(${currentObra.imgDetail})` }}
+        >
+          <div className="arrows">
+            <BiArrowBack onClick={() => navigate(-1)} className="arrowLeft" />
+            <GiShare onClick={copyURLToClipboard} className="arrowLeft" />
           </div>
-        </div>
 
-        <div className="dataContainer">
-          <div className="data_options">
-            {currentObra.data.map((item, index) => (
-              <section
-                key={index}
-                className={`data_title`}
-                onClick={() => {
-                  setCurrentOpt(item.cod);
-                  setCurrentInfo(item);
-                }}
-              >
-                <h3>{item.name}</h3>
-                <div
-                  className={`rectangle ${currentOpt === item.cod ? "" : "hideRectangle"
-                    }`}
-                ></div>
-              </section>
-            ))}
+          <div className="playDetailContainer">
+            <div className="playDetail">
+              <img
+                src={currentObra.imgPost}
+                alt=""
+                className="playDetail_img"
+              />
+              <div className="playDetail_txt">
+                <p className="pDiscount">50% estudiantes</p>
+                <h1>{currentObra.name}</h1>
+                <p>{currentObra.description}</p>
+              </div>
+            </div>
+
+            <div className="dataContainer">
+              <div className="data_options">
+                {currentObra.data.map((item, index) => (
+                  <section
+                    key={index}
+                    className={`data_title`}
+                    onClick={() => {
+                      setCurrentOpt(item.cod);
+                      setCurrentInfo(item);
+                    }}
+                  >
+                    <h3>{item.name}</h3>
+                    <div
+                      className={`rectangle ${
+                        currentOpt === item.cod ? "" : "hideRectangle"
+                      }`}
+                    ></div>
+                  </section>
+                ))}
+              </div>
+              <hr />
+              <DetailObra
+                op={currentOpt}
+                info={currentInfo}
+                value={currentObra}
+              />
+            </div>
           </div>
-          <hr />
-          <DetailObra op={currentOpt} info={currentInfo} value={currentObra} />
-        </div>
-      </div>
-      <div className="reservation">
-        <p>No te quedes afuera</p>
-        <button className="registerSec__btn">RESERVAR AHORA</button>
-      </div>
-    </section> 
-    :
-    <></>
-    }
+          <div className="reservation">
+            <p>No te quedes afuera</p>
+            <button className="registerSec__btn">RESERVAR AHORA</button>
+          </div>
+        </section>
+      ) : (
+        <></>
+      )}
     </>
   );
 };
