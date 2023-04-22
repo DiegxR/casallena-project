@@ -47,6 +47,20 @@
 .CardObra {
   @extend .Card;
   width: 100%;
+  .secFavCard2 {
+    position: absolute;
+    width: 100%;
+    width: 25px;
+    height: 25px;
+    color: v.$primary_black;
+    transform: translate(5px, 90px);
+    background-color: v.$white_color;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
 
   &__sec1 {
     width: 100%;
@@ -190,6 +204,10 @@
 
   .CardObra {
     height: 350px;
+    .secFavCard2 {
+      position: absolute;
+      transform: translate(5px, 240px);
+    }
 
     &__sec1 {
       height: 270px;

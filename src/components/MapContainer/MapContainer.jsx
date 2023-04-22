@@ -1,16 +1,22 @@
-import React from 'react';
-import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
-import logo from '../../assets/logo.svg'
+import React from "react";
+import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
+import logo from "../../assets/logo.svg";
 
-const MapContainer = ({ google, lat, lng}) => {
- 
+const MapContainer = ({ google, lat, lng }) => {
   const mapStyles = {
-    width: '90%',
-    height: '85%',
-    alignSelf: 'center',
-    borderRadius: '12px'
+    width: "100%",
+    height: "100%",
+    position: "static",
+    margin: 0,
+    padding: 0,
+    borderRadius: "12px",
   };
- 
+  const containerStyle = {
+    position: "relative",
+    width: "100%",
+    height: "300px",
+  };
+
   return (
     <Map
       google={google}
@@ -18,21 +24,21 @@ const MapContainer = ({ google, lat, lng}) => {
       style={mapStyles}
       initialCenter={{
         lat: lat,
-        lng: lng
+        lng: lng,
       }}
+      containerStyle={containerStyle}
     >
       <Marker
         position={{
           lat: lat,
-          lng: lng
+          lng: lng,
         }}
         icon={<img src={logo} alt="" />}
       />
     </Map>
   );
-}
-
+};
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyCZQEhH1g1CC4UoeyXk-7xsk8uJdL8CQSM'
+  apiKey: "AIzaSyCZQEhH1g1CC4UoeyXk-7xsk8uJdL8CQSM",
 })(MapContainer);
