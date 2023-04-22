@@ -31,7 +31,7 @@ const Perfil = () => {
     {user.name ? <main className="perfil">
       <section className="perfil_container">
         <section className="perfil_header">
-          <img src={user.photo} alt="" />
+          <img src={user.photo} alt=""  />
           <h2>{user.name}</h2>
           <button onClick={handleLogout}>CERRAR SESIÓN</button>
         </section>

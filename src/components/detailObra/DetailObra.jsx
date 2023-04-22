@@ -7,16 +7,15 @@ import { FaTheaterMasks } from "react-icons/fa";
 import { BsPersonSquare } from "react-icons/bs";
 import MapContainer from "../MapContainer/MapContainer";
 
-const DetailObra = ({ op = 0, info }) => {
+const DetailObra = ({ op = 0, info, value }) => {
+  console.log(info, value)
   return (
     <>
       {op === 0 ? (
         <div className="data" style={{ width: "100%" }}>
           <div className="datatxtSlider">
           <p>
-            Pieza corta en dos actos que narra la historia de tres amigos y un
-            sirviente que, luego de encontrarse en una glamurosa fiesta,
-            descubren el cadáver de su anfitrión
+            {info.description}
           </p>
           <section className="carousel__detail">
             {info.img ? (
@@ -54,28 +53,28 @@ const DetailObra = ({ op = 0, info }) => {
             <div className="data_DDGA--item">
               <AiOutlineClockCircle />
               <p>
-                <span>Duración: </span> 105 min
+                <span>Duración: </span> {value?.data[0].duration} min
               </p>
             </div>
 
             <div className="data_DDGA--item">
               <AiOutlineCalendar />
               <p>
-                <span>Fecha de inicio: </span> 8 de junio 2022
+                <span>{value?.dates.length > 1 ? 'Fechas disponibles:': 'Fecha disponible:'} </span> {value.dates.map((item, ind)=>(`${item.date}${ind+1 == value.dates.length ? '.' : ', '}`))}
               </p>
             </div>
 
             <div className="data_DDGA--item">
               <FaTheaterMasks />
               <p>
-                <span>Género: </span> Dramático
+                <span>Género: </span> {value.gender}
               </p>
             </div>
 
             <div className="data_DDGA--item">
               <BsPersonSquare />
               <p>
-                <span>Edad: </span> Niños desde los 10 años en adelante
+                <span>Edad: </span> {value.data[0].age == 1 ? 'Mayores de edad' : 'Para todo público'}
               </p>
             </div>
           </div>

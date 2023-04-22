@@ -17,17 +17,7 @@ import ModalAporte from "../../components/modalAporte/ModalAporte";
 const Inicio = () => {
   const [sizeCarrusel, setSizeCarrusel, showModal, setShowModal] = useState(0);
   const { width, filterButton } = useContext(Appcontext);
-  const { user } = useSelector((store) => store.user);
   const { obras } = useSelector((store) => store.obras);
-  useEffect(() => {
-    Swal.fire({
-      title: `Bienvenido ${user.name}`,
-      color: "#fff",
-      background: "#0d1314",
-      confirmButtonColor: "#d80416",
-      confirmButtonText: "Continuar",
-    });
-  }, []);
 
   useEffect(() => {
     let size = getCenterSlidePercentage(width >= 768 ? 600 : 300, width, 1);

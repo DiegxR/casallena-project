@@ -16,7 +16,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
 import { getUserCollection } from "../services/getUser";
 import { loginUser } from "../redux/actions/userActions";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { loadTeatrosAsync } from "../redux/actions/teatrosActions";
 import { getFilters, getObras } from "../redux/actions/obrasActions";
 import { getCenterSlidePercentage } from "../services/resizeCarrusel";
