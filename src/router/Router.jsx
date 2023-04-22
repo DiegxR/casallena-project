@@ -20,6 +20,7 @@ import { useDispatch } from "react-redux";
 import { loadTeatrosAsync } from "../redux/actions/teatrosActions";
 import { getFilters, getObras } from "../redux/actions/obrasActions";
 import { getCenterSlidePercentage } from "../services/resizeCarrusel";
+import NoAuth from "../components/noAuth/NoAuth";
 
 export const Appcontext = createContext({});
 
@@ -90,6 +91,7 @@ const Router = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/detail/:cod" element={<PlayDetail />} />
           <Route path="/photouser" element={<LoadPhotoUser />} />
+          <Route path="/noauth" element={<NoAuth />} />
         </Routes>
       </BrowserRouter>
     </Appcontext.Provider>

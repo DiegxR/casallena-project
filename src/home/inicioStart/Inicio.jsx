@@ -19,15 +19,18 @@ const Inicio = () => {
   const [sizeCarrusel, setSizeCarrusel, showModal, setShowModal] = useState(0);
   const { width, filterButton } = useContext(Appcontext);
   const { obras } = useSelector((store) => store.obras);
+  const { user } = useSelector((store) => store.user);
 
   useEffect(() => {
     let size = getCenterSlidePercentage(width >= 768 ? 600 : 300, width, 1);
     setSizeCarrusel(size);
-    
   }, [width]);
   useEffect(() => {
     console.log(showModal);
   }, [showModal]);
+  useEffect(() => {
+    console.log(user);
+  }, []);
 
   return (
     <motion.div
