@@ -51,12 +51,12 @@
     height: 120px;
     display: flex;
     align-items: start;
-    justify-content: start;
+    justify-content: space-between;
+
     transform: translateY(-5px);
     .iconInfo {
       font-size: 30px;
-      position: absolute;
-      transform: translate(310px, 15px);
+      transform: translate(-10px, 15px);
       cursor: pointer;
     }
   }
@@ -191,9 +191,6 @@
 
     &__sec1 {
       height: 270px;
-      .iconInfo {
-        transform: translate(285px, 20px);
-      }
     }
     &__sec2 {
       height: 80px;
@@ -233,9 +230,7 @@
 @media (min-width: 992px) {
   .CardObra {
     width: 300px;
-    .iconInfo {
-      transform: translate(260px, 15px);
-    }
+
     &__sec2 {
       padding: 10px 15px;
 

@@ -9,6 +9,8 @@ import Search from "../home/search/Search";
 import Menu from "../home/menu/Menu";
 import Register from "../login/register/Register";
 import PlayDetail from "../home/playDetail/PlayDetail";
+import Favorites from "../home/favorites/Favorites";
+import Reservations from "../home/reservations/Reservations";
 import LoadPhotoUser from "../login/register/loadPhotoUser/LoadPhotoUser";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
@@ -33,6 +35,8 @@ const Router = () => {
   );
 
   const [width, setwidth] = useState(window.innerWidth);
+  const [showModal, setShowModal] = useState(false);
+
   const dispatch = useDispatch();
   useEffect(() => {
     const resizeCarrusel = () => {
@@ -46,8 +50,8 @@ const Router = () => {
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
       if (user) {
-        const currentUser = await getUserCollection(user.uid)
-        dispatch(loginUser(currentUser, { status: false, message: '' }))
+        const currentUser = await getUserCollection(user.uid);
+        dispatch(loginUser(currentUser, { status: false, message: "" }));
       } else {
       }
     });
@@ -68,6 +72,8 @@ const Router = () => {
         setFilterButton,
         width,
         formatterPeso,
+        showModal,
+        setShowModal,
       }}
     >
       <BrowserRouter>
@@ -76,6 +82,8 @@ const Router = () => {
           <Route path="/login" element={<SignIn />} />
           <Route path="/home" element={<Inicio />} />
           <Route path="/comunity" element={<Comunity />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/reservations" element={<Reservations />} />
           <Route path="/profile" element={<Perfil />} />
           <Route path="/search" element={<Search />} />
           <Route path="/menu" element={<Menu />} />

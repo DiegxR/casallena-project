@@ -1,17 +1,35 @@
-import React from "react";
+import { React, useContext } from "react";
 import { motion } from "framer-motion";
 import { BiHappyBeaming } from "react-icons/bi";
+import "./styleModalAporte.scss";
+import { Appcontext } from "../../router/Router";
 
 const ModalAporte = () => {
+  const { showModal, setShowModal } = useContext(Appcontext);
+  const animation = {
+    hidden: { opacity: 0, y: "-100%" },
+    visible: { opacity: 1, y: "0%" },
+  };
+
   return (
-    <motion.div className="secModal">
+    <motion.div
+      className={`secModal `}
+      initial="hidden"
+      animate={showModal ? "visible" : "hidden"}
+      variants={animation}
+      transition={{ duration: 0.3 }}
+      id="modalAporte"
+    >
       <article className="secModal__Card">
-        <p>
-          El aporte voluntario permite que los artistas puedan ingresar a las
-          funciones dando un aporte que logre veneficiar al artista y su público
-        </p>
-        <BiHappyBeaming />
-        <button>Comprendo</button>
+        <p>Este aporte permite disfrutar el arte sin una tarifa estricta</p>
+        <BiHappyBeaming className="icon" />
+        <button
+          onClick={() => {
+            setShowModal(false);
+          }}
+        >
+          Comprendo
+        </button>
       </article>
     </motion.div>
   );
