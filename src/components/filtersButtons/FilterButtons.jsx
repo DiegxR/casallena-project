@@ -9,18 +9,20 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import logo from "../../assets/logo.svg";
 import { motion } from "framer-motion";
 import { getCenterSlidePercentage } from "../../services/resizeCarrusel";
+import { useDispatch } from "react-redux";
+import { getObras } from "../../redux/actions/obrasActions";
 
-const FilterButtons = ({ position = 0 }) => {
+const FilterButtons = () => {
   const { filterButton, setFilterButton, width } = useContext(Appcontext);
 
   const { filters } = useSelector((store) => store.obras);
   const [show, setShow] = useState(false);
-  const [background, setBackground] = useState("#0d1314");
   const [resize, setResize] = useState(100);
 
   const actionFilter = (item) => {
-    setFilterButton(item.id);
+    setFilterButton(item.cod);
   };
+  const dispatch = useDispatch();
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -39,6 +41,250 @@ const FilterButtons = ({ position = 0 }) => {
     const size = getCenterSlidePercentage(150, width);
     setResize(size);
   }, [width]);
+
+  useEffect(() => {
+    switch (filterButton) {
+      case 0:
+        dispatch(
+          getObras({
+            collectionName: "Obras",
+            key: "price",
+            operator: "==",
+            value: 0,
+          })
+        );
+        break;
+      case 1:
+        const date = new Date();
+        const getYear = date.toLocaleString("default", { year: "numeric" });
+        const getMonth = date.toLocaleString("default", { month: "2-digit" });
+        const getday = date.toLocaleString("default", { day: "2-digit" });
+        const currentDate = `${getday}/${getMonth}/${getYear}`;
+        dispatch(
+          getObras({
+            collectionName: "Obras",
+            key: "dates",
+            value: currentDate,
+            operator: "array-contains",
+          })
+        );
+        break;
+      case 3:
+        dispatch(
+          getObras({
+            collectionName: "Obras",
+            key: "price",
+            operator: ">",
+            value: 14900,
+          })
+        );
+        break;
+      case 4:
+        dispatch(
+          getObras({
+            collectionName: "Obras",
+            key: "price",
+            operator: ">",
+            value: 29900,
+          })
+        );
+        break;
+      case 5:
+        dispatch(
+          getObras({
+            collectionName: "Obras",
+            key: "price",
+            operator: ">",
+            value: 59900,
+          })
+        );
+        break;
+      case 6:
+        dispatch(
+          getObras({
+            collectionName: "Obras",
+            key: "gender",
+            operator: "==",
+            value: 6,
+          })
+        );
+        break;
+      case 7:
+        dispatch(
+          getObras({
+            collectionName: "Obras",
+            key: "gender",
+            operator: "==",
+            value: 7,
+          })
+        );
+        break;
+      case 8:
+        dispatch(
+          getObras({
+            collectionName: "Obras",
+            key: "gender",
+            operator: "==",
+            value: 8,
+          })
+        );
+        break;
+      case 9:
+        dispatch(
+          getObras({
+            collectionName: "Obras",
+            key: "gender",
+            operator: "==",
+            value: 9,
+          })
+        );
+        break;
+      case 10:
+        dispatch(
+          getObras({
+            collectionName: "Obras",
+            key: "gender",
+            operator: "==",
+            value: 10,
+          })
+        );
+        break;
+      case 11:
+        dispatch(
+          getObras({
+            collectionName: "Obras",
+            key: "gender",
+            operator: "==",
+            value: 11,
+          })
+        );
+        break;
+      case 12:
+        dispatch(
+          getObras({
+            collectionName: "Obras",
+            key: "gender",
+            operator: "==",
+            value: 12,
+          })
+        );
+        break;
+      case 13:
+        dispatch(
+          getObras({
+            collectionName: "Obras",
+            key: "gender",
+            operator: "==",
+            value: 13,
+          })
+        );
+        break;
+      case 14:
+        dispatch(
+          getObras({
+            collectionName: "Obras",
+            key: "gender",
+            operator: "==",
+            value: 14,
+          })
+        );
+        break;
+      case 15:
+        dispatch(
+          getObras({
+            collectionName: "Obras",
+            key: "gender",
+            operator: "==",
+            value: 15,
+          })
+        );
+        break;
+      case 16:
+        dispatch(
+          getObras({
+            collectionName: "Obras",
+            key: "gender",
+            operator: "==",
+            value: 16,
+          })
+        );
+        break;
+      case 17:
+        dispatch(
+          getObras({
+            collectionName: "Obras",
+            key: "gender",
+            operator: "==",
+            value: 17,
+          })
+        );
+        break;
+      case 18:
+        dispatch(
+          getObras({
+            collectionName: "Obras",
+            key: "gender",
+            operator: "==",
+            value: 18,
+          })
+        );
+        break;
+      case 19:
+        dispatch(
+          getObras({
+            collectionName: "Obras",
+            key: "gender",
+            operator: "==",
+            value: 19,
+          })
+        );
+        break;
+      case 20:
+        dispatch(
+          getObras({
+            collectionName: "Obras",
+            key: "gender",
+            operator: "==",
+            value: 20,
+          })
+        );
+        break;
+      case 21:
+        dispatch(
+          getObras({
+            collectionName: "Obras",
+            key: "gender",
+            operator: "==",
+            value: 21,
+          })
+        );
+        break;
+      case 22:
+        dispatch(
+          getObras({
+            collectionName: "Obras",
+            key: "gender",
+            operator: "==",
+            value: 22,
+          })
+        );
+        break;
+      case 23:
+        dispatch(
+          getObras({
+            collectionName: "Obras",
+            key: "gender",
+            operator: "==",
+            value: 23,
+          })
+        );
+        break;
+      default:
+        dispatch(getObras({ collectionName: "Obras", key: "", value: "" }));
+        break;
+    }
+    console.log(filterButton);
+  }, [filterButton]);
 
   return (
     <>
@@ -59,6 +305,9 @@ const FilterButtons = ({ position = 0 }) => {
                 onClick={() => {
                   setFilterButton(-1);
                   setShow(false);
+                  dispatch(
+                    getObras({ collectionName: "Obras", key: "", value: "" })
+                  );
                 }}
               />
             </motion.div>
@@ -82,22 +331,26 @@ const FilterButtons = ({ position = 0 }) => {
             centerMode={true}
             centerSlidePercentage={resize}
           >
-            {filters.map((item, index) => {
-              return (
-                <motion.div whileTap={{ scale: 0.9 }} key={index}>
-                  <Button
-                    key={index}
-                    children={item.option}
-                    style={filterButton === item.id ? 2 : 1}
-                    width={"150px"}
-                    action={() => {
-                      actionFilter(item);
-                      setShow(true);
-                    }}
-                  />
-                </motion.div>
-              );
-            })}
+            {filters ? (
+              filters.map((item, index) => {
+                return (
+                  <motion.div whileTap={{ scale: 0.9 }} key={index}>
+                    <Button
+                      key={index}
+                      children={item.option}
+                      style={filterButton === item.cod ? 2 : 1}
+                      width={"150px"}
+                      action={() => {
+                        actionFilter(item);
+                        setShow(true);
+                      }}
+                    />
+                  </motion.div>
+                );
+              })
+            ) : (
+              <></>
+            )}
           </Carousel>
         </section>
       </section>

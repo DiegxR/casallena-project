@@ -16,13 +16,17 @@ const loadFilters = (data) => {
 };
 
 export const getObras = (data) => {
+  console.log(data);
   return async (dispatch) => {
+    const opt = data.operator ? data.operator : "==";
     try {
       const docs = await getCollection({
         collectionName: data.collectionName,
+        operator: opt,
         key: data.key,
         value: data.value,
       });
+
       dispatch(loadObras(docs));
     } catch (error) {
       notify("Ocurrió un error por " + error, "#d80416", "#d80416");
@@ -47,21 +51,25 @@ export const getFilters = (data) => {
   };
 };
 
-const getCurrentObra = (obra) =>{
+const getCurrentObra = (obra) => {
   return {
     type: dataTypes.UPDATE_OBRA,
-    payload: obra
-  }
-}
+    payload: obra,
+  };
+};
 
-export const getCurrentObraAsync = (cod) =>{
-  return async(dispatch) =>{
+export const getCurrentObraAsync = (cod) => {
+  return async (dispatch) => {
     try {
-      const obra = await getCollection({collectionName: 'Obras', key: 'cod', value: Number(cod)})
-      dispatch(getCurrentObra(obra[0]))
-      console.log(obra)
+      const obra = await getCollection({
+        collectionName: "Obras",
+        key: "cod",
+        value: Number(cod),
+      });
+      dispatch(getCurrentObra(obra[0]));
+      console.log(obra);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
-}
+  };
+};

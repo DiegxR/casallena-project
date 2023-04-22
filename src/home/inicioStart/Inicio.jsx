@@ -12,32 +12,38 @@ import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { getCenterSlidePercentage } from "../../services/resizeCarrusel";
 import InputFilter from "../../components/inputFilter/InputFilter";
+import ModalAporte from "../../components/modalAporte/ModalAporte";
 
 const Inicio = () => {
-  const [sizeCarrusel, setSizeCarrusel] = useState(0);
+  const [sizeCarrusel, setSizeCarrusel, showModal, setShowModal] = useState(0);
   const { width, filterButton } = useContext(Appcontext);
   const { user } = useSelector((store) => store.user);
   const { obras } = useSelector((store) => store.obras);
   useEffect(() => {
-    Swal.fire({ 
+    Swal.fire({
       title: `Bienvenido ${user.name}`,
-      color: '#fff',
-    background: '#0d1314',
-      confirmButtonColor: '#d80416',
-      confirmButtonText: 'Continuar'})
-  }, [])
-  
+      color: "#fff",
+      background: "#0d1314",
+      confirmButtonColor: "#d80416",
+      confirmButtonText: "Continuar",
+    });
+  }, []);
+
   useEffect(() => {
     let size = getCenterSlidePercentage(width >= 768 ? 600 : 300, width, 1);
     setSizeCarrusel(size);
   }, [width]);
+  useEffect(() => {
+    console.log(showModal);
+  }, [showModal]);
 
   return (
     <motion.div
-    initial={{opacity: -1}}
-    transition={{duration: 0.6}}
-    animate={{opacity: 1}}
+      initial={{ opacity: -1 }}
+      transition={{ duration: 0.6 }}
+      animate={{ opacity: 1 }}
     >
+      <ModalAporte isOpen={showModal} Onclose={setShowModal} />
       <section className="navbarSticky">
         <InputFilter />
         <FilterButtons />
@@ -50,7 +56,6 @@ const Inicio = () => {
               <motion.div
                 style={{ width: `${width < 768 ? "100%" : "330px"}` }}
                 whileHover={{ translateY: -5 }}
-                whileTap={{ scale: 0.9 }}
                 key={index}
               >
                 <Card type={2} data={item} />
