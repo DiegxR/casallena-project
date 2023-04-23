@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./stylesFooter.scss";
 //Importación de iconografia
 import { BsFillHouseDoorFill } from "react-icons/bs";
+import { BsFillChatHeartFill } from "react-icons/bs";
+import { BsFillCalendarCheckFill } from "react-icons/bs";
 import { GoSearch } from "react-icons/go";
 
 import { FaUser } from "react-icons/fa";
@@ -16,9 +18,20 @@ const FooterMenu = () => {
       option: "Inicio",
       path: "/home",
     },
-
     {
       id: 1,
+      icon: <BsFillChatHeartFill className="iconFooter" />,
+      option: "Favoritos",
+      path: "/favorites",
+    },
+    {
+      id: 2,
+      icon: <BsFillCalendarCheckFill className="iconFooter" />,
+      option: "Reservas",
+      path: "/reservations",
+    },
+    {
+      id: 3,
       icon: <FaUser className="iconFooter" />,
       option: "Perfil",
       path: "/profile",

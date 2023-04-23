@@ -53,6 +53,14 @@ export const userReducer = (state = initialState, action)=>{
                 },
                 error: {...action.payload.error}
             }
+        case userTypes.HANDLE_FAVORITES:
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    favorites: [...action.payload]
+                }
+            }
         default:
             return state;
     }

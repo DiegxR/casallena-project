@@ -1,10 +1,7 @@
 @import "../../vars.scss";
 .carousel__detail {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-  
+  width: 100%;
+  padding: 20px 0;
 }
 
 .data_DDGA {
@@ -26,22 +23,21 @@
 
 .dataMapa{
   display: flex;
-  padding: 20px 0px;
-  height: 90vh;
+  justify-content: center;
+  padding: 40px 0px;
 }
 
-
-@media (min-width: 800px){
-  .datatxtSlider{
+@media (min-width: 800px) {
+  .datatxtSlider {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
   }
   .carousel__detail{
-    width: 190%;
+    width: 140%;
   }
 
-  .data{
+  .data {
     display: flex;
   }
 }

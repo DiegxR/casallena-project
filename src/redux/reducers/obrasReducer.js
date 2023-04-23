@@ -3,7 +3,7 @@ import { dataTypes } from "../types/dataTypes";
 const initialState = {
   obras: [],
   filters: [],
-  currentObra: {}
+  currentObra: {},
 };
 
 export const obrasReducer = (state = initialState, action) => {
@@ -15,15 +15,16 @@ export const obrasReducer = (state = initialState, action) => {
       };
 
     case dataTypes.LOAD_FILTERS:
+      const filtersOrder = action.payload.sort((a, b) => a.cod - b.cod);
       return {
         ...state,
-        filters: [...action.payload],
+        filters: filtersOrder,
       };
     case dataTypes.UPDATE_OBRA:
       return {
         ...state,
-        currentObra: action.payload
-      }
+        currentObra: action.payload,
+      };
     default:
       return state;
   }

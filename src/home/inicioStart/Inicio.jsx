@@ -12,32 +12,30 @@ import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { getCenterSlidePercentage } from "../../services/resizeCarrusel";
 import InputFilter from "../../components/inputFilter/InputFilter";
+import ModalAporte from "../../components/modalAporte/ModalAporte";
+import CardLoading from "../../components/cardLoading/CardLoading";
 
 const Inicio = () => {
-  const [sizeCarrusel, setSizeCarrusel] = useState(0);
+  const [sizeCarrusel, setSizeCarrusel, showModal, setShowModal] = useState(0);
   const { width, filterButton } = useContext(Appcontext);
-  const { user } = useSelector((store) => store.user);
   const { obras } = useSelector((store) => store.obras);
-  useEffect(() => {
-    Swal.fire({ 
-      title: `Bienvenido ${user.name}`,
-      color: '#fff',
-    background: '#0d1314',
-      confirmButtonColor: '#d80416',
-      confirmButtonText: 'Continuar'})
-  }, [])
-  
+
   useEffect(() => {
     let size = getCenterSlidePercentage(width >= 768 ? 600 : 300, width, 1);
     setSizeCarrusel(size);
+    
   }, [width]);
+  useEffect(() => {
+    console.log(showModal);
+  }, [showModal]);
 
   return (
     <motion.div
-    initial={{opacity: -1}}
-    transition={{duration: 0.6}}
-    animate={{opacity: 1}}
+      initial={{ opacity: -1 }}
+      transition={{ duration: 0.6 }}
+      animate={{ opacity: 1 }}
     >
+      <ModalAporte isOpen={showModal} Onclose={setShowModal} />
       <section className="navbarSticky">
         <InputFilter />
         <FilterButtons />
@@ -50,7 +48,6 @@ const Inicio = () => {
               <motion.div
                 style={{ width: `${width < 768 ? "100%" : "330px"}` }}
                 whileHover={{ translateY: -5 }}
-                whileTap={{ scale: 0.9 }}
                 key={index}
               >
                 <Card type={2} data={item} />
@@ -75,36 +72,43 @@ const Inicio = () => {
               interval={3000}
               infiniteLoop={true}
             >
-              {obras ? (
-                obras.map((item, index) => {
-                  if (item.score >= 4) {
-                    return (
-                      <motion.div whileTap={{ scale: 0.9 }} key={index}>
-                        <Card type={3} data={item} />
-                      </motion.div>
-                    );
-                  }
-                })
-              ) : (
-                <></>
-              )}
+              {obras
+                ? obras.map((item, index) => {
+                    if (item.score >= 4) {
+                      return (
+                        <motion.div whileTap={{ scale: 0.9 }} key={index}>
+                          <Card type={3} data={item} />
+                        </motion.div>
+                      );
+                    }
+                  })
+                : [...Array(20)].map(() => (
+                    <CardLoading
+                      width={width < 768 ? "250px" : "600px"}
+                      height={width < 768 ? "200px" : "400px"}
+                    />
+                  ))}
             </Carousel>
           </section>
 
           <motion.div className="secInicio__sec2">
-            {obras ? (
-              obras.map((item, index) => (
-                <motion.div
-                  style={{ width: `${width < 768 ? "100%" : "330px"}` }}
-                  whileHover={{ translateY: -5 }}
-                  key={index}
-                >
-                  <Card type={2} data={item} />
-                </motion.div>
-              ))
-            ) : (
-              <></>
-            )}
+            {obras
+              ? obras.map((item, index) => (
+                  <motion.div
+                    style={{ width: `${width < 768 ? "100%" : "330px"}` }}
+                    whileHover={{ translateY: -5 }}
+                    key={index}
+                  >
+                    <Card type={2} data={item} />
+                  </motion.div>
+                ))
+              : [...Array(30)].map((item, index) => (
+                  <CardLoading
+                    key={index}
+                    width={width < 768 ? "100%" : "300px"}
+                    height={width < 768 ? "184px" : "350px"}
+                  />
+                ))}
           </motion.div>
         </main>
       )}

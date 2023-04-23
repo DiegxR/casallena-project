@@ -29,3 +29,14 @@
     color: v.$gray_font;
   }
 }
+
+@media (min-width: 992px) {
+  .secInputFilter {
+    input {
+      width: 500px;
+    }
+    .iconInput {
+      display: none;
+    }
+  }
+}

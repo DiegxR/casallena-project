@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./stylesCards.scss";
 import Button from "../button/Button";
 import { AiOutlineHeart } from "react-icons/ai";
@@ -9,9 +9,11 @@ import { useSelector } from "react-redux";
 import { IoIosInformationCircle } from "react-icons/io";
 
 const Card = ({ type, data }) => {
-  const { formatterPeso } = useContext(Appcontext);
+  const { formatterPeso, setShowModal } = useContext(Appcontext);
   const { width } = useContext(Appcontext);
   const { teatros } = useSelector((store) => store.teatros);
+  const { user } = useSelector((store) => store.user);
+  console.log(data)
   const obtainInfoTeatro = (id) => {
     let teaInfo = [];
     if (teatros.length > 0) {
@@ -88,16 +90,24 @@ const Card = ({ type, data }) => {
           }}
         >
           <article className="CardObra__sec1">
-            {data.price === 0 ? (
-              <IoIosInformationCircle className="iconInfo" />
-            ) : (
-              <></>
-            )}
             <Button
               style={4}
               children={showDesc(data.desc)}
               width={width >= 768 ? "150px" : "137px"}
             />
+            <article className="secFavCard2">
+              <AiOutlineHeart className="iconHeart secIcons" />
+            </article>
+            {data.price === 0 ? (
+              <IoIosInformationCircle
+                className="iconInfo"
+                onClick={() => {
+                  setShowModal(true);
+                }}
+              />
+            ) : (
+              <></>
+            )}
           </article>
           <figcaption className="CardObra__sec2">
             <article className="article1Obra">
@@ -131,9 +141,13 @@ const Card = ({ type, data }) => {
               <p>{obtainInfoTeatro(data.dates[0].theater)}</p>
             </article>
             <article className="secIcons">
+              {user.name ? 
               <div>
-                <AiOutlineHeart className="iconHeart secIcons" />
-              </div>
+                {user.favorite.contains(data.cod) ? <AiOutlineHeart className="iconHeart2 secIcons" /> : <AiOutlineHeart className="iconHeart secIcons" />}
+              </div> 
+              : 
+              <></> }
+              
             </article>
           </figcaption>
         </figure>

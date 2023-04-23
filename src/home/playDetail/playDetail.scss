@@ -1,7 +1,6 @@
 @import "../../vars.scss";
 
 .PlayDetailSec {
-  background-image: url(https://www.broadwaycollection.com/wp-content/uploads/cache/MoulinRouge_Prod_1920x1080-1z9kf2kuyj2nrc8967qjbv1ctnjotpxqarmcnnqx9mn8.webp);
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -20,12 +19,13 @@
   background-color: $white_color;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  margin-top: 200px;
-  padding: 20px;
-
+  transform: translateY(150px);
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 100%;
+  padding: 20px;
+  min-height: 100vh;
   ul {
     display: flex;
     justify-content: space-between;
@@ -47,7 +47,9 @@
 
   .playDetail_img {
     border-radius: 10px;
-    height: 200px;
+    height: 115px;
+    width: 90px;
+    object-fit: cover;
   }
 
   .playDetail_txt{
@@ -116,20 +118,24 @@
   bottom: 0;
   z-index: 3;
   width: 100%;
+  height: 56px;
   position: fixed;
   font-size: 20px;
   background-color: $white_color;
-
   gap: 10px;
   display: flex;
   padding: 10px 10px;
   align-items: center;
   justify-content: space-between;
+  box-shadow: -1px -14px 30px -30px rgba(2, 6, 10, 1);
 
   p {
-    font-weight: 800;
+    font-weight: 700;
+    font-size: 1rem;
   }
   button {
+    width: 210px;
+    padding: 8px;
     background-color: $main_color;
     font-size: 16px;
     color: $white_color;
@@ -137,8 +143,7 @@
   }
 }
 
-@media (min-width: 992px) {
-  .data {
-    flex-direction: row-reverse;
-  }
+.secDetailDesktop {
+  width: 100%;
+  min-height: 100vh;
 }
