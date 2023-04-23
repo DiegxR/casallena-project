@@ -1,19 +1,26 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./stylesCards.scss";
 import Button from "../button/Button";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
 import { Appcontext } from "../../router/Router";
 import { useNavigate } from "react-router";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { IoIosInformationCircle } from "react-icons/io";
+import NoAuth from "../noAuth/NoAuth";
+import { handleFavoritesAsync } from "../../redux/actions/userActions";
 
 const Card = ({ type, data }) => {
   const { formatterPeso, setShowModal } = useContext(Appcontext);
   const { width } = useContext(Appcontext);
   const { teatros } = useSelector((store) => store.teatros);
   const { user } = useSelector((store) => store.user);
-  console.log(data)
+  const [noAuth, setNoAuth] = useState(false);
+
+  const dispatch = useDispatch();
+  const validateFavorites = (cod) => {
+    return user.favorites.includes(cod);
+  };
   const obtainInfoTeatro = (id) => {
     let teaInfo = [];
     if (teatros.length > 0) {
@@ -42,6 +49,10 @@ const Card = ({ type, data }) => {
     return "Aporte Voluntario";
   };
   const navigate = useNavigate();
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
+
   return (
     <>
       {type === 1 ? (
@@ -96,7 +107,33 @@ const Card = ({ type, data }) => {
               width={width >= 768 ? "150px" : "137px"}
             />
             <article className="secFavCard2">
-              <AiOutlineHeart className="iconHeart secIcons" />
+              {user.name !== "" ? (
+                <>
+                  {user.favorites.length !== 0 ? (
+                    validateFavorites(data.cod) ? (
+                      <AiFillHeart
+                        className="iconHeart2 secIcons"
+                        onClick={() => dispatch(handleFavoritesAsync(data.cod))}
+                      />
+                    ) : (
+                      <AiOutlineHeart
+                        onClick={() => dispatch(handleFavoritesAsync(data.cod))}
+                        className="iconHeart secIcons"
+                      />
+                    )
+                  ) : (
+                    <AiOutlineHeart
+                      onClick={() => dispatch(handleFavoritesAsync(data.cod))}
+                      className="iconHeart secIcons"
+                    />
+                  )}
+                </>
+              ) : (
+                <AiOutlineHeart
+                  className="iconHeart secIcons"
+                  onClick={() => navigate("/noauth")}
+                />
+              )}
             </article>
             {data.price === 0 ? (
               <IoIosInformationCircle
@@ -141,13 +178,33 @@ const Card = ({ type, data }) => {
               <p>{obtainInfoTeatro(data.dates[0].theater)}</p>
             </article>
             <article className="secIcons">
-              {user.name ? 
-              <div>
-                {user.favorite.contains(data.cod) ? <AiOutlineHeart className="iconHeart2 secIcons" /> : <AiOutlineHeart className="iconHeart secIcons" />}
-              </div> 
-              : 
-              <></> }
-              
+              {user.name !== "" ? (
+                <>
+                  {user.favorites.length !== 0 ? (
+                    validateFavorites(data.cod) ? (
+                      <AiFillHeart
+                        className="iconHeart2 "
+                        onClick={() => dispatch(handleFavoritesAsync(data.cod))}
+                      />
+                    ) : (
+                      <AiOutlineHeart
+                        onClick={() => dispatch(handleFavoritesAsync(data.cod))}
+                        className="iconHeart "
+                      />
+                    )
+                  ) : (
+                    <AiOutlineHeart
+                      onClick={() => dispatch(handleFavoritesAsync(data.cod))}
+                      className="iconHeart "
+                    />
+                  )}
+                </>
+              ) : (
+                <AiOutlineHeart
+                  className="iconHeart "
+                  onClick={() => navigate("/noauth")}
+                />
+              )}
             </article>
           </figcaption>
         </figure>

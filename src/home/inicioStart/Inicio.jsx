@@ -16,18 +16,22 @@ import ModalAporte from "../../components/modalAporte/ModalAporte";
 import CardLoading from "../../components/cardLoading/CardLoading";
 
 const Inicio = () => {
-  const [sizeCarrusel, setSizeCarrusel, showModal, setShowModal] = useState(0);
-  const { width, filterButton } = useContext(Appcontext);
+  const [sizeCarrusel, setSizeCarrusel] = useState(0);
+  const { width, filterButton, showModal, setShowModal } =
+    useContext(Appcontext);
   const { obras } = useSelector((store) => store.obras);
+  const { user } = useSelector((store) => store.user);
 
   useEffect(() => {
     let size = getCenterSlidePercentage(width >= 768 ? 600 : 300, width, 1);
     setSizeCarrusel(size);
-    
   }, [width]);
   useEffect(() => {
     console.log(showModal);
   }, [showModal]);
+  useEffect(() => {
+    console.log(user);
+  }, []);
 
   return (
     <motion.div
@@ -62,9 +66,9 @@ const Inicio = () => {
           <section className="secInicio__sec1">
             <h3>Proyectos populares</h3>
             <Carousel
-              emulateTouch={true}
+              emulateTouch={width < 768 ? true : false}
               showThumbs={false}
-              showArrows={false}
+              showArrows={width >= 768 ? true : false}
               showStatus={false}
               showIndicators={false}
               centerMode={true}

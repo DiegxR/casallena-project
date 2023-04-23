@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
 }
-.iconHeart2{
+.iconHeart2 {
   color: v.$main_color;
 }
 .CardSlider {
@@ -140,6 +140,7 @@
     padding: 10px;
     background-color: v.$secondary_black;
     border-radius: 0 0 20px 20px;
+    align-items: center;
     .secTextos {
       display: flex;
       flex-direction: column;
@@ -165,18 +166,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 22px;
-        height: 22px;
-        border-radius: 20px;
-        background-color: v.$white_color;
-        color: v.$primary_black;
-
-        font-size: 12px;
-      }
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 20px;
+      background-color: v.$white_color;
+      color: v.$primary_black;
+      font-size: 1rem;
     }
   }
 }

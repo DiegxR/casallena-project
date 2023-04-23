@@ -19,7 +19,7 @@ export const getCollection = async (data) => {
         ...doc.data(),
       });
     });
-    console.log(docs);
+
     return docs;
   } catch (error) {
     notify("Ocurrió un error por " + error, "#d80416", "#d80416");
