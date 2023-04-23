@@ -2,6 +2,9 @@
 .carousel__detail {
   width: 100%;
   padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .data_DDGA {
@@ -11,6 +14,7 @@
     display: flex;
     justify-self: flex-start;
     letter-spacing: 1px;
+    color: $main_color;
     p {
       color: $secondary_black;
       span {
@@ -23,19 +27,8 @@
 
 .data {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   padding: 40px 0px;
   width: 100%;
-}
-
-@media (min-width: 800px) {
-  .datatxtSlider {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-  }
-
-  .data {
-    display: flex;
-  }
 }

@@ -33,7 +33,6 @@ const MapContainer = ({ google, lat, lng }) => {
           lat: lat,
           lng: lng,
         }}
-        icon={<img src={logo} alt="" />}
       />
     </Map>
   );
