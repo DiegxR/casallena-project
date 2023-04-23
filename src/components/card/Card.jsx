@@ -183,25 +183,25 @@ const Card = ({ type, data }) => {
                   {user.favorites.length !== 0 ? (
                     validateFavorites(data.cod) ? (
                       <AiFillHeart
-                        className="iconHeart2 secIcons"
+                        className="iconHeart2 "
                         onClick={() => dispatch(handleFavoritesAsync(data.cod))}
                       />
                     ) : (
                       <AiOutlineHeart
                         onClick={() => dispatch(handleFavoritesAsync(data.cod))}
-                        className="iconHeart secIcons"
+                        className="iconHeart "
                       />
                     )
                   ) : (
                     <AiOutlineHeart
                       onClick={() => dispatch(handleFavoritesAsync(data.cod))}
-                      className="iconHeart secIcons"
+                      className="iconHeart "
                     />
                   )}
                 </>
               ) : (
                 <AiOutlineHeart
-                  className="iconHeart secIcons"
+                  className="iconHeart "
                   onClick={() => navigate("/noauth")}
                 />
               )}

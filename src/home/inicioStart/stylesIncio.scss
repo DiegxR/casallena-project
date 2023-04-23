@@ -1,4 +1,8 @@
 @use "../../vars.scss" as v;
+
+.carousel .carousel-slider .control-arrow {
+  color: v.$main_color;
+}
 .secInicio {
   width: 100%;
   background-color: v.$primary_black;

@@ -65,9 +65,9 @@ const Inicio = () => {
           <section className="secInicio__sec1">
             <h3>Proyectos populares</h3>
             <Carousel
-              emulateTouch={true}
+              emulateTouch={width < 768 ? true : false}
               showThumbs={false}
-              showArrows={false}
+              showArrows={width >= 768 ? true : false}
               showStatus={false}
               showIndicators={false}
               centerMode={true}
