@@ -16,8 +16,9 @@ import ModalAporte from "../../components/modalAporte/ModalAporte";
 import CardLoading from "../../components/cardLoading/CardLoading";
 
 const Inicio = () => {
-  const [sizeCarrusel, setSizeCarrusel, showModal, setShowModal] = useState(0);
-  const { width, filterButton } = useContext(Appcontext);
+  const [sizeCarrusel, setSizeCarrusel] = useState(0);
+  const { width, filterButton, showModal, setShowModal } =
+    useContext(Appcontext);
   const { obras } = useSelector((store) => store.obras);
   const { user } = useSelector((store) => store.user);
 
