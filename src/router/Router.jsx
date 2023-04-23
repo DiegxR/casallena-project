@@ -26,7 +26,7 @@ export const Appcontext = createContext({});
 
 const Router = () => {
   const [filterButton, setFilterButton] = useState(-1);
-
+  
   const [formatterPeso, setFormatterPeso] = useState(
     new Intl.NumberFormat("es-CO", {
       style: "currency",
