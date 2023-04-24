@@ -119,16 +119,11 @@ const DetailObra = ({ op = 0, info, value }) => {
         </div>
       ) : op === 1 ? (
         <div className="dataContainer">
-<<<<<<< HEAD
-          <div className="data">
-            <MapContainer lat={6.2425332} lng={-75.5745005} />
-=======
           <div className="data" style={{}}>
             <MapContainer
               lat={parseFloat(teatro[0].location.lat)}
               lng={parseFloat(teatro[0].location.long)}
             />
->>>>>>> ccc0a3d41d6bd3f9ec9f5ac6379f06abcc0607b2
           </div>
           <p>
             <span style={{ fontWeight: "600" }}>Dirección:</span>{" "}

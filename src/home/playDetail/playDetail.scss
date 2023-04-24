@@ -52,7 +52,7 @@
     object-fit: cover;
   }
 
-  .playDetail_txt{
+  .playDetail_txt {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -73,18 +73,14 @@
       align-items: center;
       .rectangle {
         width: 30px;
-        height: 13px;
+        height: 10px;
         background-color: $main_color;
-        transform: translateY(19px);
+        transform: translateY(15px);
       }
       .hideRectangle {
         display: none;
       }
     }
-  }
-  hr{
-    height: 6px;
-    background-color: black;
   }
   .data {
     gap: 10px;
@@ -97,10 +93,9 @@
     }
   }
 
-  .aditionalInfo{
+  .aditionalInfo {
     margin-top: 20px;
     height: 30vh;
-    
   }
 
   .data_DDGA {
