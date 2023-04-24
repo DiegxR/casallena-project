@@ -227,7 +227,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1Nkt5i7rKZ0v_2ge41VuKMtOAQsb37HCG",
     imgDetail:
       "https://drive.google.com/uc?export=download&id=1eJoZQi3d7o-w6vkQ0jS0iNB1YUZHLn53",
-    gender: 1,
+    gender: 7,
     description:
       "Respresentada desde 2002. Narra la historia de Peralta, un campesino a quien se le aparecen Jesús y San Pedro para retribuirle su generosidad con la gente de su pueblo.",
     dates: [
@@ -280,7 +280,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1JaI1NwMt431Dj3UEtcmDRD6pWPj7fYhh",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1kauIkGdMHOZL2C9IZopIO18NxSmnTUFI",
-    gender: 2,
+    gender: 8,
     description:
       "Es un canto de las profundas fuerzas interiores que mueven el extraño que nos habita, es una lírica de fuerzas ocultasada desde 2002. Narra la historia de Peralta, un campesino a quien se le aparecen Jesús y San Pedro para retribuirle su generosidad con la gente de su pueblo.",
     dates: [
@@ -288,7 +288,7 @@ export const obras = [
         date: "13/04/2023",
         aforo: 40,
         sold: [],
-        theater: 0,
+        theater: 1,
         sala: 1,
       },
       {
@@ -296,14 +296,14 @@ export const obras = [
         aforo: 40,
         sold: [],
         sala: 0,
-        theater: 0,
+        theater: 1,
         sala: 1,
       },
       {
         date: "7/05/2023",
         aforo: 40,
         sold: [],
-        theater: 0,
+        theater: 1,
         sala: 1,
       },
     ],
@@ -348,7 +348,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1JlHDqwCffj8U_kKskwer-R4hlbHYvgZO",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1Gl7Y9yjfGsFDCgyYVVrL3iWcZhk4ZVzs",
-    gender: 1,
+    gender: 7,
     description:
       "Una comedia donde nos recuerda historias de la vida en el campo, espacios y oficios ya olvidados de nuestra ruralidad.",
     dates: [
@@ -416,7 +416,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1w_3sd8ynH4AJBP07GwLcSQ-odSImLOWd",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1f3QXR411jhIp_i3RTabltLgL4daNcGOF",
-    gender: 2,
+    gender: 6,
     description:
       "Entonces se levanta un poco, mirando a su amante, que ahora solo ama lo que nadie sabe.",
     dates: [
@@ -484,7 +484,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=16UjkBTaXAcwuxryANXYoOPy2UrLWnGIC",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1AmbH7NoX0B3OYSiqPD2-zFVKIp0Ig5ja",
-    gender: 2,
+    gender: 7,
     description:
       "El teatro físico, el grotesco y un poco de humor son los recursos expresivos que dan cuerpo a El Cadáver.",
     dates: [
@@ -620,7 +620,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=16UjkBTaXAcwuxryANXYoOPy2UrLWnGIC",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1AmbH7NoX0B3OYSiqPD2-zFVKIp0Ig5ja",
-    gender: 2,
+    gender: 7,
     description:
       "El teatro físico, el grotesco y un poco de humor son los recursos expresivos que dan cuerpo a El Cadáver.",
     dates: [
@@ -758,7 +758,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1EkDD4gx_5hwjqKsKufdyyzuif3IGqxNL",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1YRE_zYoWkE2ana3p8lO27djCZQ-zSP34",
-    gender: 2,
+    gender: 7,
     description:
       "No nos hacemos responsables del contenido de nuestra imaginación.",
     dates: [
@@ -826,7 +826,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1MEXB7O-NXEmUwuIpByK73ysVUOabegtg",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1qaCX7mb22BqaNfD8WaVJuIpWcryTTt8Z",
-    gender: 1,
+    gender: 6,
     description:
       "La Casa de Bernarda Alba, la última obra maestra escrita por Federico García Lorca, en la que se conjugan con éxito la poesía con la naturalidad, la belleza con la verosimilitud, “Es poesía hecha carne”, como lo expresaba el poeta.",
     dates: [
@@ -894,7 +894,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1-Y1WpbJK0NTdiUV2-FeXDb3hWxFXGbft",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1NLBc9rg4SiPs0BdaOlzfdAanYfwfbYFf",
-    gender: 2,
+    gender: 7,
     description:
       "La pieza original de Nikolai Gogol es un clásico de la dramaturgia rusa en donde se abordan temas que parecen réplicas de nuestra propia cultura, plasmadas en la sociedad rusa del siglo XIX.",
     dates: [
@@ -962,7 +962,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1RwJyxcie_XSz8y3GmObOYhefqLhF61WX",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1yevRU6PxjQrXX-My511AJibJZnIYtyXR",
-    gender: 1,
+    gender: 8,
     description:
       "La novela se compone de tres extensos monólogos: El pretendiente, Angelita y Miguel Ángel y El tiempo de la ciénaga, que configuran la historia de dos jóvenes colegiales, Angelita Rodante y Miguel Ángel Valderrama, pertenecientes a la burguesía caleña de finales de los años 60.",
     dates: [
@@ -1030,7 +1030,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1jEY4nWYejDdv0hdb29Uqfe_4GhdEfSC5",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1FevHjdpNpytw92h4cwSIGPQV3y9CHG-n",
-    gender: 1,
+    gender: 22,
     description:
       "Es la novela más famosa del escritor francés Antoine de Saint Exupéry. Fue publicada en el año 1943 y es el libro francés más leído y traducido de la historia.",
     dates: [
@@ -1098,7 +1098,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1Xi1SOr-SD9CJViGf_P0mfr7Q0zhBs1VJ",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1wSmgHfCFfnnoGszLGmkt8RxTNV3zlhAV",
-    gender: 1,
+    gender: 8,
     description:
       "Incendios de Wajdi Mouawad es una obra que habla de la resistencia, del poder de la palabra, del oprobio de la guerra; que tiene el poder de confrontarnos con esas realidades compartidas por todos los pueblos que hemos vivido la guerra;",
     dates: [
@@ -1166,7 +1166,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1oLqKAGj7piykKqkSpJezycC3TbuNZh7e",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1o6dbQNRr8yFX9kJvmRxzEsIQhQKwLqd3",
-    gender: 1,
+    gender: 8,
     description:
       "Es una pieza literaria del escritor estadounidense Edgar Allan Poe.",
     dates: [
@@ -1227,7 +1227,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=16Kj_vvC7d3cRNFQ80dDV0HP3S_3_Bevc",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1A4Mu7vfqF-437vWAheshxZ_Yfd-0Ex9V",
-    gender: 2,
+    gender: 6,
     description:
       "Lloro solo por verte triste, es una puesta en escena que recorre poéticamente pensamientos, sentimientos y sensaciones de algunos heterónimos de Fernando Pessoa.",
     dates: [
@@ -1295,7 +1295,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1mKEdFPBOo7v0PrZ1ALSuHuEi31-K91QU",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1yJuhjaIaQZEMvdUVBoaFTKwDmVxhnCjI",
-    gender: 2,
+    gender: 8,
     description: "Diálogo en el Jardín de Palacio es un drama en gente.",
     dates: [
       {
@@ -1362,7 +1362,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1KeASCUOU8t5uXF2ikKzcydLQ9BX-nrPe",
     imgPost:
       "https://drive.google.com/uc?export=download&id=14A3JLKGbOUF1QSlRD-3j8F0ogKKrlsC3",
-    gender: 19,
+    gender: 12,
     description: "Un mundo de sueños para improvisar y soñar",
     dates: [
       {
@@ -1421,7 +1421,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1LjFzulFM0rmN8nckVHm1OhglvQKUu2yO",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1VFChL78ND2SGBlaUE6IJ43NYB4ruIDNf",
-    gender: 7,
+    gender: 8,
     description:
       "Esta será la última vez y usted puede ser el testigo de excepción de esta particular orgía",
     dates: [
@@ -1481,7 +1481,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1gxk4pVe1auxPgqdFY5PPyBguneZ99KM3",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1ezKaf85tPPhgVyFf4yn_b1Qo0tpq4cid",
-    gender: 7,
+    gender: 8,
     description: "es un libro de relatos que escribió Gabriela Samper. ",
     dates: [
       {
@@ -1540,7 +1540,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1GcilZqnj0wAPVShraQHbzdyoA6xUD94c",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1LClGf3otu3Ylp6Tdnblpu1UwvHyf_tmU",
-    gender: 7,
+    gender: 6,
     description:
       "Una historia original del mundo bárbaro medieval, pero que se conecta directamente con la barbarie del mundo actual y la de nuestro país en particular.",
     dates: [

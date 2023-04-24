@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./stylesReservations.scss";
 import FooterMenu from "../../components/footerMenu/FooterMenu";
 import { BiArrowBack } from "react-icons/bi";
@@ -7,6 +7,16 @@ import { HiMinusCircle, HiPlusCircle } from "react-icons/hi";
 
 const Reservations = () => {
   const navigate = useNavigate();
+  const [cantBoletas, setBoletas] = useState(0);
+  const actionBoletas = (op) => {
+    if (op === "+") {
+      setBoletas(cantBoletas + 1);
+    } else if (cantBoletas > 1) {
+      setBoletas(cantBoletas - 1);
+    } else {
+      setBoletas(0);
+    }
+  };
   return (
     <section className="secReservations">
       <div className="arrows arrowsReservation">
@@ -16,9 +26,19 @@ const Reservations = () => {
       <figure className="seatingImg"></figure>
       <div className="ReservationFunctions">
         <div className="ReservationIcon">
-          <HiMinusCircle className="arrowLeftReservations" />
-          <p>1 entrada</p>
-          <HiPlusCircle className="arrowLeftReservations" />
+          <HiMinusCircle
+            className="arrowLeftReservations"
+            onClick={() => {
+              actionBoletas("-");
+            }}
+          />
+          <p>{cantBoletas}</p>
+          <HiPlusCircle
+            className="arrowLeftReservations"
+            onClick={() => {
+              actionBoletas("+");
+            }}
+          />
         </div>
 
         <div className="ticketReservation__Container">

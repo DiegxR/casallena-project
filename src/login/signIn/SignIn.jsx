@@ -36,10 +36,9 @@ const SignIn = () => {
     dispatch(loginUserAsync(data));
   };
   useEffect(() => {
-    
     if (error.status === true) {
       notify(error.message, "#d80416", "#d80416");
-    } 
+    }
     onAuthStateChanged(auth, async (user) => {
       if (user) {
         console.log(user);
@@ -75,7 +74,11 @@ const SignIn = () => {
               placeholder="Correo electrónico"
             />
             <span>Correo</span>
-            {errors.email ? <span className='errorMsg'>{errors.email.message}</span> : <></>}
+            {errors.email ? (
+              <span className="errorMsg">{errors.email.message}</span>
+            ) : (
+              <></>
+            )}
           </label>
           <label>
             <input
@@ -101,7 +104,11 @@ const SignIn = () => {
               />
             )}
             <span>Contraseña</span>
-            {errors.password ? <span className='errorMsg'>{errors.password.message}</span> : <></>}
+            {errors.password ? (
+              <span className="errorMsg">{errors.password.message}</span>
+            ) : (
+              <></>
+            )}
           </label>
           {error.status ? (
             <span className="errorMsg">Datos invalidos</span>
