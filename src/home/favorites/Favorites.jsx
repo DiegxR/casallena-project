@@ -69,8 +69,7 @@ const Favorites = () => {
                         />
                         <AiFillHeart className="secFavorites_nofavoriteslogoheart" />
                         <h1>
-                          Aún no tienes tus
-                          <span onClick={() => navigate("/home")}>
+                          Aún no tienes tus <span onClick={() => navigate("/home")}>
                             favoritas, escógelas ahora.
                           </span>
                         </h1>

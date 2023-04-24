@@ -28,7 +28,7 @@ const FooterMenu = () => {
       id: 2,
       icon: <BsFillCalendarCheckFill className="iconFooter" />,
       option: "Reservas",
-      path: "/reservations",
+      path: "/reservation",
     },
     {
       id: 3,

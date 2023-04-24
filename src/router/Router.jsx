@@ -22,6 +22,8 @@ import { getFilters, getObras } from "../redux/actions/obrasActions";
 import { getCenterSlidePercentage } from "../services/resizeCarrusel";
 import NoAuth from "../components/noAuth/NoAuth";
 
+import Reservas from "../home/Reservas/Reservas";
+
 export const Appcontext = createContext({});
 
 const Router = () => {
@@ -84,7 +86,7 @@ const Router = () => {
           <Route path="/home" element={<Inicio />} />
           <Route path="/comunity" element={<Comunity />} />
           <Route path="/favorites" element={<Favorites />} />
-          <Route path="/reservations" element={<Reservations />} />
+          <Route path="/tickets" element={<Reservations />} />
           <Route path="/profile" element={<Perfil />} />
           <Route path="/search" element={<Search />} />
           <Route path="/menu" element={<Menu />} />
@@ -92,6 +94,7 @@ const Router = () => {
           <Route path="/detail/:cod" element={<PlayDetail />} />
           <Route path="/photouser" element={<LoadPhotoUser />} />
           <Route path="/noauth" element={<NoAuth />} />
+          <Route path="/reservation" element={<Reservas/>} />
         </Routes>
       </BrowserRouter>
     </Appcontext.Provider>

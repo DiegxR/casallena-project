@@ -43,8 +43,8 @@ const Card = ({ type, data }) => {
       return descuento.type === 0
         ? "30% General"
         : descuento.type === 1
-        ? "50% Estudiantes"
-        : "60% Casa";
+          ? "50% Estudiantes"
+          : "60% Casa";
     }
     return "Aporte Voluntario";
   };
@@ -77,17 +77,14 @@ const Card = ({ type, data }) => {
 
           <figcaption className="CardSlider__sec2">
             <h3>{data.name}</h3>
-            <p>{`${
-              data.price > 0
-                ? `Precio: ${formatterPeso.format(data.price)} Finaliza el: ${
-                    data.dates[data.dates.length - 1].date
-                  } ${obtainInfoTeatro(data.dates[0].theater)}`
+            <p>{`${data.price > 0
+                ? `Precio: ${formatterPeso.format(data.price)} Finaliza el: ${data.dates[data.dates.length - 1].date
+                } ${obtainInfoTeatro(data.dates[0].theater)}`
                 : `Aportes desde: ${formatterPeso.format(
-                    data.aporte
-                  )} Finaliza el: ${
-                    data.dates[data.dates.length - 1].date
-                  } ${obtainInfoTeatro(data.dates[0].theater)}`
-            }`}</p>
+                  data.aporte
+                )} Finaliza el: ${data.dates[data.dates.length - 1].date
+                } ${obtainInfoTeatro(data.dates[0].theater)}`
+              }`}</p>
           </figcaption>
         </figure>
       ) : type === 2 ? (
@@ -112,9 +109,9 @@ const Card = ({ type, data }) => {
                   {user.favorites.length !== 0 ? (
                     validateFavorites(data.cod) ? (
                       <motion.div
-                      initial={{fontSize: '5px'}}
+                        initial={{ fontSize: '2px' }}
                         transition={{ duration: 0.2 }}
-                        animate={{fontSize: '16px'}}
+                        animate={{ fontSize: '16px' }}
                         className="heartRed"
                       >
                         <AiFillHeart

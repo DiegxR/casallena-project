@@ -182,7 +182,7 @@ const PlayDetail = () => {
                     </div>
 
                     <div className="reservation">
-                      <button className="registerSec__btn">
+                      <button onClick={()=> navigate('/tickets')} className="registerSec__btn">
                         RESERVAR AHORA
                       </button>
                     </div>
