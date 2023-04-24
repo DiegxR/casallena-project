@@ -6,9 +6,38 @@ import { AiOutlineClockCircle, AiOutlineCalendar } from "react-icons/ai";
 import { FaTheaterMasks } from "react-icons/fa";
 import { BsPersonSquare } from "react-icons/bs";
 import MapContainer from "../MapContainer/MapContainer";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useState } from "react";
+import { useContext } from "react";
+import { Appcontext } from "../../router/Router";
 
 const DetailObra = ({ op = 0, info, value }) => {
   console.log(info, value);
+  console.log(value.dates[0].theater);
+  const { width } = useContext(Appcontext);
+  const [teatro, setTeatro] = useState([]);
+  const [genero, setGenero] = useState("");
+  const { teatros } = useSelector((store) => store.teatros);
+  const { filters } = useSelector((store) => store.obras);
+  useEffect(() => {
+    setTeatro(teatros.filter((item) => item.cod === value.dates[0].theater));
+  }, [value, teatros]);
+  useEffect(() => {
+    console.log(teatro);
+  }, [teatro]);
+  const getGendre = () => {
+    if (value.length !== 0) {
+      let genero = filters.filter((item) => item.cod === value.gender);
+      if (genero.length !== 0) {
+        setGenero(genero[0].option);
+      }
+    }
+  };
+
+  useEffect(() => {
+    getGendre();
+  }, [filters, value]);
   return (
     <>
       {op === 0 ? (
@@ -73,7 +102,7 @@ const DetailObra = ({ op = 0, info, value }) => {
             <div className="data_DDGA--item">
               <FaTheaterMasks />
               <p>
-                <span>Género: </span> {value.gender}
+                <span>Género: </span> {genero}
               </p>
             </div>
 
@@ -90,9 +119,21 @@ const DetailObra = ({ op = 0, info, value }) => {
         </div>
       ) : op === 1 ? (
         <div className="dataContainer">
+<<<<<<< HEAD
           <div className="data">
             <MapContainer lat={6.2425332} lng={-75.5745005} />
+=======
+          <div className="data" style={{}}>
+            <MapContainer
+              lat={parseFloat(teatro[0].location.lat)}
+              lng={parseFloat(teatro[0].location.long)}
+            />
+>>>>>>> ccc0a3d41d6bd3f9ec9f5ac6379f06abcc0607b2
           </div>
+          <p>
+            <span style={{ fontWeight: "600" }}>Dirección:</span>{" "}
+            {teatro[0].direccion}
+          </p>
         </div>
       ) : (
         <div className="dataContainer">
