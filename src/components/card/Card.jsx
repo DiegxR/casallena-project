@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { IoIosInformationCircle } from "react-icons/io";
 import NoAuth from "../noAuth/NoAuth";
 import { handleFavoritesAsync } from "../../redux/actions/userActions";
-
+import { motion } from 'framer-motion'
 const Card = ({ type, data }) => {
   const { formatterPeso, setShowModal } = useContext(Appcontext);
   const { width } = useContext(Appcontext);
@@ -111,10 +111,17 @@ const Card = ({ type, data }) => {
                 <>
                   {user.favorites.length !== 0 ? (
                     validateFavorites(data.cod) ? (
-                      <AiFillHeart
-                        className="iconHeart2 secIcons"
-                        onClick={() => dispatch(handleFavoritesAsync(data.cod))}
-                      />
+                      <motion.div
+                      initial={{fontSize: '5px'}}
+                        transition={{ duration: 0.2 }}
+                        animate={{fontSize: '16px'}}
+                        className="heartRed"
+                      >
+                        <AiFillHeart
+                          className="iconHeart2 secIcons"
+                          onClick={() => dispatch(handleFavoritesAsync(data.cod))}
+                        />
+                      </motion.div>
                     ) : (
                       <AiOutlineHeart
                         onClick={() => dispatch(handleFavoritesAsync(data.cod))}

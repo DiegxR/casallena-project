@@ -7,6 +7,10 @@
   display: flex;
   flex-direction: column;
 }
+.heartRed{
+  display: flex;
+  align-items: center;
+}
 .iconHeart2 {
   color: v.$main_color;
 }

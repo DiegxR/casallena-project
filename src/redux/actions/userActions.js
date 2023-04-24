@@ -10,6 +10,8 @@ import { auth, dataBase } from "../../firebase/firebaseConfig";
 import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import { fileUpload } from "../../services/uploadFile";
 import { getUserCollection } from "../../services/getUser";
+import { notify } from "../../services/notify";
+import Swal from "sweetalert2";
 const collectionUsers = collection(dataBase, "Users");
 
 export const loginUser = (user, error) => {
@@ -170,25 +172,51 @@ const handleFavorites = (cod) => {
 
 export const handleFavoritesAsync = (cod) => {
   return async (dispatch, getState) => {
-    try {
-      let currentFavorites;
-      console.log(getState().user);
-      if (getState().user.user.favorites.length !== 0) {
-        if (getState().user.user.favorites.includes(cod)) {
-          currentFavorites = getState().user.user.favorites.filter(
-            (item) => item !== cod
-          );
-        } else {
-          currentFavorites = [...getState().user.user.favorites, cod];
-        }
+    let currentFavorites;
+    const currentRes = getState().user.user.favorites;
+    let handleType = true;
+    if (getState().user.user.favorites.length !== 0) {
+      if (getState().user.user.favorites.includes(cod)) {
+        handleType = false
+        currentFavorites = getState().user.user.favorites.filter(
+          (item) => item !== cod
+        );
       } else {
         currentFavorites = [...getState().user.user.favorites, cod];
       }
+    } else {
+      currentFavorites = [...getState().user.user.favorites, cod];
+    }
+    dispatch(handleFavorites(currentFavorites));
+    try {
       const userRef = doc(dataBase, "Users", getState().user.user.id);
-      await updateDoc(userRef, { favorites: currentFavorites });
-      dispatch(handleFavorites(currentFavorites));
+      if(handleType){
+        await updateDoc(userRef, { favorites: currentFavorites });
+        notify('Agregado a favoritos', '#d80416', "#d80444")
+      }else{
+        Swal.fire({
+          title: "¿Deseas eliminarla de tus favoritos?",
+          color: "#fff",
+          background: "#0d1314",
+          confirmButtonColor: "#2d2d2e",
+          confirmButtonText: "Aceptar",
+          showCancelButton: true,
+          cancelButtonColor: "#d80416",
+          cancelButtonText: 'Cancelar',
+          icon: "question",
+          iconColor: "white",
+        }).then(async({isConfirmed})=>{
+          if(isConfirmed){
+            await updateDoc(userRef, { favorites: currentFavorites });
+            notify('Eliminado de favoritos', '#d80416', "#d80444")
+          }else{
+            dispatch(handleFavorites(currentRes));
+          }
+        });
+      }
     } catch (error) {
       console.log(error);
+      dispatch(handleFavorites(currentRes));
     }
   };
 };
