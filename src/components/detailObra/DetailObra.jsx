@@ -132,12 +132,11 @@ const DetailObra = ({ op = 0, info, value }) => {
         </div>
       ) : (
         <div className="dataContainer">
-          <div className="data">
+          <div className="data aditionalInfo">
             <h4>Información adicional</h4>
             <p>
               El uso del tapacocas tanto dentro como fuera de la sala no es
               obligatorio.
-              <br />
               <br />
               Recuerda llegar al teatro con un mínimo de 15 minutos antes de la
               funsión.

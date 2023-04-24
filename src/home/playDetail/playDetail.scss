@@ -51,6 +51,12 @@
     width: 90px;
     object-fit: cover;
   }
+
+  .playDetail_txt {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
 }
 
 .dataContainer {
@@ -86,6 +92,12 @@
       border-radius: 5px;
     }
   }
+
+  .aditionalInfo {
+    margin-top: 20px;
+    height: 30vh;
+  }
+
   .data_DDGA {
     margin-bottom: 30px;
     color: red;
