@@ -50,7 +50,7 @@ const SignIn = () => {
   }, []);
 
   const uploadDataBase = () => {
-    uploadArray(obras, "Obras");
+    uploadArray(filters, "Filtros");
   };
 
   return (

@@ -6,7 +6,6 @@ import { useNavigate } from "react-router";
 import { HiMinusCircle, HiPlusCircle } from "react-icons/hi";
 
 const Reservations = () => {
-  const navigate = useNavigate();
   const [cantBoletas, setBoletas] = useState(0);
   const actionBoletas = (op) => {
     if (op === "+") {
@@ -17,6 +16,9 @@ const Reservations = () => {
       setBoletas(0);
     }
   };
+
+  const navigate = useNavigate();
+
   return (
     <section className="secReservations">
       <div className="arrows arrowsReservation">
@@ -44,7 +46,14 @@ const Reservations = () => {
         <div className="ticketReservation__Container">
           <div className="ticketReservation">
             <p>Entradas desde</p>
-            <button className="btnTicket">$10.000 COP</button>
+            <button
+              className="btnTicket"
+              onClick={() => {
+                navigate("/confirmreservation");
+              }}
+            >
+              $10.000 COP
+            </button>
           </div>
 
           <div className="ticketReservation">

@@ -23,12 +23,13 @@ import { getCenterSlidePercentage } from "../services/resizeCarrusel";
 import NoAuth from "../components/noAuth/NoAuth";
 
 import Reservas from "../home/Reservas/Reservas";
+import FormReserva from "../home/formReserva/FormReserva";
 
 export const Appcontext = createContext({});
 
 const Router = () => {
   const [filterButton, setFilterButton] = useState(-1);
-  
+
   const [formatterPeso, setFormatterPeso] = useState(
     new Intl.NumberFormat("es-CO", {
       style: "currency",
@@ -94,7 +95,8 @@ const Router = () => {
           <Route path="/detail/:cod" element={<PlayDetail />} />
           <Route path="/photouser" element={<LoadPhotoUser />} />
           <Route path="/noauth" element={<NoAuth />} />
-          <Route path="/reservation" element={<Reservas/>} />
+          <Route path="/reservation" element={<Reservas />} />
+          <Route path="/confirmreservation" element={<FormReserva />} />
         </Routes>
       </BrowserRouter>
     </Appcontext.Provider>

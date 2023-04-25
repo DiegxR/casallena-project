@@ -37,112 +37,29 @@ export const filters = [
       "Me filtra las obras que se encuentre con un precio desde 60.000 pesos",
   },
   {
-    cod: 6,
-    option: "Tragedia",
-    description:
-      "Un género teatral que representa una historia seria y sombría que generalmente termina en desgracia o tragedia.",
-  },
-  {
-    cod: 7,
+    cod: 8,
     option: "Comedia",
     description:
       "Un género teatral que se centra en la risa y el humor, y que generalmente termina en un final feliz.",
   },
   {
-    cod: 8,
+    cod: 9,
     option: "Drama",
     description:
       "un género teatral que representa situaciones serias y emocionales que pueden ser tanto tristes como alegres.",
   },
   {
-    cod: 9,
+    cod: 10,
     option: "Musical",
     description:
       "un género teatral que combina la música, la danza y el canto para contar una historia.",
   },
-  {
-    cod: 10,
-    option: "Experimental",
-    description:
-      "Un género teatral que se centra en la experimentación con diferentes formas, técnicas y estilos de actuación, a menudo con un enfoque en lo abstracto y lo no convencional.",
-  },
+
   {
     cod: 11,
-    option: "Crueldad",
-    description:
-      "Un género teatral desarrollado por el dramaturgo francés Antonin Artaud, que busca provocar una experiencia emocional y física intensa en el espectador a través de la violencia, el ruido y la exageración.",
-  },
-  {
-    cod: 12,
-    option: "Absurdo",
-    description:
-      "Un género teatral que presenta situaciones que parecen sin sentido o absurdas, a menudo con el objetivo de cuestionar la naturaleza de la realidad y de la existencia humana.",
-  },
-  {
-    cod: 13,
-    option: "Político",
-    description:
-      "Un género teatral que utiliza la representación escénica para explorar y criticar temas políticos y sociales.",
-  },
-  {
-    cod: 14,
-    option: "Calle",
-    description:
-      "un género teatral que se realiza en espacios públicos, como plazas y calles, y que a menudo involucra la participación del público.",
-  },
-  {
-    cod: 15,
-    option: "Memoria",
-    description:
-      "Es un género de teatro que se centra en las experiencias personales y en la memoria del autor o de los actores",
-  },
-  {
-    cod: 16,
-    option: "Época",
-    description:
-      "Un género teatral que se centra en representar situaciones, personajes y ambientes de una época o período histórico específico.",
-  },
-  {
-    cod: 17,
-    option: "Misterio",
-    description:
-      "Un género teatral que presenta una trama llena de suspenso y que tiene un final sorprendente o inesperado.",
-  },
-  {
-    cod: 18,
-    option: "Ciencia ficción",
-    description:
-      "Un género teatral que se enfoca en temas de ciencia ficción, como viajes en el tiempo, mundos alternativos y tecnología avanzada.",
-  },
-  {
-    cod: 19,
-    option: "Fantasía",
-    description:
-      "Un género teatral que se basa en elementos mágicos o sobrenaturales, como criaturas mitológicas y poderes sobrenaturales.",
-  },
-  {
-    cod: 20,
-    option: "Terror",
-    description:
-      "Un género teatral que busca asustar al espectador, generalmente a través de situaciones aterradoras o escenas violentas.",
-  },
-  {
-    cod: 21,
-    option: "Documental",
-    description:
-      "Un género teatral que se basa en eventos reales y que utiliza técnicas teatrales para contar historias verdaderas.",
-  },
-  {
-    cod: 22,
-    option: "Infantil",
+    option: "Familiar",
     description:
       "un género teatral que está dirigido específicamente a niños y que utiliza técnicas teatrales para educar y entretener a un público joven.",
-  },
-  {
-    cod: 23,
-    option: "Improvisación",
-    description:
-      "Un género teatral en el que los actores crean la historia y los personajes sobre la marcha, sin un guión preestablecido",
   },
 ];
 
@@ -227,7 +144,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1Nkt5i7rKZ0v_2ge41VuKMtOAQsb37HCG",
     imgDetail:
       "https://drive.google.com/uc?export=download&id=1eJoZQi3d7o-w6vkQ0jS0iNB1YUZHLn53",
-    gender: 7,
+    gender: 8,
     description:
       "Respresentada desde 2002. Narra la historia de Peralta, un campesino a quien se le aparecen Jesús y San Pedro para retribuirle su generosidad con la gente de su pueblo.",
     dates: [
@@ -280,7 +197,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1JaI1NwMt431Dj3UEtcmDRD6pWPj7fYhh",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1kauIkGdMHOZL2C9IZopIO18NxSmnTUFI",
-    gender: 8,
+    gender: 9,
     description:
       "Es un canto de las profundas fuerzas interiores que mueven el extraño que nos habita, es una lírica de fuerzas ocultasada desde 2002. Narra la historia de Peralta, un campesino a quien se le aparecen Jesús y San Pedro para retribuirle su generosidad con la gente de su pueblo.",
     dates: [
@@ -348,7 +265,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1JlHDqwCffj8U_kKskwer-R4hlbHYvgZO",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1Gl7Y9yjfGsFDCgyYVVrL3iWcZhk4ZVzs",
-    gender: 7,
+    gender: 8,
     description:
       "Una comedia donde nos recuerda historias de la vida en el campo, espacios y oficios ya olvidados de nuestra ruralidad.",
     dates: [
@@ -416,7 +333,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1w_3sd8ynH4AJBP07GwLcSQ-odSImLOWd",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1f3QXR411jhIp_i3RTabltLgL4daNcGOF",
-    gender: 6,
+    gender: 9,
     description:
       "Entonces se levanta un poco, mirando a su amante, que ahora solo ama lo que nadie sabe.",
     dates: [
@@ -484,7 +401,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=16UjkBTaXAcwuxryANXYoOPy2UrLWnGIC",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1AmbH7NoX0B3OYSiqPD2-zFVKIp0Ig5ja",
-    gender: 7,
+    gender: 8,
     description:
       "El teatro físico, el grotesco y un poco de humor son los recursos expresivos que dan cuerpo a El Cadáver.",
     dates: [
@@ -552,7 +469,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1ry4pDEOUu51FmNS59ehdjYnYfSRjTQ82",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1cuvbQzuTd6Xuu2PYeI3rIaSZi2Vwj2Bp",
-    gender: 7,
+    gender: 8,
     description:
       "Con la muerte de nuestros líderes, nos roban la alegría, la esperanza, el futuro.",
     dates: [
@@ -620,7 +537,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=16UjkBTaXAcwuxryANXYoOPy2UrLWnGIC",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1AmbH7NoX0B3OYSiqPD2-zFVKIp0Ig5ja",
-    gender: 7,
+    gender: 8,
     description:
       "El teatro físico, el grotesco y un poco de humor son los recursos expresivos que dan cuerpo a El Cadáver.",
     dates: [
@@ -690,7 +607,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1HC7KuWvrrM4GdrcPaIKgHoDhs1yTZWcG",
     imgPost:
       "https://drive.google.com/uc?export=download&id=18f_Wl4iHNiW1BMsXlZMq7QkwfkRbmkQY",
-    gender: 12,
+    gender: 9,
     description:
       "Zeus encadena a Prometeo por haber robado el fuego y habérselo entregado a los hombres.  ",
     dates: [
@@ -758,7 +675,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1EkDD4gx_5hwjqKsKufdyyzuif3IGqxNL",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1YRE_zYoWkE2ana3p8lO27djCZQ-zSP34",
-    gender: 7,
+    gender: 8,
     description:
       "No nos hacemos responsables del contenido de nuestra imaginación.",
     dates: [
@@ -826,7 +743,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1MEXB7O-NXEmUwuIpByK73ysVUOabegtg",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1qaCX7mb22BqaNfD8WaVJuIpWcryTTt8Z",
-    gender: 6,
+    gender: 9,
     description:
       "La Casa de Bernarda Alba, la última obra maestra escrita por Federico García Lorca, en la que se conjugan con éxito la poesía con la naturalidad, la belleza con la verosimilitud, “Es poesía hecha carne”, como lo expresaba el poeta.",
     dates: [
@@ -894,7 +811,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1-Y1WpbJK0NTdiUV2-FeXDb3hWxFXGbft",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1NLBc9rg4SiPs0BdaOlzfdAanYfwfbYFf",
-    gender: 7,
+    gender: 8,
     description:
       "La pieza original de Nikolai Gogol es un clásico de la dramaturgia rusa en donde se abordan temas que parecen réplicas de nuestra propia cultura, plasmadas en la sociedad rusa del siglo XIX.",
     dates: [
@@ -962,7 +879,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1RwJyxcie_XSz8y3GmObOYhefqLhF61WX",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1yevRU6PxjQrXX-My511AJibJZnIYtyXR",
-    gender: 8,
+    gender: 9,
     description:
       "La novela se compone de tres extensos monólogos: El pretendiente, Angelita y Miguel Ángel y El tiempo de la ciénaga, que configuran la historia de dos jóvenes colegiales, Angelita Rodante y Miguel Ángel Valderrama, pertenecientes a la burguesía caleña de finales de los años 60.",
     dates: [
@@ -1030,7 +947,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1jEY4nWYejDdv0hdb29Uqfe_4GhdEfSC5",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1FevHjdpNpytw92h4cwSIGPQV3y9CHG-n",
-    gender: 22,
+    gender: 10,
     description:
       "Es la novela más famosa del escritor francés Antoine de Saint Exupéry. Fue publicada en el año 1943 y es el libro francés más leído y traducido de la historia.",
     dates: [
@@ -1098,7 +1015,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1Xi1SOr-SD9CJViGf_P0mfr7Q0zhBs1VJ",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1wSmgHfCFfnnoGszLGmkt8RxTNV3zlhAV",
-    gender: 8,
+    gender: 9,
     description:
       "Incendios de Wajdi Mouawad es una obra que habla de la resistencia, del poder de la palabra, del oprobio de la guerra; que tiene el poder de confrontarnos con esas realidades compartidas por todos los pueblos que hemos vivido la guerra;",
     dates: [
@@ -1166,7 +1083,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1oLqKAGj7piykKqkSpJezycC3TbuNZh7e",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1o6dbQNRr8yFX9kJvmRxzEsIQhQKwLqd3",
-    gender: 8,
+    gender: 9,
     description:
       "Es una pieza literaria del escritor estadounidense Edgar Allan Poe.",
     dates: [
@@ -1227,7 +1144,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=16Kj_vvC7d3cRNFQ80dDV0HP3S_3_Bevc",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1A4Mu7vfqF-437vWAheshxZ_Yfd-0Ex9V",
-    gender: 6,
+    gender: 9,
     description:
       "Lloro solo por verte triste, es una puesta en escena que recorre poéticamente pensamientos, sentimientos y sensaciones de algunos heterónimos de Fernando Pessoa.",
     dates: [
@@ -1295,7 +1212,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1mKEdFPBOo7v0PrZ1ALSuHuEi31-K91QU",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1yJuhjaIaQZEMvdUVBoaFTKwDmVxhnCjI",
-    gender: 8,
+    gender: 9,
     description: "Diálogo en el Jardín de Palacio es un drama en gente.",
     dates: [
       {
@@ -1362,7 +1279,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1KeASCUOU8t5uXF2ikKzcydLQ9BX-nrPe",
     imgPost:
       "https://drive.google.com/uc?export=download&id=14A3JLKGbOUF1QSlRD-3j8F0ogKKrlsC3",
-    gender: 12,
+    gender: 9,
     description: "Un mundo de sueños para improvisar y soñar",
     dates: [
       {
@@ -1481,7 +1398,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1gxk4pVe1auxPgqdFY5PPyBguneZ99KM3",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1ezKaf85tPPhgVyFf4yn_b1Qo0tpq4cid",
-    gender: 8,
+    gender: 9,
     description: "es un libro de relatos que escribió Gabriela Samper. ",
     dates: [
       {
@@ -1540,7 +1457,7 @@ export const obras = [
       "https://drive.google.com/uc?export=download&id=1GcilZqnj0wAPVShraQHbzdyoA6xUD94c",
     imgPost:
       "https://drive.google.com/uc?export=download&id=1LClGf3otu3Ylp6Tdnblpu1UwvHyf_tmU",
-    gender: 6,
+    gender: 9,
     description:
       "Una historia original del mundo bárbaro medieval, pero que se conecta directamente con la barbarie del mundo actual y la de nuestro país en particular.",
     dates: [

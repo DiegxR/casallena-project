@@ -1,0 +1,77 @@
+@use "../../vars.scss" as v;
+.secFormReserva {
+  width: 100%;
+  min-height: 100vh;
+  background: v.$white_colorForm;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  &__header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .iconBack {
+      position: absolute;
+      left: 0;
+      transform: translateX(10px);
+      background: v.$primary_black;
+      color: v.$white_color;
+      width: 20px;
+      height: 20px;
+      border-radius: 20px;
+      font-size: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .infoHeader {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      align-items: center;
+      color: v.$primary_black;
+      h3 {
+        font-size: 20px;
+        font-weight: 700;
+      }
+      h4 {
+        font-weight: 700;
+        font-size: 14px;
+        span {
+          font-weight: 800;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      margin: 10px 0;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 16px;
+
+      .titleForm {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+      input {
+        width: 100%;
+        height: 35px;
+        background: none;
+        border: 2px solid v.$primary_black;
+        border-radius: 5px;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}
