@@ -1,7 +1,7 @@
 @use ".././../vars.scss" as v;
 .secFavorites {
   width: 100%;
-  min-height: 100vh;
+  min-height: 80vh;
   background-color: v.$primary_black;
   margin-bottom: 50px;
   &_container {

@@ -35,7 +35,9 @@ const Reservas = () => {
             <BsFillCalendarCheckFill className="secReserv_headicon" />
                 <h2>Tus Reservas</h2>
             </header>
+            <section className='secReserv_calendar'>
             <CalendarReserv eventos={array} />
+            </section>
             <FooterMenu />
         </motion.div>
     )
