@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router'
 const CalendarReserv = ({eventos}) => {
     const localizer = momentLocalizer(moment)
     const eventStyleGetter = (event, start, end, isSelected) => {
-        const backgroundColor = '#d80416'
+        const backgroundColor = '#D80416'
         const style = {
           backgroundColor,
           borderRadius: '12px',
@@ -17,7 +17,6 @@ const CalendarReserv = ({eventos}) => {
           color: 'white',
           border: '0px',
           display: 'block',
-
         }
         return {
           style
@@ -40,6 +39,7 @@ const CalendarReserv = ({eventos}) => {
           <Calendar
             localizer={localizer}
             events={eventos}
+            toolbar={true}
             startAccessor="start"
             endAccessor="end"
             dayPropGetter={dayPropGetter}
@@ -72,6 +72,5 @@ const CalendarReserv = ({eventos}) => {
         </div>
       )
     }
-    
 
 export default CalendarReserv
