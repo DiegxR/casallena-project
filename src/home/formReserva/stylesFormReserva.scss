@@ -7,6 +7,13 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  .errorMsg {
+    color: v.$main_color;
+    font-size: 14px;
+    font-weight: 600;
+    padding-left: 5px;
+    margin: 5px 0;
+  }
   .input {
     height: 35px;
     background: none;
@@ -48,7 +55,7 @@
     .iconBack {
       position: absolute;
       left: 0;
-      transform: translateX(10px);
+      transform: translateX(20px);
       background: v.$primary_black;
       color: v.$white_color;
       width: 20px;
@@ -176,6 +183,8 @@
         display: flex;
         justify-content: center;
         margin: 20px 0;
+        font-size: 16px;
+        font-weight: 700;
       }
     }
   }
@@ -194,7 +203,9 @@
   .secFormReserva {
     padding: 50px 30%;
     &__header {
-      transform: translate(0px);
+      .iconBack {
+        transform: translateX(5px);
+      }
     }
   }
 }

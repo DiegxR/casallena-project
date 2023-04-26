@@ -11,6 +11,10 @@ import Button from "../../components/button/Button";
 const FormReserva = () => {
   const navigate = useNavigate();
   const { formatterPeso } = useContext(Appcontext);
+  const dispatch = useDispatch();
+  const [code, setCode] = useState("+57");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [errorEmail, setErrorEmail] = useState("");
   const [codeCel, setCodeCel] = useState(
     countryCodes.sort((a, b) => {
       if (a.name < b.name) {
@@ -21,26 +25,29 @@ const FormReserva = () => {
       return 0;
     })
   );
-  const [code, setCode] = useState("+57");
-  const [phoneNumber, setPhoneNumber] = useState("");
-
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const dispatch = useDispatch();
-
-  const handleCodeChange = (e) => {
-    setCode(e.target.value);
+  const handleCodeChange = (code) => {
+    setCode(code);
   };
-  const handlePhoneNumberChange = (e) => {
-    setPhoneNumber(e.target.value);
+
+  const validateEmail = (email) => {
+    console.log(email);
+    const validate = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!validate.test(email)) {
+      setErrorEmail("Debe ingresar un correo válido por favor");
+      console.log("entro");
+    } else {
+      setErrorEmail("");
+    }
   };
 
   const onSubmit = (data) => {
-    console.log(data);
+    data.phone = code + data.phone;
   };
 
   return (
@@ -64,25 +71,65 @@ const FormReserva = () => {
         <article className="sec1">
           <label>
             <h3 className="titleForm">Detalles del contacto</h3>
-            <input type="text" placeholder="Nombre" className="input" />
+            <input
+              type="text"
+              placeholder="Nombre"
+              className="input"
+              {...register("name", { required: "El nombre es requerido" })}
+            />
             <p className="labelInfo"> Nombre completo</p>
+            {errors.name ? (
+              <span className="errorMsg">{errors.name.message}</span>
+            ) : (
+              <></>
+            )}
           </label>
           <label>
-            <input type="email" placeholder="Correo" className="input" />
+            <input
+              type="email"
+              placeholder="Correo"
+              className="input"
+              onInput={(e) => validateEmail(e.target.value)}
+              {...register("email", { required: "El email es requerido" })}
+            />
             <p className="labelInfo"> Correo</p>
+            {errors.email ? (
+              <span className="errorMsg">{errors.email.message}</span>
+            ) : errorEmail !== "" ? (
+              <span className="errorMsg">{errorEmail}</span>
+            ) : (
+              <></>
+            )}
           </label>
           <article className="phone-input">
             <div>
-              <select value={code} onChange={handleCodeChange}>
+              <select value={code}>
                 {codeCel.map((item, index) => (
-                  <option value={item.code} key={index}>
+                  <option
+                    value={item.code}
+                    key={index}
+                    onClick={() => {
+                      handleCodeChange(item.code);
+                    }}
+                  >
                     {item.code}
                   </option>
                 ))}
               </select>
-              <input type="text" placeholder="Número de teléfono" />
+              <input
+                type="text"
+                placeholder="Número de teléfono"
+                {...register("phone", {
+                  required: "El número de celular es requerido",
+                })}
+              />
             </div>
             <p className="labelInfo">País</p>
+            {errors.phone ? (
+              <span className="errorMsg">{errors.phone.message}</span>
+            ) : (
+              <></>
+            )}
           </article>
         </article>
         <article className="sec2">
