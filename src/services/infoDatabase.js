@@ -1,6 +1,28 @@
 /*{ type: 0, percent: 30 }, descuento general
       { type: 1, percent: 50 }, descuento estudiantil
       { type: 2, percent: 60 }, descuento perfil casa llena */
+export const countryCodes = [
+  { cod: 0, code: "+54", name: "Argentina" },
+  { cod: 1, code: "+55", name: "Brasil" },
+  { cod: 2, code: "+506", name: "Costa Rica" },
+  { cod: 3, code: "+45", name: "Dinamarca" },
+  { cod: 4, code: "+1", name: "Estados Unidos" },
+  { cod: 5, code: "+33", name: "Francia" },
+  { cod: 6, code: "+30", name: "Grecia" },
+  { cod: 7, code: "+354", name: "Islandia" },
+  { cod: 8, code: "+81", name: "Japón" },
+  { cod: 9, code: "+52", name: "México" },
+  { cod: 10, code: "+64", name: "Nueva Zelanda" },
+  { cod: 11, code: "+51", name: "Perú" },
+  { cod: 12, code: "+351", name: "Portugal" },
+  { cod: 13, code: "+7", name: "Rusia" },
+  { cod: 14, code: "+46", name: "Suecia" },
+  { cod: 15, code: "+41", name: "Suiza" },
+  { cod: 16, code: "+86", name: "China" },
+  { cod: 17, code: "+44", name: "Reino Unido" },
+  { cod: 18, code: "+49", name: "Alemania" },
+  { cod: 19, code: "+57", name: "Colombia" },
+];
 
 export const filters = [
   {
