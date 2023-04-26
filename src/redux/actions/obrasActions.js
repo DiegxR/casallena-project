@@ -74,3 +74,46 @@ export const getCurrentObraAsync = (cod) => {
     }
   };
 };
+
+export const filterSearchObras = (filter) => {
+  return async (dispatch) => {
+    try {
+      const docs = await getCollection({
+        collectionName: "Obras",
+        operator: '==',
+        key: '',
+        value: '',
+      });
+      const filterObras = docs.filter((obra) => obra.name.toLowerCase().includes(filter.toLowerCase()))
+      dispatch(loadObras(filterObras))
+    } catch (error) {
+
+    }
+  }
+}
+
+export const filterDates = (data) => {
+  return async (dispatch) => {
+    const obras = await getCollection({
+      collectionName: "Obras",
+      operator: '==',
+      key: '',
+      value: '',
+    });
+    let date;
+    const currentDay = new Date()
+    const day = currentDay.getDate()
+    const month = (currentDay.getMonth() + 1).toString().padStart(2, '0')
+    const year = currentDay.getFullYear()
+    date = `${data.day == 'today' ? day : day + 1}/${month}/${year}`
+    const filterObras = obras.filter((obra) =>{ 
+      let response = false;
+      obra.dates.map((item) => { 
+        if(item.date == date){ response= true } 
+      })
+      return response;
+    })
+    dispatch(loadObras(filterObras))
+    console.log(filterObras, date)
+  }
+}

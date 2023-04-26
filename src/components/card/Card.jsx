@@ -50,7 +50,7 @@ const Card = ({ type, data }) => {
   };
   const navigate = useNavigate();
   useEffect(() => {
-    console.log(user);
+    
   }, [user]);
 
   return (

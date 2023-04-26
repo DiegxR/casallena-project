@@ -1,3 +1,4 @@
+@use '../../vars.scss' as v;
 .calendar{
     height: 80vh;
   width: 100%;
@@ -5,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: white;
+  color: v.$secondary_black;
 }
 .rbc-calendar{
     width: 100%;

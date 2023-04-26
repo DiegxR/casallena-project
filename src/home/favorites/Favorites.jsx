@@ -11,6 +11,7 @@ import Card from "../../components/card/Card";
 import CardLoading from "../../components/cardLoading/CardLoading";
 import { useNavigate } from "react-router";
 import ModalAporte from "../../components/modalAporte/ModalAporte";
+import { BsFillChatHeartFill } from "react-icons/bs";
 const Favorites = () => {
   const dispatch = useDispatch();
   const { obras } = useSelector((store) => store.obras);
@@ -37,8 +38,7 @@ const Favorites = () => {
         <section className="secFavorites_container">
           <header className="secFavorites_head">
             <div className="secFavorites_logoContainer">
-              <img src={logo} className="secFavorites_logo" />
-              <AiFillHeart className="secFavorites_logoheart" />
+            <BsFillChatHeartFill className="secFavorites_logo" />
             </div>
 
             <h3 className="secFavorites_title">Favoritos</h3>

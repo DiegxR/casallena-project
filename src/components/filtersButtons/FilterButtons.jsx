@@ -6,11 +6,10 @@ import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { Appcontext } from "../../router/Router";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import logo from "../../assets/logo.svg";
 import { motion } from "framer-motion";
 import { getCenterSlidePercentage } from "../../services/resizeCarrusel";
 import { useDispatch } from "react-redux";
-import { getObras } from "../../redux/actions/obrasActions";
+import { filterDates, getObras } from "../../redux/actions/obrasActions";
 
 const FilterButtons = () => {
   const { filterButton, setFilterButton, width } = useContext(Appcontext);
@@ -37,6 +36,7 @@ const FilterButtons = () => {
       menu.classList.remove("backgroundScroll");
     }
   };
+
   useEffect(() => {
     const size = getCenterSlidePercentage(150, width);
     setResize(size);
@@ -55,19 +55,14 @@ const FilterButtons = () => {
         );
         break;
       case 1:
-        const date = new Date();
-        const getYear = date.toLocaleString("default", { year: "numeric" });
-        const getMonth = date.toLocaleString("default", { month: "2-digit" });
-        const getday = date.toLocaleString("default", { day: "2-digit" });
-        const currentDate = `${getday}/${getMonth}/${getYear}`;
         dispatch(
-          getObras({
-            collectionName: "Obras",
-            key: "dates",
-            value: currentDate,
-            operator: "array-contains",
-          })
+          filterDates({day: 'today'})
         );
+        break;
+      case 2:
+        dispatch(
+          filterDates({day: 'tomorrow'})
+        )
         break;
       case 3:
         dispatch(
@@ -278,7 +273,7 @@ const FilterButtons = () => {
             value: 23,
           })
         );
-        break;
+        break;  
       default:
         dispatch(getObras({ collectionName: "Obras", key: "", value: "" }));
         break;
