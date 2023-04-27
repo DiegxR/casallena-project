@@ -19,8 +19,7 @@ const Reservations = () => {
 
       <figure className="seatingImg"></figure>
 
-      <ReservationFunctions opt={currentOpt} />
-      <FooterMenu />
+      <ReservationFunctions opt={currentOpt} set={setCurrentOpt} />
     </section>
   );
 };

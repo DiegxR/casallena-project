@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { HiMinusCircle, HiPlusCircle } from "react-icons/hi";
 import { useNavigate } from "react-router";
+import { AiOutlineArrowLeft } from "react-icons/ai";
+import "./reservationFunctions.scss";
 
-const ReservationFunctions = ({ opt = 2 }) => {
+const ReservationFunctions = ({ opt = 1, set }) => {
   const [cantBoletas, setBoletas] = useState(0);
-  const [currentOpt, setCurrentOpt] = useState(0);
   const navigate = useNavigate();
 
   const actionBoletas = (op) => {
@@ -43,37 +44,7 @@ const ReservationFunctions = ({ opt = 2 }) => {
               <button
                 className="btnTicket"
                 onClick={() => {
-                  navigate("/confirmreservation");
-                }}
-              >
-                $10.000 COP
-              </button>
-            </div>
-          </div>
-
-          <div className="ticketReservation__Container">
-            <div className="ticketReservation">
-              <p>Entradas desde</p>
-              <button
-                className="btnTicket"
-                onClick={() => {
-                  navigate("/confirmreservation");
-                  setCurrentOpt(opt == 1);
-                }}
-              >
-                $10.000 COP
-              </button>
-            </div>
-          </div>
-
-          <div className="ticketReservation__Container">
-            <div className="ticketReservation">
-              <p>Entradas desde</p>
-              <button
-                className="btnTicket"
-                onClick={() => {
-                  navigate("/confirmreservation");
-                  setCurrentOpt(opt == 1);
+                  set(1);
                 }}
               >
                 $10.000 COP
@@ -82,7 +53,25 @@ const ReservationFunctions = ({ opt = 2 }) => {
           </div>
         </div>
       ) : (
-        <div className="ReservationFunctions">holi</div>
+        <div className="ReservationFunctions">
+          <AiOutlineArrowLeft
+            onClick={() => set(0)}
+            className=" arrowReservation"
+          />
+          <h3>Entradas</h3>
+          <div className="reservationPrice">
+            <p>Precio</p>
+            <p>2 x $20.000 COP</p>
+          </div>
+          <button
+            onClick={() => {
+              navigate("/confirmreservation");
+            }}
+            className="registerSec__btn btn_reservation"
+          >
+            Continuar
+          </button>
+        </div>
       )}
     </>
   );
