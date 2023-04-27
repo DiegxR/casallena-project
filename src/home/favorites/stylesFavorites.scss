@@ -1,7 +1,7 @@
 @use ".././../vars.scss" as v;
 .secFavorites {
   width: 100%;
-  min-height: 100vh;
+  min-height: 80vh;
   background-color: v.$primary_black;
   margin-bottom: 50px;
   &_container {
@@ -18,14 +18,9 @@
     color: v.$white_color;
   }
   &_logo {
-    width: 50px;
+    font-size: 35px;
     position: relative;
-    &heart {
-      color: v.$main_color;
-      position: absolute;
-      transform: translate(-43.5px, 25.5px);
-      font-size: 12.5px;
-    }
+    
   }
   &_title {
     letter-spacing: 2px;

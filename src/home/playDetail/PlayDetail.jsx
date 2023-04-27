@@ -11,7 +11,7 @@ import { getCurrentObraAsync } from "../../redux/actions/obrasActions";
 import Swal from "sweetalert2";
 import { handleFavoritesAsync } from "../../redux/actions/userActions";
 import { Appcontext } from "../../router/Router";
-
+import { motion } from 'framer-motion'
 const PlayDetail = () => {
   const { cod } = useParams();
   const dispatch = useDispatch();
@@ -63,7 +63,10 @@ const PlayDetail = () => {
     <>
       {width < 1200 ? (
         currentObra.id ? (
-          <section
+          <motion.section
+            initial={{scale: 0}}
+            transition={{duration: 0.5}}
+            animate={{scale: 1}}
             className="PlayDetailSec"
             style={{ backgroundImage: `url(${currentObra.imgDetail})` }}
           >
@@ -118,14 +121,18 @@ const PlayDetail = () => {
               <p>No te quedes afuera</p>
               <button className="registerSec__btn">RESERVAR AHORA</button>
             </div>
-          </section>
+          </motion.section>
         ) : (
           <></>
         )
       ) : (
         <>
           {currentObra.id ? (
-            <section className="secDetailDesktop">
+            <motion.section
+            initial={{scale: 0}}
+            transition={{duration: 0.5}}
+            animate={{scale: 1}}
+            className="secDetailDesktop">
               <article className="secDetailDesktop__Card">
                 <div className="section">
                   <div className="sec1">
@@ -202,7 +209,7 @@ const PlayDetail = () => {
                   </section>
                 </div>
               </article>
-            </section>
+            </motion.section>
           ) : (
             <></>
           )}

@@ -158,7 +158,7 @@ export const loginWithGoogle = () => {
       }
     } catch (error) {
       console.log(error);
-      dispatch(loginUser({}, { status: true, message: error.message }));
+      dispatch(loginUser({}, { status: undefined, message: error.message }));
     }
   };
 };
