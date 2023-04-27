@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Appcontext } from "../../router/Router";
 import "./stylesFormReserva.scss";
 import { BiArrowBack } from "react-icons/bi";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { countryCodes } from "../../services/infoDatabase";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,11 +10,14 @@ import Button from "../../components/button/Button";
 
 const FormReserva = () => {
   const navigate = useNavigate();
-  const { formatterPeso } = useContext(Appcontext);
+  const { formatterPeso, infoReserva, setInfoReserva } = useContext(Appcontext);
+  const { id } = useParams();
+  const { obras } = useSelector((store) => store.obras);
   const dispatch = useDispatch();
   const [code, setCode] = useState("+57");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [errorEmail, setErrorEmail] = useState("");
+  const [currentObra, setCurrentObra] = useState([]);
   const [codeCel, setCodeCel] = useState(
     countryCodes.sort((a, b) => {
       if (a.name < b.name) {
@@ -49,6 +52,13 @@ const FormReserva = () => {
   const onSubmit = (data) => {
     data.phone = code + data.phone;
   };
+
+  useEffect(() => {
+    setCurrentObra(obras.filter((item) => item.cod === Number(id)));
+  }, [obras]);
+  useEffect(() => {
+    console.log(currentObra);
+  }, [currentObra]);
 
   return (
     <section className="secFormReserva">
@@ -141,22 +151,31 @@ const FormReserva = () => {
         <article className="sec3">
           <h3>Confirmación</h3>
           <div className="sec3__info">
-            <p>O marinero</p>
+            <p>
+              {currentObra.lenght !== 0 ? currentObra[0]?.name : "O marinero"}
+            </p>
             <p>Aporte</p>
             <p>Mier., 17 agt. / 8:00 p. m.</p>
             <div className="separador__reserva"></div>
             <div className="sec3__info__boletas">
-              <h3>2 entradas</h3>
-              <h3>{formatterPeso.format(40000)}</h3>
+              <h3>{infoReserva.boletas} entradas</h3>
+              <h3>{formatterPeso.format(infoReserva.price)}</h3>
             </div>
             <div className="separador__reserva"></div>
             <div className="sec3__info__total">
               <h2>Orden total</h2>
-              <h2>{formatterPeso.format(40000)}</h2>
+              <h2>{formatterPeso.format(infoReserva.total)}</h2>
             </div>
           </div>
           <div className="sec3__button">
-            <button className={`btnActive`}>Confirmar Reserva</button>
+            <button
+              className={`btnActive`}
+              onClick={() => {
+                navigate("/reservation");
+              }}
+            >
+              Confirmar Reserva
+            </button>
           </div>
         </article>
       </form>

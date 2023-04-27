@@ -40,6 +40,7 @@ const Router = () => {
 
   const [width, setwidth] = useState(window.innerWidth);
   const [showModal, setShowModal] = useState(false);
+  const [infoReserva, setInfoReserva] = useState({});
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -78,6 +79,8 @@ const Router = () => {
         formatterPeso,
         showModal,
         setShowModal,
+        infoReserva,
+        setInfoReserva,
       }}
     >
       <BrowserRouter>
@@ -87,7 +90,7 @@ const Router = () => {
           <Route path="/home" element={<Inicio />} />
           <Route path="/comunity" element={<Comunity />} />
           <Route path="/favorites" element={<Favorites />} />
-          <Route path="/tickets" element={<Reservations />} />
+          <Route path="/tickets/:id" element={<Reservations />} />
           <Route path="/profile" element={<Perfil />} />
           <Route path="/search" element={<Search />} />
           <Route path="/menu" element={<Menu />} />
@@ -96,7 +99,7 @@ const Router = () => {
           <Route path="/photouser" element={<LoadPhotoUser />} />
           <Route path="/noauth" element={<NoAuth />} />
           <Route path="/reservation" element={<Reservas />} />
-          <Route path="/confirmreservation" element={<FormReserva />} />
+          <Route path="/confirmreservation/:id" element={<FormReserva />} />
         </Routes>
       </BrowserRouter>
     </Appcontext.Provider>
