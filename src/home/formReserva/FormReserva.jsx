@@ -7,6 +7,10 @@ import { countryCodes } from "../../services/infoDatabase";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../../components/button/Button";
+import {
+  getLocalReserva,
+  setLocalReserva,
+} from "../../services/localInfoBoletas";
 
 const FormReserva = () => {
   const navigate = useNavigate();
@@ -51,6 +55,7 @@ const FormReserva = () => {
 
   const onSubmit = (data) => {
     data.phone = code + data.phone;
+    navigate("/reservation");
   };
 
   useEffect(() => {
@@ -72,9 +77,6 @@ const FormReserva = () => {
         </div>
         <div className="infoHeader">
           <h3>Confirmación de reserva</h3>
-          <h4>
-            Tiempo de espera: <span>4:00</span>
-          </h4>
         </div>
       </article>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -154,8 +156,18 @@ const FormReserva = () => {
             <p>
               {currentObra.lenght !== 0 ? currentObra[0]?.name : "O marinero"}
             </p>
-            <p>Aporte</p>
-            <p>Mier., 17 agt. / 8:00 p. m.</p>
+            <p>
+              {currentObra.length !== 0
+                ? currentObra[0]?.price == 0
+                  ? "Aporte"
+                  : "General"
+                : "Sin tipo"}
+            </p>
+            <p>
+              {infoReserva?.currentDate
+                ? infoReserva.currentDate
+                : "Mier., 17 agt. / 8:00 p. m."}
+            </p>
             <div className="separador__reserva"></div>
             <div className="sec3__info__boletas">
               <h3>{infoReserva.boletas} entradas</h3>
@@ -168,14 +180,7 @@ const FormReserva = () => {
             </div>
           </div>
           <div className="sec3__button">
-            <button
-              className={`btnActive`}
-              onClick={() => {
-                navigate("/reservation");
-              }}
-            >
-              Confirmar Reserva
-            </button>
+            <button className={`btnActive`}>Confirmar Reserva</button>
           </div>
         </article>
       </form>

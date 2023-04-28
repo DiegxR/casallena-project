@@ -29,6 +29,7 @@ export const Appcontext = createContext({});
 
 const Router = () => {
   const [filterButton, setFilterButton] = useState(-1);
+  const [filterInput, setFilterInput] = useState("");
 
   const [formatterPeso, setFormatterPeso] = useState(
     new Intl.NumberFormat("es-CO", {
@@ -81,6 +82,8 @@ const Router = () => {
         setShowModal,
         infoReserva,
         setInfoReserva,
+        filterInput,
+        setFilterInput,
       }}
     >
       <BrowserRouter>

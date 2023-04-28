@@ -47,18 +47,20 @@ const PlayDetail = () => {
     });
   };
   const obtainDesc = (array) => {
+    console.log(array);
+    let desc = "";
     array.forEach((item) => {
       if (item.type === 0) {
-        return " 30% descuento general";
-      }
-      if (item.type === 1) {
-        return "50% descuento estudiantes";
-      }
-      if (item.type === 2) {
-        return "60% descuento de la casa";
+        desc = " 30% descuento general";
+      } else if (item.type === 1) {
+        desc = "50% descuento estudiantes";
+      } else if (item.type === 2) {
+        desc = "60% descuento de la casa";
+      } else {
+        desc = "Valor general";
       }
     });
-    return "Valor general";
+    return desc;
   };
   return (
     <>
@@ -84,7 +86,7 @@ const PlayDetail = () => {
                   className="playDetail_img"
                 />
                 <div className="playDetail_txt">
-                  <p className="pDiscount">50% estudiantes</p>
+                  <p className="pDiscount">{obtainDesc(currentObra?.desc)}</p>
                   <h1>{currentObra.name}</h1>
                   <p>{currentObra.description}</p>
                 </div>

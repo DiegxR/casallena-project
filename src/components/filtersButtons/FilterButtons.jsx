@@ -12,7 +12,8 @@ import { useDispatch } from "react-redux";
 import { filterDates, getObras } from "../../redux/actions/obrasActions";
 
 const FilterButtons = () => {
-  const { filterButton, setFilterButton, width } = useContext(Appcontext);
+  const { filterButton, setFilterButton, width, setFilterInput } =
+    useContext(Appcontext);
 
   const { filters } = useSelector((store) => store.obras);
   const [show, setShow] = useState(false);
@@ -55,14 +56,10 @@ const FilterButtons = () => {
         );
         break;
       case 1:
-        dispatch(
-          filterDates({day: 'today'})
-        );
+        dispatch(filterDates({ day: "today" }));
         break;
       case 2:
-        dispatch(
-          filterDates({day: 'tomorrow'})
-        )
+        dispatch(filterDates({ day: "tomorrow" }));
         break;
       case 3:
         dispatch(
@@ -144,15 +141,7 @@ const FilterButtons = () => {
           })
         );
         break;
-        dispatch(
-          getObras({
-            collectionName: "Obras",
-            key: "gender",
-            operator: "==",
-            value: 23,
-          })
-        );
-        break;  
+
       default:
         dispatch(getObras({ collectionName: "Obras", key: "", value: "" }));
         break;
@@ -182,6 +171,7 @@ const FilterButtons = () => {
                   dispatch(
                     getObras({ collectionName: "Obras", key: "", value: "" })
                   );
+                  setFilterInput("");
                 }}
               />
             </motion.div>

@@ -6,6 +6,7 @@ import "./reservationFunctions.scss";
 import { useContext } from "react";
 import { Appcontext } from "../../router/Router";
 import { useEffect } from "react";
+import { setLocalReserva } from "../../services/localInfoBoletas";
 
 const ReservationFunctions = ({
   opt = 1,
@@ -16,7 +17,8 @@ const ReservationFunctions = ({
   boletas,
   setBoletas,
 }) => {
-  const { formatterPeso, setInfoReserva } = useContext(Appcontext);
+  const { formatterPeso, setInfoReserva, infoReserva } = useContext(Appcontext);
+  const [currentDate, setCurrentDate] = useState(infoReserva.currentDate);
 
   const navigate = useNavigate();
 
@@ -29,11 +31,42 @@ const ReservationFunctions = ({
       setBoletas(0);
     }
   };
+  useEffect(() => {
+    console.log(currentDate);
+  }, []);
+  const handleSelectChange = (event) => {
+    console.log("Entro");
+    if (event.target.value) {
+      setCurrentDate(event.target.value);
+    }
+  };
+  useEffect(() => {
+    console.log(currentDate);
+  }, [currentDate]);
 
   return (
     <>
       {opt === 0 ? (
         <div className="ReservationFunctions">
+          <div className="selectSec">
+            <h3>Escoge la fecha de la función</h3>
+
+            <select
+              onChange={handleSelectChange}
+              value={currentDate}
+              className="select"
+            >
+              {value?.dates.map((item, index) =>
+                item.aforo >= boletas ? (
+                  <option key={index} value={item.date}>
+                    {item.date}
+                  </option>
+                ) : (
+                  <></>
+                )
+              )}
+            </select>
+          </div>
           <div className="ReservationIcon">
             <HiMinusCircle
               className="arrowLeftReservations"
@@ -55,10 +88,14 @@ const ReservationFunctions = ({
               <div className="ticketReservation">
                 <p>Entradas desde</p>
                 <button
-                  className="btnTicket"
+                  className={`${
+                    boletas !== 0 && currentDate !== ""
+                      ? "btnTicket"
+                      : "btnTicketDisabled "
+                  }`}
                   onClick={() => {
                     {
-                      boletas !== 0 ? set(1) : "";
+                      boletas !== 0 && currentDate !== "" ? set(1) : "";
                     }
                     setPrice(value.price);
                   }}
@@ -71,12 +108,17 @@ const ReservationFunctions = ({
             <div className="ticketReservation__Container">
               {[...Array(3)].map((_, index) => (
                 <div className="ticketReservation">
-                  <p>Entradas desde</p>
+                  <p key={index + 1}>Entradas desde</p>
                   <button
-                    className="btnTicket"
+                    key={index}
+                    className={`${
+                      boletas !== 0 && currentDate !== ""
+                        ? "btnTicket"
+                        : "btnTicketDisabled "
+                    }`}
                     onClick={() => {
                       {
-                        boletas !== 0 ? set(1) : "";
+                        boletas !== 0 && currentDate !== "" ? set(1) : "";
                       }
                       setPrice(`${index + 1}0000`);
                     }}
@@ -104,7 +146,18 @@ const ReservationFunctions = ({
           <button
             onClick={() => {
               navigate(`/confirmreservation/${value.cod}`);
-              setInfoReserva({ boletas, price, total: boletas * price });
+              setInfoReserva({
+                boletas,
+                price,
+                currentDate,
+                total: boletas * price,
+              });
+              setLocalReserva({
+                boletas,
+                price,
+                currentDate,
+                total: boletas * price,
+              });
             }}
             className="registerSec__btn btn_reservation"
           >

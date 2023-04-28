@@ -38,9 +38,21 @@
     align-items: center;
     padding: 10px 10px 0 10px;
     .arrowLeftReservations {
-      height: 20px;
-      width: 20px;
+      font-size: 25px;
       cursor: pointer;
+    }
+    p {
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+  .selectSec {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    h3 {
+      font-size: 1rem;
+      font-weight: 400;
     }
   }
 }
@@ -58,12 +70,18 @@
   .ticketReservation {
     gap: 20px;
     display: flex;
+    align-items: center;
     .btnTicket {
       border: none;
       color: v.$white_color;
       background-color: v.$main_color;
       padding: 2px 7px;
       cursor: pointer;
+      font-size: 1rem;
+    }
+    .btnTicketDisabled {
+      @extend .btnTicket;
+      background-color: v.$primary_black;
     }
   }
 }
