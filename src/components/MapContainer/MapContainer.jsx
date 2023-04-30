@@ -1,6 +1,6 @@
 import React from "react";
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
-import logo from "../../assets/logo.svg";
+
 
 const MapContainer = ({ google, lat, lng }) => {
   const mapStyles = {

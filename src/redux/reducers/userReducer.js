@@ -10,7 +10,7 @@ const initialState = {
     uid: "",
     id: "",
     favorites: [],
-    date: [],
+    dates: [],
   },
   error: {
     status: "",
@@ -64,6 +64,7 @@ export const userReducer = (state = initialState, action) => {
           favorites: [...action.payload],
         },
       };
+    
     default:
       return state;
   }
