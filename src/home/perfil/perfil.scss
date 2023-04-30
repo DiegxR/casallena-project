@@ -1,24 +1,101 @@
-@import '../../vars.scss';
-.perfil{
+@import "../../vars.scss";
+.perfil {
+  display: flex;
+  flex-direction: column;
+  background-color: $white_color;
+  height: 100vh;
+  padding: 5px;
+
+  &_header {
+    background-color: $main_color;
+    color: $white_color;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    gap: 20px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .imgEmailName {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+    }
+    img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    button {
+      padding: 5px;
+      border-radius: 18px;
+      border: none;
+      font-weight: 600;
+      width: 170px;
+      background-color: $gray_color;
+    }
+  }
+}
+
+.profile_info {
+  gap: 30px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+  .profileName {
+    gap: 5px;
     display: flex;
     flex-direction: column;
-    background-color: $white_color;
-    height: 100vh;
-    padding: 5px;
-    &_header{
-        padding: 20px;
-        display: flex;
-        gap: 20px;
-        align-items: center;
-        img{
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        button{
-            padding: 5px;
-            border-radius: 18px;
-        }
+  }
+
+  .contactSMedia {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+
+    &__container {
+      gap: 20px;
+      display: flex;
+      align-items: center;
+
+      .arrowPlus {
+        margin-left: 20px;
+      }
     }
+
+    &__ {
+      gap: 7px;
+      display: flex;
+      align-items: center;
+
+      .socialM__icon {
+        font-size: 25px;
+      }
+    }
+  }
+
+  .emailPhone {
+    gap: 20px;
+    display: flex;
+
+    .emailPhone__items {
+      gap: 5px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .profile__btn {
+    align-self: flex-start;
+    margin-top: 30px;
+  }
+
+  h4 {
+    font-size: 19px;
+  }
 }
