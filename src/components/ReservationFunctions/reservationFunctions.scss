@@ -1,3 +1,4 @@
+@use "../../vars.scss" as v;
 .ReservationFunctions {
   padding: 20px;
 }
@@ -17,4 +18,17 @@
 
   display: flex;
   justify-content: space-between;
+}
+
+.select {
+  height: 35px;
+  background: none;
+  border: 2px solid v.$primary_black;
+  border-radius: 5px;
+  &:focus {
+    outline: none;
+  }
+  padding: 0 10px;
+  font-size: 1rem;
+  font-weight: 700;
 }

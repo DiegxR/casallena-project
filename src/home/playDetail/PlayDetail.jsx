@@ -11,12 +11,13 @@ import { getCurrentObraAsync } from "../../redux/actions/obrasActions";
 import Swal from "sweetalert2";
 import { handleFavoritesAsync } from "../../redux/actions/userActions";
 import { Appcontext } from "../../router/Router";
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
 const PlayDetail = () => {
   const { cod } = useParams();
   const dispatch = useDispatch();
   const { currentObra } = useSelector((store) => store.obras);
   const { width } = useContext(Appcontext);
+
   useEffect(() => {
     dispatch(getCurrentObraAsync(cod));
   }, []);
@@ -46,27 +47,29 @@ const PlayDetail = () => {
     });
   };
   const obtainDesc = (array) => {
+    console.log(array);
+    let desc = "";
     array.forEach((item) => {
       if (item.type === 0) {
-        return " 30% descuento general";
-      }
-      if (item.type === 1) {
-        return "50% descuento estudiantes";
-      }
-      if (item.type === 2) {
-        return "60% descuento de la casa";
+        desc = " 30% descuento general";
+      } else if (item.type === 1) {
+        desc = "50% descuento estudiantes";
+      } else if (item.type === 2) {
+        desc = "60% descuento de la casa";
+      } else {
+        desc = "Valor general";
       }
     });
-    return "Valor general";
+    return desc;
   };
   return (
     <>
       {width < 1200 ? (
         currentObra.id ? (
           <motion.section
-            initial={{scale: 0}}
-            transition={{duration: 0.5}}
-            animate={{scale: 1}}
+            initial={{ scale: 0 }}
+            transition={{ duration: 0.5 }}
+            animate={{ scale: 1 }}
             className="PlayDetailSec"
             style={{ backgroundImage: `url(${currentObra.imgDetail})` }}
           >
@@ -83,7 +86,7 @@ const PlayDetail = () => {
                   className="playDetail_img"
                 />
                 <div className="playDetail_txt">
-                  <p className="pDiscount">50% estudiantes</p>
+                  <p className="pDiscount">{obtainDesc(currentObra?.desc)}</p>
                   <h1>{currentObra.name}</h1>
                   <p>{currentObra.description}</p>
                 </div>
@@ -119,7 +122,14 @@ const PlayDetail = () => {
             </div>
             <div className="reservation">
               <p>No te quedes afuera</p>
-              <button className="registerSec__btn">RESERVAR AHORA</button>
+              <button
+                className="registerSec__btn"
+                onClick={() => {
+                  navigate(`/tickets/${cod}`);
+                }}
+              >
+                RESERVAR AHORA
+              </button>
             </div>
           </motion.section>
         ) : (
@@ -129,10 +139,11 @@ const PlayDetail = () => {
         <>
           {currentObra.id ? (
             <motion.section
-            initial={{scale: 0}}
-            transition={{duration: 0.5}}
-            animate={{scale: 1}}
-            className="secDetailDesktop">
+              initial={{ scale: 0 }}
+              transition={{ duration: 0.5 }}
+              animate={{ scale: 1 }}
+              className="secDetailDesktop"
+            >
               <article className="secDetailDesktop__Card">
                 <div className="section">
                   <div className="sec1">
@@ -190,7 +201,7 @@ const PlayDetail = () => {
 
                     <div className="reservation">
                       <button
-                        onClick={() => navigate("/tickets")}
+                        onClick={() => navigate(`/tickets/${cod}`)}
                         className="registerSec__btn"
                       >
                         RESERVAR AHORA

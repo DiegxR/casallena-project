@@ -12,10 +12,10 @@ import { getCenterSlidePercentage } from "../../services/resizeCarrusel";
 import InputFilter from "../../components/inputFilter/InputFilter";
 import ModalAporte from "../../components/modalAporte/ModalAporte";
 import CardLoading from "../../components/cardLoading/CardLoading";
-
+import logo from "../../assets/logo.svg";
 const Inicio = () => {
   const [sizeCarrusel, setSizeCarrusel] = useState(0);
-  const { width, filterButton, showModal, setShowModal } =
+  const { width, filterButton, showModal, setShowModal, filterInput } =
     useContext(Appcontext);
   const { obras } = useSelector((store) => store.obras);
   const { user } = useSelector((store) => store.user);
@@ -28,8 +28,8 @@ const Inicio = () => {
     console.log(showModal);
   }, [showModal]);
   useEffect(() => {
-    console.log(user);
-  }, []);
+    console.log(obras);
+  }, [obras]);
 
   return (
     <motion.div
@@ -43,9 +43,9 @@ const Inicio = () => {
         <FilterButtons />
       </section>
 
-      {filterButton !== -1 ? (
+      {filterButton !== -1 || filterInput ? (
         <motion.div className="secFilter">
-          {obras ? (
+          {obras?.length !== 0 ? (
             obras.map((item, index) => (
               <motion.div
                 style={{ width: `${width < 768 ? "100%" : "330px"}` }}
@@ -56,7 +56,17 @@ const Inicio = () => {
               </motion.div>
             ))
           ) : (
-            <></>
+            <motion.div
+              initial={{ opacity: -1 }}
+              transition={{ duration: 0.6 }}
+              animate={{ opacity: 1 }}
+              className="secNoFilter"
+            >
+              <figure>
+                <img src={logo} alt="" />
+              </figure>
+              <h3>Sin resultados</h3>
+            </motion.div>
           )}
         </motion.div>
       ) : (
