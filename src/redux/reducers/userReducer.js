@@ -64,7 +64,14 @@ export const userReducer = (state = initialState, action) => {
           favorites: [...action.payload],
         },
       };
-    
+    case userTypes.ADD_DATE:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          dates: [...state.user.dates, action.payload]
+        }
+      }
     default:
       return state;
   }

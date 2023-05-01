@@ -11,13 +11,16 @@ import { getCurrentObraAsync } from "../../redux/actions/obrasActions";
 import Swal from "sweetalert2";
 import { handleFavoritesAsync } from "../../redux/actions/userActions";
 import { Appcontext } from "../../router/Router";
-import { motion } from "framer-motion";
+import { motion, useAnimate } from "framer-motion";
+
+
+
 const PlayDetail = () => {
   const { cod } = useParams();
   const dispatch = useDispatch();
   const { currentObra } = useSelector((store) => store.obras);
   const { width } = useContext(Appcontext);
-
+ 
   useEffect(() => {
     dispatch(getCurrentObraAsync(cod));
   }, []);
@@ -31,7 +34,7 @@ const PlayDetail = () => {
   const navigate = useNavigate();
   const [currentOpt, setCurrentOpt] = useState(0);
   const [currentInfo, setCurrentInfo] = useState({});
-
+  const [anim, setAnim] = useState(true)
   const copyURLToClipboard = () => {
     const currentURL = window.location.href;
     navigator.clipboard.writeText(currentURL);
@@ -100,6 +103,7 @@ const PlayDetail = () => {
                       className={`data_title`}
                       onClick={() => {
                         setCurrentOpt(item.cod);
+                        {item.cod > currentOpt ? setAnim(true) : setAnim(false)}
                         setCurrentInfo(item);
                       }}
                     >
@@ -117,6 +121,7 @@ const PlayDetail = () => {
                   op={currentOpt}
                   info={currentInfo}
                   value={currentObra}
+                  anim={anim}
                 />
               </div>
             </div>
@@ -184,6 +189,7 @@ const PlayDetail = () => {
                             onClick={() => {
                               setCurrentOpt(item.cod);
                               setCurrentInfo(item);
+                              {item.cod > currentOpt ? setAnim(true) : setAnim(false)}
                             }}
                           >
                             <h3>{item.name}</h3>
@@ -216,6 +222,7 @@ const PlayDetail = () => {
                       op={currentOpt}
                       info={currentInfo}
                       value={currentObra}
+                      anim={anim}
                     />
                   </section>
                 </div>

@@ -24,7 +24,9 @@
     }
   }
 }
-
+.cont{
+  overflow-x: hidden;
+}
 .dataMapa {
   display: flex;
   flex-direction: column;

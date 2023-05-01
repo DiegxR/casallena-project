@@ -11,13 +11,29 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useContext } from "react";
 import { Appcontext } from "../../router/Router";
+import { motion } from "framer-motion"
+const animation = {
+  right: {
+    initial: {scale: -1},
+    transition: {duration: 1},
+    animate: {scale: "1"},
+  },
+  left: {
+    initial: {scale: -1},
+    transition: {duration: 1},
+    animate: {scale: 1},
+  }
+}
 
-const DetailObra = ({ op = 0, info, value }) => {
+const DetailObra = ({ op = 0, info, value, anim}) => {
+  
   console.log(info, value);
   console.log(value.dates[0].theater);
   const { width } = useContext(Appcontext);
   const [teatro, setTeatro] = useState([]);
   const [genero, setGenero] = useState("");
+  const [first, setfirst] = useState(false)
+  
   const { teatros } = useSelector((store) => store.teatros);
   const { filters } = useSelector((store) => store.obras);
   useEffect(() => {
@@ -34,14 +50,20 @@ const DetailObra = ({ op = 0, info, value }) => {
       }
     }
   };
-
+  
+  
   useEffect(() => {
     getGendre();
   }, [filters, value]);
   return (
-    <>
+    <div className="cont">
       {op === 0 ? (
-        <div className="data" style={{ width: "100%" }}>
+        <motion.div 
+        initial={anim ? {x: "100%"} : {x: "-100%"}}
+        transition={{duration: 0.8}}
+        animate={{x: "0%"}}
+          className="data" style={{ width: "100%" }}>
+
           <div className="datatxtSlider">
             <p>{info.description}</p>
             <section className="carousel__detail">
@@ -116,9 +138,13 @@ const DetailObra = ({ op = 0, info, value }) => {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       ) : op === 1 ? (
-        <div className="dataContainer">
+        <motion.article
+        initial={anim ? {x: "100%"} : {x: "-100%"}}
+        transition={{duration: 0.8}}
+        animate={{x: "0%"}}
+        className="dataContainer">
           <div className="data" style={{}}>
             <MapContainer
               lat={parseFloat(teatro[0].location.lat)}
@@ -129,9 +155,13 @@ const DetailObra = ({ op = 0, info, value }) => {
             <span style={{ fontWeight: "600" }}>Dirección:</span>{" "}
             {teatro[0].direccion}
           </p>
-        </div>
+        </motion.article>
       ) : (
-        <div className="dataContainer">
+        <motion.section
+        initial={anim ? {x: "100%"} : {x: "-100%"}}
+        transition={{duration: 0.8}}
+        animate={{x: "0%"}}
+        className="dataContainer">
           <div className="data aditionalInfo">
             <h4>Información adicional</h4>
             <p>
@@ -142,9 +172,9 @@ const DetailObra = ({ op = 0, info, value }) => {
               funsión.
             </p>
           </div>
-        </div>
+        </motion.section>
       )}
-    </>
+    </div>
   );
 };
 

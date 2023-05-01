@@ -220,3 +220,22 @@ export const handleFavoritesAsync = (cod) => {
     }
   };
 };
+
+const addDate = (data) =>{
+  return {
+    type: userTypes.ADD_DATE,
+    payload: data
+  }
+}
+
+export const addDateAsync = (data) =>{
+  return async(dispatch, getState)=>{
+    try {
+      const userRef = doc(dataBase, 'Users', getState().user.user.id)
+      await updateDoc(userRef,{dates: [...getState().user.user.dates, data] })
+      dispatch(addDate(data))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}

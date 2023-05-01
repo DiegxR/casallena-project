@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { Appcontext } from "../../router/Router";
 import { useEffect } from "react";
 import { setLocalReserva } from "../../services/localInfoBoletas";
-
+import { motion } from 'framer-motion'
 const ReservationFunctions = ({
   opt = 1,
   set,
@@ -19,7 +19,7 @@ const ReservationFunctions = ({
 }) => {
   const { formatterPeso, setInfoReserva, infoReserva } = useContext(Appcontext);
   const [currentDate, setCurrentDate] = useState(infoReserva.currentDate);
-
+  const [animate, setanimate] = useState(false)
   const navigate = useNavigate();
 
   const actionBoletas = (op) => {
@@ -47,8 +47,12 @@ const ReservationFunctions = ({
   return (
     <>
       {opt === 0 ? (
-        <div className="ReservationFunctions">
-          <div className="selectSec">
+        <motion.div
+          animate={animate ? { opacity: -1 } : ''}
+          transition={{ duration: 0.5 }}
+          className="ReservationFunctions">
+          <div
+            className="selectSec">
             <h3>Escoge la fecha de la función</h3>
 
             <select
@@ -88,14 +92,13 @@ const ReservationFunctions = ({
               <div className="ticketReservation">
                 <p>Entradas desde</p>
                 <button
-                  className={`${
-                    boletas !== 0 && currentDate !== ""
+                  className={`${boletas !== 0 && currentDate !== ""
                       ? "btnTicket"
                       : "btnTicketDisabled "
-                  }`}
+                    }`}
                   onClick={() => {
                     {
-                      boletas !== 0 && currentDate !== "" ? set(1) : "";
+                      boletas !== 0 && currentDate !== "" ? (setTimeout(() => { set(1) }, 500), setanimate(true)) : "";
                     }
                     setPrice(value.price);
                   }}
@@ -105,20 +108,20 @@ const ReservationFunctions = ({
               </div>
             </div>
           ) : (
-            <div className="ticketReservation__Container">
+            <div
+              className="ticketReservation__Container">
               {[...Array(3)].map((_, index) => (
                 <div className="ticketReservation">
                   <p key={index + 1}>Entradas desde</p>
                   <button
                     key={index}
-                    className={`${
-                      boletas !== 0 && currentDate !== ""
+                    className={`${boletas !== 0 && currentDate !== ""
                         ? "btnTicket"
                         : "btnTicketDisabled "
-                    }`}
+                      }`}
                     onClick={() => {
                       {
-                        boletas !== 0 && currentDate !== "" ? set(1) : "";
+                        boletas !== 0 && currentDate !== "" ? (setTimeout(() => { set(1) }, 500), setanimate(true)) : "";
                       }
                       setPrice(`${index + 1}0000`);
                     }}
@@ -129,11 +132,16 @@ const ReservationFunctions = ({
               ))}
             </div>
           )}
-        </div>
+
+        </motion.div>
       ) : (
-        <div className="ReservationFunctions">
+        <motion.div
+          initial={{ opacity: 0 }}
+          transition={{ duration: 0.9 }}
+          animate={{ opacity: 1 }}
+          className="ReservationFunctions">
           <AiOutlineArrowLeft
-            onClick={() => set(0)}
+            onClick={() => (set(0), setanimate(false))}
             className=" arrowReservation"
           />
           <h3>Entradas</h3>
@@ -151,19 +159,23 @@ const ReservationFunctions = ({
                 price,
                 currentDate,
                 total: boletas * price,
+                cod: value.cod, 
+                name: value.name
               });
               setLocalReserva({
                 boletas,
                 price,
                 currentDate,
                 total: boletas * price,
+                cod: value.cod,
+                name: value.name
               });
             }}
             className="registerSec__btn btn_reservation"
           >
             Continuar
           </button>
-        </div>
+        </motion.div>
       )}
     </>
   );
