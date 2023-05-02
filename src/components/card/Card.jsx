@@ -185,7 +185,7 @@ const Card = ({ type, data }) => {
               <section
                 style={{ marginTop: "3px", cursor: "pointer" }}
                 onClick={() => {
-                  disponible ? navigate(`/detail/${data.cod}`) : "";
+                  navigate(`/detail/${data.cod}`);
                 }}
               >
                 {disponible == true ? (

@@ -1831,4 +1831,138 @@ export const obras = [
     ],
     comments: [],
   },
+  {
+    cod: 25,
+    name: "Anatomia del odio",
+    img: "https://drive.google.com/uc?export=download&id=1YqqHgaFhn8vm9RwhYs8Tz5Ou-fLBet75",
+    imgDetail:
+      "https://drive.google.com/uc?export=download&id=1cfjiXZD0Qa6xHso5KksxQx_d3Deq_dKX",
+    imgPost:
+      "https://drive.google.com/uc?export=download&id=1UD3MdT3ZcgeNAYSZxgKO20qdvOWC2gOQ",
+    gender: 9,
+    description:
+      "El dramaturgo de este texto alineó este hecho real, con la fábula de Medea, e integro la imagen prestada de la prensa para la investigación de este proyecto: “Sujetando a su hijo de diez años, la mujer se lanza de un puente acabando con la vida de ambos”.",
+    dates: [
+      {
+        date: "20/05/2023",
+        aforo: 30,
+        sold: [],
+        theater: 4,
+        sala: 0,
+      },
+      {
+        date: "25/05/2023",
+        aforo: 20,
+        sold: [],
+        theater: 4,
+        sala: 0,
+      },
+      {
+        date: "29/05/2023",
+        aforo: 20,
+        sold: [],
+        theater: 4,
+        sala: 0,
+      },
+    ],
+    desc: [{ type: 2, percent: 60 }],
+    price: 65000,
+    aporte: 0,
+    score: 3,
+    data: [
+      {
+        cod: 0,
+        name: "Datos",
+        description:
+          "Es una pieza audiovisual realizada a partir del texto homónimo creado por John Viana, inspirada en la obra Medea y en la historia trágica de Paola Moreno Cruz, quien decidió lanzarse con su hijo de 10 años, May Nicolás, de un puente de 100 mts en Ibagué – Colombia.",
+        img: [
+          "https://drive.google.com/uc?export=download&id=12bFXNPxoEsNqT7TGh8D7aAIOFzMWYu8t",
+          "https://drive.google.com/uc?export=download&id=1VLi80sMRqnCVErVmJ0d1SdXnCAh6Wby2",
+          "https://drive.google.com/uc?export=download&id=1MzZhU2rs8_6ujfyOjmLNXzQkvJenenxP",
+        ],
+        duration: 90,
+        age: 1,
+      },
+      {
+        cod: 1,
+        name: "Lugar",
+      },
+      {
+        cod: 2,
+        name: "Avisos",
+        infoPublico:
+          "El uso del tapacocas tanto dentro como fuera de la sala no es obligatorio.",
+        infoTeatro:
+          "Recuerda llegar al teatro con un mínimo de 15 minutos antes de la funsión.",
+      },
+    ],
+    comments: [],
+  },
+  {
+    cod: 26,
+    name: "Blanca Nieves",
+    img: "https://drive.google.com/uc?export=download&id=1YqqHgaFhn8vm9RwhYs8Tz5Ou-fLBet75",
+    imgDetail:
+      "https://drive.google.com/uc?export=download&id=1cfjiXZD0Qa6xHso5KksxQx_d3Deq_dKX",
+    imgPost:
+      "https://drive.google.com/uc?export=download&id=1UD3MdT3ZcgeNAYSZxgKO20qdvOWC2gOQ",
+    gender: 8,
+    description:
+      "Nueve comediantes suben a un escenario para representarnos, a chicos y a grandes, aquellas fantásticas historias que desde tiempos antiguos han rodado por el mundo y que de tanto girar, se han convertido en patrimonio imaginario de todos nosotros",
+    dates: [
+      {
+        date: "20/05/2023",
+        aforo: 30,
+        sold: [],
+        theater: 1,
+        sala: 0,
+      },
+      {
+        date: "25/05/2023",
+        aforo: 20,
+        sold: [],
+        theater: 1,
+        sala: 0,
+      },
+      {
+        date: "29/05/2023",
+        aforo: 20,
+        sold: [],
+        theater: 1,
+        sala: 0,
+      },
+    ],
+    desc: [{ type: 2, percent: 60 }],
+    price: 65000,
+    aporte: 0,
+    score: 3,
+    data: [
+      {
+        cod: 0,
+        name: "Datos",
+        description:
+          "Esta vez la escena tiene como protagonista a Blanca Nieves, la muchacha inocente y divertida, que regresa a la aventura para compartirnos un trozo de zozobra y, entre músicas y cantos, una porción inmensa de risas y alegrías.",
+        img: [
+          "https://drive.google.com/uc?export=download&id=12bFXNPxoEsNqT7TGh8D7aAIOFzMWYu8t",
+          "https://drive.google.com/uc?export=download&id=1VLi80sMRqnCVErVmJ0d1SdXnCAh6Wby2",
+          "https://drive.google.com/uc?export=download&id=1MzZhU2rs8_6ujfyOjmLNXzQkvJenenxP",
+        ],
+        duration: 90,
+        age: 1,
+      },
+      {
+        cod: 1,
+        name: "Lugar",
+      },
+      {
+        cod: 2,
+        name: "Avisos",
+        infoPublico:
+          "El uso del tapacocas tanto dentro como fuera de la sala no es obligatorio.",
+        infoTeatro:
+          "Recuerda llegar al teatro con un mínimo de 15 minutos antes de la funsión.",
+      },
+    ],
+    comments: [],
+  },
 ];

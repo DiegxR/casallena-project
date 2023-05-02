@@ -45,17 +45,17 @@
   padding: 10px;
   background: transparent;
 }
-.errorMsg{
+.errorMsg {
   color: $main_color;
   font-size: 13px;
 }
 
-body{
+body {
   background-color: $primary_black;
 }
 
 .registerSec__btn {
-  background-color: $main_color;
+  background: $main_color;
   color: $white_color;
   align-self: flex-end;
   border-radius: 20px;
@@ -63,4 +63,9 @@ body{
   width: fit-content;
   cursor: pointer;
   border: none;
+}
+.btnDesactiveReserva {
+  @extend .registerSec__btn;
+  background: $grayButton;
+  cursor: not-allowed;
 }

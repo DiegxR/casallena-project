@@ -124,6 +124,22 @@
   justify-content: space-between;
   box-shadow: -1px -14px 30px -30px rgba(2, 6, 10, 1);
 
+  .registerSec__btn {
+    background: $main_color;
+    color: $white_color;
+    align-self: flex-end;
+    border-radius: 20px;
+    padding: 10px 20px;
+    width: fit-content;
+    cursor: pointer;
+    border: none;
+  }
+  .btnDesactiveReserva {
+    @extend .registerSec__btn;
+    background: $grayButton;
+    cursor: not-allowed;
+  }
+
   p {
     font-weight: 700;
     font-size: 1rem;

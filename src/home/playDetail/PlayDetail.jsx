@@ -12,6 +12,7 @@ import Swal from "sweetalert2";
 import { handleFavoritesAsync } from "../../redux/actions/userActions";
 import { Appcontext } from "../../router/Router";
 import { motion, useAnimate } from "framer-motion";
+import { notify } from "../../services/notify";
 
 const PlayDetail = () => {
   const { cod } = useParams();
@@ -25,6 +26,7 @@ const PlayDetail = () => {
   useEffect(() => {
     if (currentObra.id) {
       setCurrentInfo(currentObra.data[0]);
+      dateDisponibles(currentObra.dates);
     }
     dispatch(handleFavoritesAsync());
   }, [currentObra]);
@@ -32,6 +34,7 @@ const PlayDetail = () => {
   const navigate = useNavigate();
   const [currentOpt, setCurrentOpt] = useState(0);
   const [currentInfo, setCurrentInfo] = useState({});
+  const [disponible, setDisponible] = useState(false);
   const [anim, setAnim] = useState(true);
   const copyURLToClipboard = () => {
     const currentURL = window.location.href;
@@ -62,6 +65,17 @@ const PlayDetail = () => {
     });
     return desc;
   };
+  const dateDisponibles = (array) => {
+    let today = new Date();
+    setDisponible(false);
+    array.forEach((item) => {
+      let fecha = new Date(item.date);
+      if (fecha.getTime() >= today.getTime()) {
+        setDisponible(true);
+      }
+    });
+  };
+
   return (
     <>
       {width < 1200 ? (
@@ -211,12 +225,27 @@ const PlayDetail = () => {
                     </div>
 
                     <div className="reservation">
-                      <button
-                        onClick={() => navigate(`/tickets/${cod}`)}
-                        className="registerSec__btn"
-                      >
-                        RESERVAR AHORA
-                      </button>
+                      {disponible ? (
+                        <button
+                          onClick={() => navigate(`/tickets/${cod}`)}
+                          className="registerSec__btn"
+                        >
+                          RESERVAR AHORA
+                        </button>
+                      ) : (
+                        <button
+                          className="btnDesactiveReserva"
+                          onClick={() =>
+                            notify(
+                              "Aún no hay fechas disponibles",
+                              "#d80416",
+                              "#d80416"
+                            )
+                          }
+                        >
+                          NO DISPONIBLE
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>
