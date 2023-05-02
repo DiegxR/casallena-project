@@ -23,6 +23,7 @@ import NoAuth from "../components/noAuth/NoAuth";
 import Reservas from "../home/Reservas/Reservas";
 import FormReserva from "../home/formReserva/FormReserva";
 import { getLocalReserva } from "../services/localInfoBoletas";
+import ModalReservation from "../components/modalReservation/ModalReservation";
 
 export const Appcontext = createContext({});
 
@@ -102,6 +103,7 @@ const Router = () => {
           <Route path="/noauth" element={<NoAuth />} />
           <Route path="/reservation" element={<Reservas />} />
           <Route path="/confirmreservation/:id" element={<FormReserva />} />
+          <Route path="/modal" element={<ModalReservation />} />
         </Routes>
       </BrowserRouter>
     </Appcontext.Provider>

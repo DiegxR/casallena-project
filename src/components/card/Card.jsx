@@ -10,6 +10,7 @@ import { IoIosInformationCircle } from "react-icons/io";
 import NoAuth from "../noAuth/NoAuth";
 import { handleFavoritesAsync } from "../../redux/actions/userActions";
 import { motion } from "framer-motion";
+
 const Card = ({ type, data }) => {
   const { formatterPeso, setShowModal } = useContext(Appcontext);
   const { width } = useContext(Appcontext);
