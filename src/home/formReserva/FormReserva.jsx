@@ -87,10 +87,11 @@ const FormReserva = () => {
   }, [infoReserva]);
 
   return (
+    <section className="formCont">
     <motion.section
-      initial={{ scale: 0 }}
-      transition={{ duration: 0.4 }}
-      animate={{ scale: 1 }}
+      initial={{ y: "100%" }}
+      transition={{ duration: 0.8 }}
+      animate={{ y: "0%" }}
       className="secFormReserva"
     >
       <article className="secFormReserva__header">
@@ -211,6 +212,7 @@ const FormReserva = () => {
         </article>
       </form>
     </motion.section>
+    </section>
   );
 };
 

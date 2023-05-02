@@ -12,6 +12,7 @@ const Reservas = () => {
     const { user } = useSelector(store => store.user)
     const [events, setEvents] = useState([])
     useEffect(() => {
+        setEvents([])
         user.dates.forEach(element => {
             console.log(element)
             const date = element.currentDate.split('/')
@@ -28,21 +29,6 @@ const Reservas = () => {
         });
     }, [user])
     
-    const miEvento = {
-        title: 'Mi evento',
-        start: new Date(2023, 3, 25),
-        end: new Date(2023, 3, 25),
-        color: '#d80416',
-        cod: '3'
-    };
-    const otroEvento = {
-        title: 'La casa de bernarda alba',
-        start: new Date(2023, 3, 30),
-        end: new Date(2023, 3, 30),
-        color: '#d80416',
-        cod: '8'
-    };
-  
     return (
         <motion.div
             initial={{ opacity: -1 }}

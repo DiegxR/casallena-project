@@ -189,7 +189,9 @@
     }
   }
 }
-
+.formCont{
+  overflow-y: hidden;
+}
 @media (min-width: 768px) {
   .secFormReserva {
     padding: 50px 10%;
