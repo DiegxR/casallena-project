@@ -68,7 +68,7 @@ const PlayDetail = () => {
         currentObra.id ? (
           <motion.section
             initial={{ scale: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.8 }}
             animate={{ scale: 1 }}
             className="PlayDetailSec"
             style={{ backgroundImage: `url(${currentObra.imgDetail})` }}
@@ -146,7 +146,7 @@ const PlayDetail = () => {
           {currentObra.id ? (
             <motion.section
               initial={{ scale: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.8 }}
               animate={{ scale: 1 }}
               className="secDetailDesktop"
             >

@@ -36,9 +36,9 @@ const Reservations = () => {
 
   return (
     <motion.section
-      initial={{ y: "100%" }}
-      transition={{ duration: 1 }}
-      animate={{ y: "0%" }}
+      initial={{ opacity: -1 }}
+      transition={{ duration: 2 }}
+      animate={{ opacity: 1 }}
       className="secReservations"
     >
       <div className="arrows arrowsReservation">
