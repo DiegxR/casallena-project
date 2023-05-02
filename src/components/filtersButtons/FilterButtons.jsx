@@ -146,7 +146,6 @@ const FilterButtons = () => {
         dispatch(getObras({ collectionName: "Obras", key: "", value: "" }));
         break;
     }
-    console.log(filterButton);
   }, [filterButton]);
 
   return (

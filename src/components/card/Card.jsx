@@ -57,7 +57,6 @@ const Card = ({ type, data }) => {
     array.forEach((item) => {
       let fecha = new Date(item.date);
       if (fecha.getTime() >= today.getTime()) {
-        console.log("Entro");
         setDisponible(true);
       }
     });
@@ -66,9 +65,6 @@ const Card = ({ type, data }) => {
   useEffect(() => {
     dateDisponibles(data?.dates);
   }, [data]);
-  useEffect(() => {
-    console.log(disponible);
-  }, [disponible]);
 
   return (
     <>

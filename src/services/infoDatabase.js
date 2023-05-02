@@ -1591,4 +1591,244 @@ export const obras = [
     ],
     comments: [],
   },
+  {
+    cod: 21,
+    name: "Rent",
+    img: "https://drive.google.com/uc?export=download&id=1ueDRjFcgiD8c5TqrbjkhpCUqA7qGqpcu",
+    imgDetail:
+      "https://drive.google.com/uc?export=download&id=10TQHxjFLo4Vf7eq-y_yuNPtlsgHqs6Am",
+    imgPost:
+      "https://drive.google.com/uc?export=download&id=1aHGe_XJYl0fauvLJAOENsU16mo3YoEbe",
+    gender: 10,
+    description:
+      "Rent es un musical rock con libreto, música y letras de Jonathan Larson, basado en la ópera La bohème de Giacomo Puccini.",
+    dates: [
+      {
+        date: "7/05/2023",
+        aforo: 30,
+        sold: [],
+        theater: 6,
+        sala: 0,
+      },
+      {
+        date: "18/05/2023",
+        aforo: 20,
+        sold: [],
+        theater: 6,
+        sala: 0,
+      },
+    ],
+    desc: [{ type: 2, percent: 60 }],
+    price: 65000,
+    aporte: 0,
+    score: 5,
+    data: [
+      {
+        cod: 0,
+        name: "Datos",
+        description:
+          "Rent es un musical rock con libreto, música y letras de Jonathan Larson, basado en la ópera La bohème de Giacomo Puccini. Su trama central gira en torno a un grupo de jóvenes bohemios que luchan por salir adelante en el Alphabet City neoyorquino de principios de los 90, bajo la constante amenaza del sida",
+        img: [
+          "https://drive.google.com/uc?export=download&id=1Me0js5UFuEO8hJspO2ntfuiiNnxb7Qpj",
+          "https://drive.google.com/uc?export=download&id=19SLamnK71HnoZIF1GzLtPw7Wm79qDPGq",
+          "https://drive.google.com/uc?export=download&id=1tVljNYyne6uKzPiEdMwkE1KYYFegdbQU",
+        ],
+        duration: 90,
+        age: 1,
+      },
+      {
+        cod: 1,
+        name: "Lugar",
+      },
+      {
+        cod: 2,
+        name: "Avisos",
+        infoPublico:
+          "El uso del tapacocas tanto dentro como fuera de la sala no es obligatorio.",
+        infoTeatro:
+          "Recuerda llegar al teatro con un mínimo de 15 minutos antes de la funsión.",
+      },
+    ],
+    comments: [],
+  },
+  {
+    cod: 22,
+    name: "El aviso desoído",
+    img: "https://drive.google.com/uc?export=download&id=13fJhHpXJP0lCgiR_zGpXXUzalLOIV0Sg",
+    imgDetail:
+      "https://drive.google.com/uc?export=download&id=1PfcTh2GIl4ozqrMZMnbQTZqD9-yU8tyH",
+    imgPost:
+      "https://drive.google.com/uc?export=download&id=1g-Ca4gForltPaw-3uAAG7BVUa3QSOfEZ",
+    gender: 11,
+    description:
+      "Es el resultante de mixturas de diferentes técnicas (Teatro de Papel Europeo, Pop Up, Títeres, etc.), junto a poéticas de artistas confluyendo en un montaje escénico desarrollado durante el primer año de la Pandemia.",
+    dates: [
+      {
+        date: "7/05/2023",
+        aforo: 30,
+        sold: [],
+        theater: 5,
+        sala: 0,
+      },
+      {
+        date: "18/05/2023",
+        aforo: 20,
+        sold: [],
+        theater: 5,
+        sala: 0,
+      },
+    ],
+    desc: [{ type: 2, percent: 60 }],
+    price: 65000,
+    aporte: 0,
+    score: 3,
+    data: [
+      {
+        cod: 0,
+        name: "Datos",
+        description:
+          "Nos cuenta la historia de amor entre innumerables “Rosalunas y Antileos: seres atemporales que por momento son animalmente niños, que por otros son arrastrados por designios que no son más que códigos a romper… que quieren jugar, que quieren bailar, que quieren amar, que tienen miedo, que no saben que son víctimas y victimarios del efecto de la repetición de lo heredado”. ",
+        img: [
+          "https://drive.google.com/uc?export=download&id=1twRTm7eyF2ic0aX1JcprmTtPy46ZIDho",
+          "https://drive.google.com/uc?export=download&id=1j0sHc-bxmL8WwtrOrF1hDVvD7mCgVMUf",
+          "https://drive.google.com/uc?export=download&id=1k2FET4Bqrz1-Dsg3HqZy-ND-jpwCcZXA",
+        ],
+        duration: 90,
+        age: 1,
+      },
+      {
+        cod: 1,
+        name: "Lugar",
+      },
+      {
+        cod: 2,
+        name: "Avisos",
+        infoPublico:
+          "El uso del tapacocas tanto dentro como fuera de la sala no es obligatorio.",
+        infoTeatro:
+          "Recuerda llegar al teatro con un mínimo de 15 minutos antes de la funsión.",
+      },
+    ],
+    comments: [],
+  },
+  {
+    cod: 23,
+    name: "Yuma río amigo",
+    img: "https://drive.google.com/uc?export=download&id=1we-JaZXNmIPluDifj2mQ5Ak-Z3dnDOSD",
+    imgDetail:
+      "https://drive.google.com/uc?export=download&id=1qk-3E309BfQIqhMSAmk14FBQYevedQiV",
+    imgPost:
+      "https://drive.google.com/uc?export=download&id=1mrr3d1HkLBxkCEAK0tNhIcrRm9Ulupkc",
+    gender: 11,
+    description:
+      "Es el resultante de mixturas de diferentes técnicas (Teatro de Papel Europeo, Pop Up, Títeres, etc.), junto a poéticas de artistas confluyendo en un montaje escénico desarrollado durante el primer año de la Pandemia.",
+    dates: [
+      {
+        date: "7/05/2023",
+        aforo: 30,
+        sold: [],
+        theater: 5,
+        sala: 0,
+      },
+      {
+        date: "18/05/2023",
+        aforo: 20,
+        sold: [],
+        theater: 5,
+        sala: 0,
+      },
+    ],
+    desc: [{ type: 2, percent: 60 }],
+    price: 65000,
+    aporte: 0,
+    score: 3,
+    data: [
+      {
+        cod: 0,
+        name: "Datos",
+        description:
+          "Nos cuenta la historia de amor entre innumerables “Rosalunas y Antileos: seres atemporales que por momento son animalmente niños, que por otros son arrastrados por designios que no son más que códigos a romper… que quieren jugar, que quieren bailar, que quieren amar, que tienen miedo, que no saben que son víctimas y victimarios del efecto de la repetición de lo heredado”. ",
+        img: [
+          "https://drive.google.com/uc?export=download&id=1ypsWzW3Hic1MhZQ4lpq6p7T9d3TfAaho",
+          "https://drive.google.com/uc?export=download&id=1JaLh3OdZQfwXlKOWKByfBpsGM2djFTrA",
+          "https://drive.google.com/uc?export=download&id=1gBYfeDRqz66JKczTMumRd5OKN6RZo3Mc",
+        ],
+        duration: 90,
+        age: 1,
+      },
+      {
+        cod: 1,
+        name: "Lugar",
+      },
+      {
+        cod: 2,
+        name: "Avisos",
+        infoPublico:
+          "El uso del tapacocas tanto dentro como fuera de la sala no es obligatorio.",
+        infoTeatro:
+          "Recuerda llegar al teatro con un mínimo de 15 minutos antes de la funsión.",
+      },
+    ],
+    comments: [],
+  },
+  {
+    cod: 24,
+    name: "Luz de navidad",
+    img: "https://drive.google.com/uc?export=download&id=1pLBF5iDy4dvaxcyvYn_RozYPRmMbfnzo",
+    imgDetail:
+      "https://drive.google.com/uc?export=download&id=12n2QVR2SsqUTZ2VtuPBFLynixBUb5yYw",
+    imgPost:
+      "https://drive.google.com/uc?export=download&id=1m-vgh5McT_KS8ISI-TQX4VMwgHBu-HRT",
+    gender: 10,
+    description:
+      "Se realiza desde el 2017 con @conexiones_cc para vivir y amar en estas épocas ",
+    dates: [
+      {
+        date: "24/12/2022",
+        aforo: 30,
+        sold: [],
+        theater: 6,
+        sala: 0,
+      },
+      {
+        date: "25/12/2022",
+        aforo: 20,
+        sold: [],
+        theater: 6,
+        sala: 0,
+      },
+    ],
+    desc: [{ type: 2, percent: 60 }],
+    price: 65000,
+    aporte: 0,
+    score: 3,
+    data: [
+      {
+        cod: 0,
+        name: "Datos",
+        description:
+          "Luz de Navidad es un musical en formato itinerante que cuenta la historia de un navidad nuestra. La navidad de la cuadra, la fiesta, los amigos y la familia.",
+        img: [
+          "https://drive.google.com/uc?export=download&id=14yKpd835UugckIafsKNreh-JBrzL-hPn",
+          "https://drive.google.com/uc?export=download&id=18a4moQoulyNdY56VnoCxYn5jZ4_rFKvv",
+          "https://drive.google.com/uc?export=download&id=1cP0ZYBtmFgiBAhWBoQihTxIBTfa6dieC",
+        ],
+        duration: 90,
+        age: 1,
+      },
+      {
+        cod: 1,
+        name: "Lugar",
+      },
+      {
+        cod: 2,
+        name: "Avisos",
+        infoPublico:
+          "El uso del tapacocas tanto dentro como fuera de la sala no es obligatorio.",
+        infoTeatro:
+          "Recuerda llegar al teatro con un mínimo de 15 minutos antes de la funsión.",
+      },
+    ],
+    comments: [],
+  },
 ];

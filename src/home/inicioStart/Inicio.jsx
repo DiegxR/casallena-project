@@ -28,12 +28,6 @@ const Inicio = () => {
     let size = getCenterSlidePercentage(width >= 768 ? 600 : 300, width, 1);
     setSizeCarrusel(size);
   }, [width]);
-  useEffect(() => {
-    console.log(showModal);
-  }, [showModal]);
-  useEffect(() => {
-    console.log(obras);
-  }, [obras]);
 
   return (
     <motion.div
@@ -104,8 +98,9 @@ const Inicio = () => {
                         );
                       }
                     })
-                  : [...Array(20)].map(() => (
+                  : [...Array(20)].map((_, index) => (
                       <CardLoading
+                        key={index}
                         width={width < 768 ? "300px" : "600px"}
                         height={width < 768 ? "200px" : "400px"}
                       />

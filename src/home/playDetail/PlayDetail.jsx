@@ -13,14 +13,12 @@ import { handleFavoritesAsync } from "../../redux/actions/userActions";
 import { Appcontext } from "../../router/Router";
 import { motion, useAnimate } from "framer-motion";
 
-
-
 const PlayDetail = () => {
   const { cod } = useParams();
   const dispatch = useDispatch();
   const { currentObra } = useSelector((store) => store.obras);
   const { width } = useContext(Appcontext);
- 
+
   useEffect(() => {
     dispatch(getCurrentObraAsync(cod));
   }, []);
@@ -34,7 +32,7 @@ const PlayDetail = () => {
   const navigate = useNavigate();
   const [currentOpt, setCurrentOpt] = useState(0);
   const [currentInfo, setCurrentInfo] = useState({});
-  const [anim, setAnim] = useState(true)
+  const [anim, setAnim] = useState(true);
   const copyURLToClipboard = () => {
     const currentURL = window.location.href;
     navigator.clipboard.writeText(currentURL);
@@ -50,7 +48,6 @@ const PlayDetail = () => {
     });
   };
   const obtainDesc = (array) => {
-    console.log(array);
     let desc = "";
     array.forEach((item) => {
       if (item.type === 0) {
@@ -103,7 +100,11 @@ const PlayDetail = () => {
                       className={`data_title`}
                       onClick={() => {
                         setCurrentOpt(item.cod);
-                        {item.cod > currentOpt ? setAnim(true) : setAnim(false)}
+                        {
+                          item.cod > currentOpt
+                            ? setAnim(true)
+                            : setAnim(false);
+                        }
                         setCurrentInfo(item);
                       }}
                     >
@@ -189,7 +190,11 @@ const PlayDetail = () => {
                             onClick={() => {
                               setCurrentOpt(item.cod);
                               setCurrentInfo(item);
-                              {item.cod > currentOpt ? setAnim(true) : setAnim(false)}
+                              {
+                                item.cod > currentOpt
+                                  ? setAnim(true)
+                                  : setAnim(false);
+                              }
                             }}
                           >
                             <h3>{item.name}</h3>
