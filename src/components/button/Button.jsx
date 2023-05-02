@@ -2,7 +2,7 @@ import React from "react";
 import "./stylesButton.scss";
 import { useNavigate } from "react-router";
 
-const Button = ({ style, width = 0, children, action }) => {
+const Button = ({ style, width = 0, color = "", children, action }) => {
   const navigate = useNavigate();
   return (
     <button
@@ -19,6 +19,7 @@ const Button = ({ style, width = 0, children, action }) => {
       style={{
         width: `${width}`,
         cursor: `${style === 3 || style === 1 ? "pointer" : "none"}`,
+        background: `${color ? color : ""}`,
       }}
     >
       {children}

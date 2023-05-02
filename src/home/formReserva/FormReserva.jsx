@@ -6,7 +6,7 @@ import { useNavigate, useParams } from "react-router";
 import { countryCodes } from "../../services/infoDatabase";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
 import Button from "../../components/button/Button";
 import {
   getLocalReserva,
@@ -14,6 +14,7 @@ import {
 } from "../../services/localInfoBoletas";
 import Swal from "sweetalert2";
 import { addDateAsync } from "../../redux/actions/userActions";
+import { clearLocalReserva } from "../../services/localInfoBoletas";
 
 const FormReserva = () => {
   const navigate = useNavigate();
@@ -64,32 +65,34 @@ const FormReserva = () => {
       cancelButtonColor: "#0d1314",
       cancelButtonText: "Cancelar",
       confirmButtonColor: "#d80416",
-      closeButtonAriaLabel: '#d80416',
+      closeButtonAriaLabel: "#d80416",
       confirmButtonText: "Confirmar",
-      background: "#02060a"
-    }).then((res)=>{
-      if(res.isConfirmed){
+      background: "#02060a",
+    }).then((res) => {
+      if (res.isConfirmed) {
         data.phone = code + data.phone;
-        const reserv = getLocalReserva()
-        dispatch(addDateAsync({...data, ...reserv}))
+        const reserv = getLocalReserva();
+        dispatch(addDateAsync({ ...data, ...reserv }));
+        clearLocalReserva();
         navigate("/reservation");
       }
-    })
+    });
   };
 
   useEffect(() => {
     setCurrentObra(obras.filter((item) => item.cod === Number(id)));
   }, [obras]);
   useEffect(() => {
-    console.log(currentObra);
-  }, [currentObra]);
+    console.log(infoReserva);
+  }, [infoReserva]);
 
   return (
     <motion.section
-    initial={{scale: 0}}
-    transition={{duration: 0.4}}
-    animate={{scale: 1}}
-    className="secFormReserva">
+      initial={{ scale: 0 }}
+      transition={{ duration: 0.4 }}
+      animate={{ scale: 1 }}
+      className="secFormReserva"
+    >
       <article className="secFormReserva__header">
         <div className="iconBack">
           <BiArrowBack

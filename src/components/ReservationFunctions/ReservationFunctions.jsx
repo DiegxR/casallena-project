@@ -7,7 +7,8 @@ import { useContext } from "react";
 import { Appcontext } from "../../router/Router";
 import { useEffect } from "react";
 import { setLocalReserva } from "../../services/localInfoBoletas";
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
+import { getShortDate } from "../../services/dateActual";
 const ReservationFunctions = ({
   opt = 1,
   set,
@@ -18,22 +19,60 @@ const ReservationFunctions = ({
   setBoletas,
 }) => {
   const { formatterPeso, setInfoReserva, infoReserva } = useContext(Appcontext);
-  const [currentDate, setCurrentDate] = useState(infoReserva.currentDate);
-  const [animate, setanimate] = useState(false)
+  const [currentDate, setCurrentDate] = useState("");
+  const [dates, setDates] = useState([]);
+  const [animate, setanimate] = useState(false);
   const navigate = useNavigate();
 
   const actionBoletas = (op) => {
-    if (op === "+") {
-      setBoletas(boletas + 1);
-    } else if (boletas > 1) {
-      setBoletas(boletas - 1);
+    if (dates.length !== 0) {
+      if (op === "+") {
+        setBoletas(boletas + 1);
+      } else if (boletas > 1) {
+        setBoletas(boletas - 1);
+      } else {
+        setBoletas(0);
+      }
     } else {
       setBoletas(0);
     }
   };
+
+  const dateDisponibles = (array) => {
+    let newdates = [];
+    let today = new Date();
+    array.forEach((item) => {
+      let fecha = new Date(item.date);
+      if (fecha.getTime() >= today.getTime()) {
+        if (item.aforo >= boletas) {
+          newdates.push(item.date);
+        }
+      }
+    });
+    setDates(newdates);
+  };
+
+  const changeCurrentDate = () => {
+    if (dates.length !== 0) {
+      setCurrentDate(dates[0]);
+    } else {
+      if (infoReserva?.currentDate) {
+        setCurrentDate(infoReserva.currentDate);
+      } else {
+        setCurrentDate(dates[0]);
+      }
+    }
+  };
+
   useEffect(() => {
-    console.log(currentDate);
-  }, []);
+    if (value?.dates) {
+      dateDisponibles(value.dates);
+    }
+  }, [value, boletas]);
+  useEffect(() => {
+    changeCurrentDate();
+  }, [dates]);
+
   const handleSelectChange = (event) => {
     console.log("Entro");
     if (event.target.value) {
@@ -42,34 +81,35 @@ const ReservationFunctions = ({
   };
   useEffect(() => {
     console.log(currentDate);
+    console.log(getShortDate());
   }, [currentDate]);
 
   return (
     <>
       {opt === 0 ? (
         <motion.div
-          animate={animate ? { opacity: -1 } : ''}
+          animate={animate ? { opacity: -1 } : ""}
           transition={{ duration: 0.5 }}
-          className="ReservationFunctions">
-          <div
-            className="selectSec">
+          className="ReservationFunctions"
+        >
+          <div className="selectSec">
             <h3>Escoge la fecha de la función</h3>
 
-            <select
-              onChange={handleSelectChange}
-              value={currentDate}
-              className="select"
-            >
-              {value?.dates.map((item, index) =>
-                item.aforo >= boletas ? (
+            {dates.length !== 0 ? (
+              <select
+                onChange={handleSelectChange}
+                value={currentDate}
+                className="select"
+              >
+                {dates.map((item, index) => (
                   <option key={index} value={item.date}>
-                    {item.date}
+                    {item}
                   </option>
-                ) : (
-                  <></>
-                )
-              )}
-            </select>
+                ))}
+              </select>
+            ) : (
+              <p style={{ textAlign: "center" }}>Sin fechas disponibles</p>
+            )}
           </div>
           <div className="ReservationIcon">
             <HiMinusCircle
@@ -92,13 +132,19 @@ const ReservationFunctions = ({
               <div className="ticketReservation">
                 <p>Entradas desde</p>
                 <button
-                  className={`${boletas !== 0 && currentDate !== ""
+                  className={`${
+                    boletas !== 0 && currentDate !== "" && dates.length !== 0
                       ? "btnTicket"
                       : "btnTicketDisabled "
-                    }`}
+                  }`}
                   onClick={() => {
                     {
-                      boletas !== 0 && currentDate !== "" ? (setTimeout(() => { set(1) }, 500), setanimate(true)) : "";
+                      boletas !== 0 && currentDate !== "" && dates.length !== 0
+                        ? (setTimeout(() => {
+                            set(1);
+                          }, 500),
+                          setanimate(true))
+                        : "";
                     }
                     setPrice(value.price);
                   }}
@@ -108,20 +154,27 @@ const ReservationFunctions = ({
               </div>
             </div>
           ) : (
-            <div
-              className="ticketReservation__Container">
+            <div className="ticketReservation__Container">
               {[...Array(3)].map((_, index) => (
                 <div className="ticketReservation">
                   <p key={index + 1}>Entradas desde</p>
                   <button
                     key={index}
-                    className={`${boletas !== 0 && currentDate !== ""
+                    className={`${
+                      boletas !== 0 && currentDate !== "" && dates.length !== 0
                         ? "btnTicket"
                         : "btnTicketDisabled "
-                      }`}
+                    }`}
                     onClick={() => {
                       {
-                        boletas !== 0 && currentDate !== "" ? (setTimeout(() => { set(1) }, 500), setanimate(true)) : "";
+                        boletas !== 0 &&
+                        currentDate !== "" &&
+                        dates.length !== 0
+                          ? (setTimeout(() => {
+                              set(1);
+                            }, 500),
+                            setanimate(true))
+                          : "";
                       }
                       setPrice(`${index + 1}0000`);
                     }}
@@ -132,14 +185,14 @@ const ReservationFunctions = ({
               ))}
             </div>
           )}
-
         </motion.div>
       ) : (
         <motion.div
           initial={{ opacity: 0 }}
           transition={{ duration: 0.9 }}
           animate={{ opacity: 1 }}
-          className="ReservationFunctions">
+          className="ReservationFunctions"
+        >
           <AiOutlineArrowLeft
             onClick={() => (set(0), setanimate(false))}
             className=" arrowReservation"
@@ -159,8 +212,8 @@ const ReservationFunctions = ({
                 price,
                 currentDate,
                 total: boletas * price,
-                cod: value.cod, 
-                name: value.name
+                cod: value.cod,
+                name: value.name,
               });
               setLocalReserva({
                 boletas,
@@ -168,7 +221,7 @@ const ReservationFunctions = ({
                 currentDate,
                 total: boletas * price,
                 cod: value.cod,
-                name: value.name
+                name: value.name,
               });
             }}
             className="registerSec__btn btn_reservation"

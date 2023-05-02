@@ -89,7 +89,7 @@ export const teatros = [
   {
     cod: 0,
     name: "Pequeño teatro",
-    location: { lat: "", long: "" },
+    location: { lat: "6.24753", long: "-75.56165" },
     direccion: "Cl. 47 #4347, Medellín, La Candelaria",
     salas: [
       {
@@ -103,7 +103,7 @@ export const teatros = [
   {
     cod: 1,
     name: "Teatro Matacandelas",
-    location: { lat: "", long: "" },
+    location: { lat: "6.24460", long: "-75.56465" },
     direccion: "Cl. 47 #4347, Medellín, La Candelaria",
     salas: [
       {
@@ -117,7 +117,7 @@ export const teatros = [
   {
     cod: 2,
     name: "Acción Impro",
-    location: { lat: "", long: "" },
+    location: { lat: "6.21044", long: "-75.57197" },
     direccion: "Cl. 9 #43B - 80, Medellín, El Poblado,",
     salas: [
       {
@@ -131,7 +131,7 @@ export const teatros = [
   {
     cod: 3,
     name: "Teatro hora 25",
-    location: { lat: "", long: "" },
+    location: { lat: "6.24872", long: "-75.60870" },
     direccion: "Cra 88 #39-31, Medellín, La América",
     salas: [
       {
@@ -145,8 +145,68 @@ export const teatros = [
   {
     cod: 4,
     name: "Casa contenta",
-    location: { lat: "", long: "" },
+    location: { lat: "6.222034", long: "-75.502142" },
     direccion: "Cra. 35 Este # 19-223, Medellín, Santa Elena, Medellín",
+    salas: [
+      {
+        cod: 0,
+        cantTotal: 40,
+        cantDisp: 40,
+        cantOcupados: 0,
+      },
+    ],
+  },
+  {
+    cod: 5,
+    name: "Teatro La Fanfarria",
+    location: { lat: "6.249179", long: "-75.604883" },
+    direccion:
+      "Cra. 84 #42C-54, Simón Bolívar, Medellín, La América, Medellín, Antioquia",
+    salas: [
+      {
+        cod: 0,
+        cantTotal: 40,
+        cantDisp: 40,
+        cantOcupados: 0,
+      },
+    ],
+  },
+  {
+    cod: 6,
+    name: "Citrino teatro",
+    location: { lat: "6.209611", long: "-75.570389" },
+    direccion:
+      "Cl. 9 #42-37, El Poblado, Medellín, El Poblado, Medellín, Antioquia",
+    salas: [
+      {
+        cod: 0,
+        cantTotal: 40,
+        cantDisp: 40,
+        cantOcupados: 0,
+      },
+    ],
+  },
+  {
+    cod: 7,
+    name: "Teatro Musical de Colombia",
+    location: { lat: "6.189294", long: "-75.580079" },
+    direccion:
+      "Dg. 47A #16a Sur-04, Medellín, Antioquia Av. Las Vegas, Sector, Medellín, Antioquia",
+    salas: [
+      {
+        cod: 0,
+        cantTotal: 40,
+        cantDisp: 40,
+        cantOcupados: 0,
+      },
+    ],
+  },
+  {
+    cod: 8,
+    name: "One eventos",
+    location: { lat: "6.195791", long: "-75.558711" },
+    direccion:
+      "Cra. 25 #1 A sur 155, El Poblado, Medellín, El Poblado, Medellín, Antioquia",
     salas: [
       {
         cod: 0,
@@ -553,25 +613,25 @@ export const obras = [
   },
   {
     cod: 6,
-    name: "El cadáver",
-    img: "https://drive.google.com/uc?export=download&id=16ByrNdAuCHehvco_tYdt7fsdUYAWiKq8",
+    name: "Famel",
+    img: "https://drive.google.com/uc?export=download&id=1oZQNGB2A6gVUcYa3KH4WKImLiru3jJ88",
     imgDetail:
-      "https://drive.google.com/uc?export=download&id=16UjkBTaXAcwuxryANXYoOPy2UrLWnGIC",
+      "https://drive.google.com/uc?export=download&id=1RLlZrfjMYtNSiKa-JgZytEplukuxV3a6",
     imgPost:
-      "https://drive.google.com/uc?export=download&id=1AmbH7NoX0B3OYSiqPD2-zFVKIp0Ig5ja",
+      "https://drive.google.com/uc?export=download&id=1WjSk8ioU7ss_ZLrZijtVklqf4kAoxVXw",
     gender: 8,
     description:
-      "El teatro físico, el grotesco y un poco de humor son los recursos expresivos que dan cuerpo a El Cadáver.",
+      "Famel es una comedia musical dirigida por Samuel Rojas. En este espectáculo",
     dates: [
       {
-        date: "20/04/2023",
+        date: "10/05/2023",
         aforo: 40,
         sold: [],
         theater: 1,
         sala: 0,
       },
       {
-        date: "29/04/2023",
+        date: "11/05/2023",
         aforo: 40,
         sold: [],
         sala: 0,
@@ -595,11 +655,11 @@ export const obras = [
         cod: 0,
         name: "Datos",
         description:
-          "Pieza corta en dos actos que narra la historia de tres amigos y un sirviente que, luego de encontrarse en una glamurosa fiesta, descubren el cadáver de su anfitrión",
+          "Famel es una comedia musical dirigida por Samuel Rojas. En este espectáculo, Teatro Musical de Colombia se adentra en el territorio de la fantasía medieval, para contar a su público una historia trepidante que los llevará en minutos desde situaciones desbordadas del más pintoresco humor, a momentos cargados de acción, y escenas llenas de carga dramática",
         img: [
-          "https://drive.google.com/uc?export=download&id=1a4w9xzeM3-MPQR9S2EXuAhMC8WYFEZIb",
-          "https://drive.google.com/uc?export=download&id=1esaDsSXMB1V3ms0vVGZpEZ7kxykTFfzG",
-          "https://drive.google.com/uc?export=download&id=1wzAYdpKO-HuJrBTWoS4b9s_FeMoUv3mW",
+          "https://drive.google.com/uc?export=download&id=1wJpLVySAVmg2rOUBnj68vLnPJCLM-2Ri",
+          "https://drive.google.com/uc?export=download&id=1NPjZJpNJ0VVhk5yAWbIBsTzo2-c7M7cD",
+          "https://drive.google.com/uc?export=download&id=1JiV1TAjhW2gwiswVzFw99GWzaat6ims9",
         ],
         duration: 120,
         age: 1,

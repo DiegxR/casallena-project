@@ -7,9 +7,12 @@ import ReservationFunctions from "../../components/ReservationFunctions/Reservat
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getFullDate } from "../../services/dateActual";
-import { getLocalReserva } from "../../services/localInfoBoletas";
+import {
+  clearLocalReserva,
+  getLocalReserva,
+} from "../../services/localInfoBoletas";
 import { Appcontext } from "../../router/Router";
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
 const Reservations = () => {
   const navigate = useNavigate();
   const localReserva = getLocalReserva();
@@ -33,12 +36,19 @@ const Reservations = () => {
 
   return (
     <motion.section
-    initial={{y: "100%"}}
-    transition={{duration: 1}}
-    animate={{y: "0%"}}
-    className="secReservations">
+      initial={{ y: "100%" }}
+      transition={{ duration: 1 }}
+      animate={{ y: "0%" }}
+      className="secReservations"
+    >
       <div className="arrows arrowsReservation">
-        <BiArrowBack onClick={() => navigate(-1)} className="arrowLeft" />
+        <BiArrowBack
+          onClick={() => {
+            navigate(-1);
+            clearLocalReserva();
+          }}
+          className="arrowLeft"
+        />
         <p>{getFullDate()}</p>
       </div>
 

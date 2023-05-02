@@ -29,3 +29,11 @@ export const getFullDate = () => {
   const año = fechaActual.getFullYear();
   return `${diaDeLaSemana}, ${dia} de ${mes} de ${año}`;
 };
+
+export const getShortDate = () => {
+  let date = new Date();
+  const getDay = date.toLocaleString("default", { day: "2-digit" });
+  const getMonth = date.toLocaleString("default", { month: "2-digit" });
+  const getYear = date.toLocaleString("default", { year: "numeric" });
+  return `${getDay}/${getMonth}/${getYear}`;
+};

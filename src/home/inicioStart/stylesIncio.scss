@@ -3,6 +3,15 @@
 .carousel .carousel-slider .control-arrow {
   color: v.$main_color;
 }
+.carousel-root {
+  .carousel-slider {
+    .slider-wrapper {
+      ul {
+        transform: translate3d(-50%, 0px, 0px, 0px) !important;
+      }
+    }
+  }
+}
 
 .secInicio {
   width: 100%;

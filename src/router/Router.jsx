@@ -22,6 +22,7 @@ import { getFilters, getObras } from "../redux/actions/obrasActions";
 import NoAuth from "../components/noAuth/NoAuth";
 import Reservas from "../home/Reservas/Reservas";
 import FormReserva from "../home/formReserva/FormReserva";
+import { getLocalReserva } from "../services/localInfoBoletas";
 
 export const Appcontext = createContext({});
 
@@ -39,7 +40,7 @@ const Router = () => {
 
   const [width, setwidth] = useState(window.innerWidth);
   const [showModal, setShowModal] = useState(false);
-  const [infoReserva, setInfoReserva] = useState({});
+  const [infoReserva, setInfoReserva] = useState({ ...getLocalReserva() });
 
   const dispatch = useDispatch();
   useEffect(() => {

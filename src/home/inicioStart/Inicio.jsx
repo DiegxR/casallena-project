@@ -20,6 +20,10 @@ const Inicio = () => {
   const { obras } = useSelector((store) => store.obras);
   const { user } = useSelector((store) => store.user);
 
+  const firstRenderStyles = {
+    transform: "translate3d(-50%, 0px, 0px)",
+  };
+
   useEffect(() => {
     let size = getCenterSlidePercentage(width >= 768 ? 600 : 300, width, 1);
     setSizeCarrusel(size);
@@ -73,38 +77,45 @@ const Inicio = () => {
         <main className="secInicio">
           <section className="secInicio__sec1">
             <h3>Proyectos populares</h3>
-            <Carousel
-              emulateTouch={width < 768 ? true : false}
-              showThumbs={false}
-              showArrows={width >= 768 ? true : false}
-              showStatus={false}
-              showIndicators={false}
-              centerMode={true}
-              centerSlidePercentage={sizeCarrusel}
-              interval={3000}
-              infiniteLoop={true}
+            <section
+              className="secInicio__sec1__carrusel"
+              style={{
+                width: "100%",
+              }}
             >
-              {obras
-                ? obras.map((item, index) => {
-                    if (item.score >= 4) {
-                      return (
-                        <motion.div whileTap={{ scale: 0.9 }} key={index}>
-                          <Card type={3} data={item} />
-                        </motion.div>
-                      );
-                    }
-                  })
-                : [...Array(20)].map(() => (
-                    <CardLoading
-                      width={width < 768 ? "250px" : "600px"}
-                      height={width < 768 ? "200px" : "400px"}
-                    />
-                  ))}
-            </Carousel>
+              <Carousel
+                emulateTouch={width < 768 ? true : false}
+                showThumbs={false}
+                showArrows={width >= 768 ? true : false}
+                showStatus={false}
+                showIndicators={false}
+                centerMode={true}
+                centerSlidePercentage={sizeCarrusel}
+                interval={3000}
+                renderThumbsOutside={true}
+              >
+                {obras.length !== 0
+                  ? obras.map((item, index) => {
+                      if (item.score >= 4) {
+                        return (
+                          <motion.div whileTap={{ scale: 0.9 }} key={index}>
+                            <Card type={3} data={item} />
+                          </motion.div>
+                        );
+                      }
+                    })
+                  : [...Array(20)].map(() => (
+                      <CardLoading
+                        width={width < 768 ? "300px" : "600px"}
+                        height={width < 768 ? "200px" : "400px"}
+                      />
+                    ))}
+              </Carousel>
+            </section>
           </section>
 
           <motion.div className="secInicio__sec2">
-            {obras
+            {obras.length !== 0
               ? obras.map((item, index) => (
                   <motion.div
                     style={{ width: `${width < 768 ? "100%" : "330px"}` }}

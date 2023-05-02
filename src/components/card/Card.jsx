@@ -9,13 +9,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { IoIosInformationCircle } from "react-icons/io";
 import NoAuth from "../noAuth/NoAuth";
 import { handleFavoritesAsync } from "../../redux/actions/userActions";
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
 const Card = ({ type, data }) => {
   const { formatterPeso, setShowModal } = useContext(Appcontext);
   const { width } = useContext(Appcontext);
   const { teatros } = useSelector((store) => store.teatros);
   const { user } = useSelector((store) => store.user);
   const [noAuth, setNoAuth] = useState(false);
+  const [disponible, setDisponible] = useState(false);
 
   const dispatch = useDispatch();
   const validateFavorites = (cod) => {
@@ -43,15 +44,31 @@ const Card = ({ type, data }) => {
       return descuento.type === 0
         ? "30% General"
         : descuento.type === 1
-          ? "50% Estudiantes"
-          : "60% Casa";
+        ? "50% Estudiantes"
+        : "60% Casa";
     }
     return "Aporte Voluntario";
   };
   const navigate = useNavigate();
+
+  const dateDisponibles = (array) => {
+    let today = new Date();
+    setDisponible(false);
+    array.forEach((item) => {
+      let fecha = new Date(item.date);
+      if (fecha.getTime() >= today.getTime()) {
+        console.log("Entro");
+        setDisponible(true);
+      }
+    });
+  };
+
   useEffect(() => {
-    
-  }, [user]);
+    dateDisponibles(data?.dates);
+  }, [data]);
+  useEffect(() => {
+    console.log(disponible);
+  }, [disponible]);
 
   return (
     <>
@@ -77,14 +94,17 @@ const Card = ({ type, data }) => {
 
           <figcaption className="CardSlider__sec2">
             <h3>{data.name}</h3>
-            <p>{`${data.price > 0
-                ? `Precio: ${formatterPeso.format(data.price)} Finaliza el: ${data.dates[data.dates.length - 1].date
-                } ${obtainInfoTeatro(data.dates[0].theater)}`
+            <p>{`${
+              data.price > 0
+                ? `Precio: ${formatterPeso.format(data.price)} Finaliza el: ${
+                    data.dates[data.dates.length - 1].date
+                  } ${obtainInfoTeatro(data.dates[0].theater)}`
                 : `Aportes desde: ${formatterPeso.format(
-                  data.aporte
-                )} Finaliza el: ${data.dates[data.dates.length - 1].date
-                } ${obtainInfoTeatro(data.dates[0].theater)}`
-              }`}</p>
+                    data.aporte
+                  )} Finaliza el: ${
+                    data.dates[data.dates.length - 1].date
+                  } ${obtainInfoTeatro(data.dates[0].theater)}`
+            }`}</p>
           </figcaption>
         </figure>
       ) : type === 2 ? (
@@ -109,14 +129,16 @@ const Card = ({ type, data }) => {
                   {user.favorites.length !== 0 ? (
                     validateFavorites(data.cod) ? (
                       <motion.div
-                        initial={{ fontSize: '2px' }}
+                        initial={{ fontSize: "2px" }}
                         transition={{ duration: 0.2 }}
-                        animate={{ fontSize: '16px' }}
+                        animate={{ fontSize: "16px" }}
                         className="heartRed"
                       >
                         <AiFillHeart
                           className="iconHeart2 secIcons"
-                          onClick={() => dispatch(handleFavoritesAsync(data.cod))}
+                          onClick={() =>
+                            dispatch(handleFavoritesAsync(data.cod))
+                          }
                         />
                       </motion.div>
                     ) : (
@@ -166,9 +188,20 @@ const Card = ({ type, data }) => {
               </div>
               <section
                 style={{ marginTop: "3px", cursor: "pointer" }}
-                onClick={() => navigate(`/detail/${data.cod}`)}
+                onClick={() => {
+                  disponible ? navigate(`/detail/${data.cod}`) : "";
+                }}
               >
-                <Button style={3} children={"Reserva ahora"} width={1} />
+                {disponible == true ? (
+                  <Button style={3} children={"Reserva ahora"} width={1} />
+                ) : (
+                  <Button
+                    style={3}
+                    children={"No disponible"}
+                    width={1}
+                    color="#2d2d2e"
+                  />
+                )}
               </section>
             </article>
           </figcaption>
