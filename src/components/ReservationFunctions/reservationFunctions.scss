@@ -1,6 +1,21 @@
 @use "../../vars.scss" as v;
 .ReservationFunctions {
   padding: 20px;
+
+  .registerSec__btn {
+    background: v.$main_color;
+    color: v.$white_color;
+    border-radius: 20px;
+    padding: 10px 100px;
+    width: fit-content;
+    cursor: pointer;
+    border: none;
+    transition: 0.5s;
+    &:hover {
+      background-color: v.$grayButton;
+      transition: 0.5s;
+    }
+  }
 }
 
 .arrowReservation {

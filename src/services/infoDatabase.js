@@ -1901,11 +1901,11 @@ export const obras = [
   {
     cod: 26,
     name: "Blanca Nieves",
-    img: "https://drive.google.com/uc?export=download&id=1YqqHgaFhn8vm9RwhYs8Tz5Ou-fLBet75",
+    img: "https://drive.google.com/uc?export=download&id=1n5rZnVnouSjsViL3eyWvG8hv0YaZMY_4",
     imgDetail:
-      "https://drive.google.com/uc?export=download&id=1cfjiXZD0Qa6xHso5KksxQx_d3Deq_dKX",
+      "https://drive.google.com/uc?export=download&id=1X4iUWLlRhWcUF8Xk-2YKswAd5D5TCIWv",
     imgPost:
-      "https://drive.google.com/uc?export=download&id=1UD3MdT3ZcgeNAYSZxgKO20qdvOWC2gOQ",
+      "https://drive.google.com/uc?export=download&id=13D36g7-U1OeFAbFxaSVs0kRk4oL5Fj_j",
     gender: 8,
     description:
       "Nueve comediantes suben a un escenario para representarnos, a chicos y a grandes, aquellas fantásticas historias que desde tiempos antiguos han rodado por el mundo y que de tanto girar, se han convertido en patrimonio imaginario de todos nosotros",
@@ -1943,9 +1943,143 @@ export const obras = [
         description:
           "Esta vez la escena tiene como protagonista a Blanca Nieves, la muchacha inocente y divertida, que regresa a la aventura para compartirnos un trozo de zozobra y, entre músicas y cantos, una porción inmensa de risas y alegrías.",
         img: [
-          "https://drive.google.com/uc?export=download&id=12bFXNPxoEsNqT7TGh8D7aAIOFzMWYu8t",
-          "https://drive.google.com/uc?export=download&id=1VLi80sMRqnCVErVmJ0d1SdXnCAh6Wby2",
-          "https://drive.google.com/uc?export=download&id=1MzZhU2rs8_6ujfyOjmLNXzQkvJenenxP",
+          "https://drive.google.com/uc?export=download&id=1Q9aWn0fRru-pco2X54RF_UU6R7zp5esZ",
+          "https://drive.google.com/uc?export=download&id=1iftbCpcnWeI4i_TAjMuiRtoYIXxcYf5d",
+          "https://drive.google.com/uc?export=download&id=1a_xIgUIPTVdP_wcMPTaQxXEQdLxba583",
+        ],
+        duration: 90,
+        age: 1,
+      },
+      {
+        cod: 1,
+        name: "Lugar",
+      },
+      {
+        cod: 2,
+        name: "Avisos",
+        infoPublico:
+          "El uso del tapacocas tanto dentro como fuera de la sala no es obligatorio.",
+        infoTeatro:
+          "Recuerda llegar al teatro con un mínimo de 15 minutos antes de la funsión.",
+      },
+    ],
+    comments: [],
+  },
+  {
+    cod: 27,
+    name: "J'aime",
+    img: "https://drive.google.com/uc?export=download&id=1z-ClHMjBejkcVRHT2_dbxH70dU_jp-gD",
+    imgDetail:
+      "https://drive.google.com/uc?export=download&id=1wsxhqft1nqrqcOxcUSUy803FpzhvmAxI",
+    imgPost:
+      "https://drive.google.com/uc?export=download&id=16_BDrBn3Cf1EY7gLZnZhQMGm0AJgBswh",
+    gender: 9,
+    description:
+      "Un cabaret sobre la palabra, la poesía y la música. El verbo performa, engendra materia, detona la imaginación. La palabra es una fiesta del cuerpo.",
+    dates: [
+      {
+        date: "20/05/2023",
+        aforo: 30,
+        sold: [],
+        theater: 1,
+        sala: 0,
+      },
+      {
+        date: "25/05/2023",
+        aforo: 20,
+        sold: [],
+        theater: 1,
+        sala: 0,
+      },
+      {
+        date: "29/05/2023",
+        aforo: 20,
+        sold: [],
+        theater: 1,
+        sala: 0,
+      },
+    ],
+    desc: [{ type: 2, percent: 60 }],
+    price: 65000,
+    aporte: 0,
+    score: 5,
+    data: [
+      {
+        cod: 0,
+        name: "Datos",
+        description:
+          "“Desde sus orígenes, la poesía está muy emparentada con el teatro y muchos poemas se prestan para ser escenificados, así como otros para convertirse en canciones. En esos casos, el autor debe dejar completa libertad de interpretación a quienes asuman ese trabajo, autorizándolos para efectuar en los textos los cortes o modificaciones a que haya lugar por motivos de eufonía, vocalización, tiempo, o requerimiento de la composición musical.” Declamación lectura pública. Método fácil y rápido para ser poeta",
+        img: [
+          "https://drive.google.com/uc?export=download&id=16X-eHcL2Tl6v9NRmbpF5ameD-fA2u87T",
+          "https://drive.google.com/uc?export=download&id=1Qd3LHaTMQF4-oERg-01OGixncoCWE5qG",
+          "https://drive.google.com/uc?export=download&id=1CLk8NZ0w19Un1BgPDOzNjRjSC-UpWNml",
+        ],
+        duration: 90,
+        age: 1,
+      },
+      {
+        cod: 1,
+        name: "Lugar",
+      },
+      {
+        cod: 2,
+        name: "Avisos",
+        infoPublico:
+          "El uso del tapacocas tanto dentro como fuera de la sala no es obligatorio.",
+        infoTeatro:
+          "Recuerda llegar al teatro con un mínimo de 15 minutos antes de la funsión.",
+      },
+    ],
+    comments: [],
+  },
+  {
+    cod: 28,
+    name: "Ulteriores",
+    img: "https://drive.google.com/uc?export=download&id=1HmSpDHbKQUEBpNyZZzzq10kaXF7bVMpX",
+    imgDetail:
+      "https://drive.google.com/uc?export=download&id=1Oy1C_nehja9ZXH6mSHNiSri23a1x-6it",
+    imgPost:
+      "https://drive.google.com/uc?export=download&id=19L8ip-4ZYgI8KuPloSy87pv7Jn5HJ_qn",
+    gender: 8,
+    description:
+      "Para Franz Xaver Kroetz, la ciudad en sus inacabables contornos y los ambientes campesinos de Baviera, son ese lei motiv que hilvana su abundante producción dramática, al menos en los últimos años.",
+    dates: [
+      {
+        date: "20/05/2023",
+        aforo: 30,
+        sold: [],
+        theater: 1,
+        sala: 0,
+      },
+      {
+        date: "25/05/2023",
+        aforo: 20,
+        sold: [],
+        theater: 1,
+        sala: 0,
+      },
+      {
+        date: "29/05/2023",
+        aforo: 20,
+        sold: [],
+        theater: 1,
+        sala: 0,
+      },
+    ],
+    desc: [{ type: 2, percent: 60 }],
+    price: 65000,
+    aporte: 0,
+    score: 5,
+    data: [
+      {
+        cod: 0,
+        name: "Datos",
+        description:
+          "Una dramaturgia que revela una incesante lucha contra el tiempo, no solo el cronológico sino ese momento de reacción del teatro alemán que para 1972 hacía un relevo temático, ya pasadas las escaramuzas del 67/68.",
+        img: [
+          "https://drive.google.com/uc?export=download&id=1kS9XMFM6OF3mIoHjF32P1unPV1thMRYY",
+          "https://drive.google.com/uc?export=download&id=1dEY93IvtKe-QH6guLTYxVwc9RqFl1Rq4",
+          "https://drive.google.com/uc?export=download&id=1bh96Qm7CSjGaER5jWs7P_GWcJqzn7C5k",
         ],
         duration: 90,
         age: 1,
