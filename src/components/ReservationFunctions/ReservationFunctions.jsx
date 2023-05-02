@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { setLocalReserva } from "../../services/localInfoBoletas";
 import { motion } from "framer-motion";
 import { getShortDate } from "../../services/dateActual";
+import { useSelector } from "react-redux";
 const ReservationFunctions = ({
   opt = 1,
   set,
@@ -19,6 +20,8 @@ const ReservationFunctions = ({
   setBoletas,
 }) => {
   const { formatterPeso, setInfoReserva, infoReserva } = useContext(Appcontext);
+  const { teatros } = useSelector((store) => store.teatros);
+  const [teatro, setTeatro] = useState([]);
   const [currentDate, setCurrentDate] = useState("");
   const [dates, setDates] = useState([]);
   const [animate, setanimate] = useState(false);
@@ -83,6 +86,15 @@ const ReservationFunctions = ({
     console.log(currentDate);
     console.log(getShortDate());
   }, [currentDate]);
+  useEffect(() => {
+    if (teatros.length !== 0) {
+      if (value?.cod) {
+        setTeatro(
+          teatros.filter((item) => item.cod === value.dates[0].theater)
+        );
+      }
+    }
+  }, [value, teatros]);
 
   return (
     <>
@@ -191,7 +203,7 @@ const ReservationFunctions = ({
           initial={{ opacity: 0 }}
           transition={{ duration: 0.9 }}
           animate={{ opacity: 1 }}
-          className="ReservationFunctions"
+          className="ReservationFunctions "
         >
           <AiOutlineArrowLeft
             onClick={() => (set(0), setanimate(false))}
@@ -214,6 +226,9 @@ const ReservationFunctions = ({
                 total: boletas * price,
                 cod: value.cod,
                 name: value.name,
+                img: value.img,
+                teatro: teatro[0]?.name,
+                direccion: teatro[0]?.direccion,
               });
               setLocalReserva({
                 boletas,
@@ -222,6 +237,9 @@ const ReservationFunctions = ({
                 total: boletas * price,
                 cod: value.cod,
                 name: value.name,
+                img: value.img,
+                teatro: teatro[0]?.name,
+                direccion: teatro[0]?.direccion,
               });
             }}
             className="registerSec__btn btn_reservation"
