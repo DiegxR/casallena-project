@@ -14,6 +14,7 @@ import { Appcontext } from "../../router/Router";
 import { motion, useAnimate } from "framer-motion";
 import { notify } from "../../services/notify";
 import { getDateVerification } from "../../services/dateActual";
+import SecLoading from "../../components/secLoading/SecLoading";
 
 const PlayDetail = () => {
   const { cod } = useParams();
@@ -156,7 +157,7 @@ const PlayDetail = () => {
             </div>
           </motion.section>
         ) : (
-          <></>
+          <SecLoading />
         )
       ) : (
         <>
@@ -266,7 +267,7 @@ const PlayDetail = () => {
               </article>
             </motion.section>
           ) : (
-            <></>
+            <SecLoading />
           )}
         </>
       )}
