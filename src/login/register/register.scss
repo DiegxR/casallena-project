@@ -50,6 +50,14 @@
   font-size: 13px;
 }
 
+.registerSec__btn {
+  background-color: $main_color;
+  border: none;
+  padding: 15px;
+  border-radius: 20px;
+  color: $white_color;
+}
+
 body {
   background-color: $primary_black;
 }

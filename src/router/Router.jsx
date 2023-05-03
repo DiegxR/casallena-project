@@ -12,7 +12,7 @@ import PlayDetail from "../home/playDetail/PlayDetail";
 import Favorites from "../home/favorites/Favorites";
 import Reservations from "../home/reservations/Reservations";
 import LoadPhotoUser from "../login/register/loadPhotoUser/LoadPhotoUser";
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
 import { getUserCollection } from "../services/getUser";
 import { loginUser } from "../redux/actions/userActions";
@@ -103,7 +103,6 @@ const Router = () => {
           <Route path="/noauth" element={<NoAuth />} />
           <Route path="/reservation" element={<Reservas />} />
           <Route path="/confirmreservation/:id" element={<FormReserva />} />
-          <Route path="/modal" element={<ModalReservation />} />
         </Routes>
       </BrowserRouter>
     </Appcontext.Provider>
