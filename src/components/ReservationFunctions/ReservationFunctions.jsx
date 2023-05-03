@@ -24,6 +24,7 @@ const ReservationFunctions = ({
   const [teatro, setTeatro] = useState([]);
   const [currentDate, setCurrentDate] = useState("");
   const [currentHour, setCurrentHour] = useState("");
+  const [currentHourEnd, setCurrentHourEnd] = useState("");
   const [dates, setDates] = useState([]);
   const [animate, setanimate] = useState(false);
   const navigate = useNavigate();
@@ -63,18 +64,21 @@ const ReservationFunctions = ({
         const array = value.dates.filter((item) => item.date === dates[0]);
         if (array) {
           setCurrentHour(array[0].hourStart);
+          setCurrentHourEnd(array[0].hourEnd);
         }
       }
     } else {
       if (infoReserva?.currentDate) {
         setCurrentDate(infoReserva.currentDate);
         setCurrentDate(infoReserva.currentHour);
+        setCurrentDate(infoReserva.currentHourEnd);
       } else {
         setCurrentDate(dates[0]);
         if (value?.dates) {
           const array = value.dates.filter((item) => item.date === dates[0]);
           if (array) {
             setCurrentHour(array[0].hourStart);
+            setCurrentHourEnd(array[0].hourEnd);
           }
         }
       }
@@ -238,6 +242,7 @@ const ReservationFunctions = ({
                 price,
                 currentDate,
                 currentHour,
+                currentHourEnd,
                 total: boletas * price,
                 cod: value.cod,
                 name: value.name,
@@ -250,6 +255,7 @@ const ReservationFunctions = ({
                 price,
                 currentDate,
                 currentHour,
+                currentHourEnd,
                 total: boletas * price,
                 cod: value.cod,
                 name: value.name,

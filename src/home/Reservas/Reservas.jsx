@@ -26,10 +26,24 @@ const Reservas = () => {
           ? Number(date[1].substring(1))
           : Number(date[1]);
       console.log(date, month);
+      const hourStart = element.currentHour.split(":");
+      const hourEnd = element.currentHourEnd.split(":");
       const event = {
         title: element.name,
-        start: new Date(Number(date[2]), month - 1, Number(date[0])),
-        end: new Date(Number(date[2]), month - 1, Number(date[0])),
+        start: new Date(
+          Number(date[2]),
+          month - 1,
+          Number(date[0]),
+          Number(hourStart[0]),
+          Number(hourStart[1])
+        ),
+        end: new Date(
+          Number(date[2]),
+          month - 1,
+          Number(date[0]),
+          Number(hourEnd[0]),
+          Number(hourEnd[1])
+        ),
         color: "#d80416",
         cod: element.cod,
       };
