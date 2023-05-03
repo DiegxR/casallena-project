@@ -240,7 +240,7 @@ export const obras = [
         hourEnd: "21:00",
       },
       {
-        date: "05/05/2023",
+        date: "5/05/2023",
         aforo: 60,
         sold: [],
         theater: 0,
@@ -249,7 +249,7 @@ export const obras = [
         hourEnd: "21:00",
       },
       {
-        date: "06/05/2023",
+        date: "6/05/2023",
         aforo: 60,
         sold: [],
         theater: 0,
@@ -323,7 +323,7 @@ export const obras = [
         hourEnd: "21:00",
       },
       {
-        date: "05/05/2023",
+        date: "5/05/2023",
         aforo: 40,
         sold: [],
         theater: 1,
@@ -332,7 +332,7 @@ export const obras = [
         hourEnd: "21:00",
       },
       {
-        date: "06/05/2023",
+        date: "6/05/2023",
         aforo: 40,
         sold: [],
         theater: 1,
@@ -341,7 +341,7 @@ export const obras = [
         hourEnd: "21:00",
       },
       {
-        date: "07/05/2023",
+        date: "7/05/2023",
         aforo: 40,
         sold: [],
         theater: 1,
@@ -415,7 +415,7 @@ export const obras = [
         hourEnd: "20:00",
       },
       {
-        date: "01/05/2023",
+        date: "1/05/2023",
         aforo: 40,
         sold: [],
         theater: 2,
@@ -489,7 +489,7 @@ export const obras = [
         hourEnd: "20:00",
       },
       {
-        date: "04/05/2023",
+        date: "4/05/2023",
         aforo: 40,
         sold: [],
         theater: 1,
@@ -498,7 +498,7 @@ export const obras = [
         hourEnd: "20:00",
       },
       {
-        date: "05/05/2023",
+        date: "5/05/2023",
         aforo: 40,
         sold: [],
         theater: 1,
@@ -719,7 +719,7 @@ export const obras = [
       "Famel es una comedia musical dirigida por Samuel Rojas. En este espectáculo",
     dates: [
       {
-        date: "05/05/2023",
+        date: "5/05/2023",
         aforo: 40,
         sold: [],
         theater: 7,
@@ -728,7 +728,7 @@ export const obras = [
         hourEnd: "22:00",
       },
       {
-        date: "06/05/2023",
+        date: "6/05/2023",
         aforo: 40,
         sold: [],
         sala: 0,
@@ -814,7 +814,7 @@ export const obras = [
         hourEnd: "21:00",
       },
       {
-        date: "04/05/2023",
+        date: "4/05/2023",
         aforo: 60,
         sold: [],
         theater: 3,
@@ -823,7 +823,7 @@ export const obras = [
         hourEnd: "21:00",
       },
       {
-        date: "05/05/2023",
+        date: "5/05/2023",
         aforo: 60,
         sold: [],
         theater: 3,
@@ -832,7 +832,7 @@ export const obras = [
         hourEnd: "21:00",
       },
       {
-        date: "06/05/2023",
+        date: "6/05/2023",
         aforo: 60,
         sold: [],
         theater: 3,
@@ -979,7 +979,7 @@ export const obras = [
         hourEnd: "21:00",
       },
       {
-        date: "05/05/2023",
+        date: "5/05/2023",
         aforo: 60,
         sold: [],
         sala: 0,
@@ -989,7 +989,7 @@ export const obras = [
         hourEnd: "21:00",
       },
       {
-        date: "06/05/2023",
+        date: "6/05/2023",
         aforo: 60,
         sold: [],
         theater: 0,
@@ -1136,7 +1136,7 @@ export const obras = [
         hourEnd: "21:30",
       },
       {
-        date: "03/05/2023",
+        date: "3/05/2023",
         aforo: 70,
         sold: [],
         sala: 0,
@@ -1146,7 +1146,7 @@ export const obras = [
         hourEnd: "21:30",
       },
       {
-        date: "04/05/2023",
+        date: "4/05/2023",
         aforo: 70,
         sold: [],
         theater: 1,
@@ -1155,7 +1155,7 @@ export const obras = [
         hourEnd: "21:30",
       },
       {
-        date: "05/05/2023",
+        date: "5/05/2023",
         aforo: 70,
         sold: [],
         theater: 1,
@@ -1229,7 +1229,7 @@ export const obras = [
         hourEnd: "20:30",
       },
       {
-        date: "01/05/2023",
+        date: "1/05/2023",
         aforo: 50,
         sold: [],
         theater: 0,
@@ -1238,7 +1238,7 @@ export const obras = [
         hourEnd: "20:30",
       },
       {
-        date: "03/05/2023",
+        date: "3/05/2023",
         aforo: 50,
         sold: [],
         theater: 0,
@@ -1247,7 +1247,7 @@ export const obras = [
         hourEnd: "20:30",
       },
       {
-        date: "04/05/2023",
+        date: "4/05/2023",
         aforo: 50,
         sold: [],
         theater: 0,
@@ -1256,7 +1256,7 @@ export const obras = [
         hourEnd: "20:30",
       },
       {
-        date: "05/05/2023",
+        date: "5/05/2023",
         aforo: 50,
         sold: [],
         theater: 0,
@@ -1265,7 +1265,7 @@ export const obras = [
         hourEnd: "20:30",
       },
       {
-        date: "06/05/2023",
+        date: "6/05/2023",
         aforo: 50,
         sold: [],
         theater: 0,
@@ -1329,7 +1329,7 @@ export const obras = [
         hourEnd: "20:30",
       },
       {
-        date: "04/05/2023",
+        date: "4/05/2023",
         aforo: 50,
         sold: [],
         sala: 0,
@@ -1339,7 +1339,7 @@ export const obras = [
         hourEnd: "20:30",
       },
       {
-        date: "05/05/2023",
+        date: "5/05/2023",
         aforo: 50,
         sold: [],
         theater: 0,
@@ -1348,7 +1348,7 @@ export const obras = [
         hourEnd: "20:30",
       },
       {
-        date: "06/05/2023",
+        date: "6/05/2023",
         aforo: 50,
         sold: [],
         theater: 0,
@@ -1403,7 +1403,7 @@ export const obras = [
       "Es una pieza literaria del escritor estadounidense Edgar Allan Poe.",
     dates: [
       {
-        date: "02/05/2023",
+        date: "2/05/2023",
         aforo: 50,
         sold: [],
         sala: 0,
@@ -1487,7 +1487,7 @@ export const obras = [
         hourEnd: "20:30",
       },
       {
-        date: "01/05/2023",
+        date: "1/05/2023",
         aforo: 60,
         sold: [],
         theater: 0,
@@ -1496,7 +1496,7 @@ export const obras = [
         hourEnd: "20:30",
       },
       {
-        date: "03/05/2023",
+        date: "3/05/2023",
         aforo: 60,
         sold: [],
         theater: 0,
@@ -1632,7 +1632,7 @@ export const obras = [
         hourEnd: "21:30",
       },
       {
-        date: "07/05/2023",
+        date: "7/05/2023",
         aforo: 40,
         sold: [],
         theater: 2,
@@ -1696,7 +1696,7 @@ export const obras = [
         hourEnd: "21:30",
       },
       {
-        date: "05/05/2023",
+        date: "5/05/2023",
         aforo: 10,
         sold: [],
         theater: 0,
@@ -1705,7 +1705,7 @@ export const obras = [
         hourEnd: "21:30",
       },
       {
-        date: "06/05/2023",
+        date: "6/05/2023",
         aforo: 10,
         sold: [],
         theater: 0,
@@ -1768,7 +1768,7 @@ export const obras = [
         hourEnd: "22:00",
       },
       {
-        date: "03/05/2023",
+        date: "3/05/2023",
         aforo: 40,
         sold: [],
         theater: 0,
@@ -1823,7 +1823,7 @@ export const obras = [
       "Una historia original del mundo bárbaro medieval, pero que se conecta directamente con la barbarie del mundo actual y la de nuestro país en particular.",
     dates: [
       {
-        date: "06/05/2023",
+        date: "6/05/2023",
         aforo: 30,
         sold: [],
         theater: 0,
@@ -1832,7 +1832,7 @@ export const obras = [
         hourEnd: "22:00",
       },
       {
-        date: "07/05/2023",
+        date: "7/05/2023",
         aforo: 20,
         sold: [],
         theater: 0,
@@ -1887,7 +1887,7 @@ export const obras = [
       "Rent es un musical rock con libreto, música y letras de Jonathan Larson, basado en la ópera La bohème de Giacomo Puccini.",
     dates: [
       {
-        date: "07/05/2023",
+        date: "7/05/2023",
         aforo: 30,
         sold: [],
         theater: 6,
@@ -1951,7 +1951,7 @@ export const obras = [
       "Es el resultante de mixturas de diferentes técnicas (Teatro de Papel Europeo, Pop Up, Títeres, etc.), junto a poéticas de artistas confluyendo en un montaje escénico desarrollado durante el primer año de la Pandemia.",
     dates: [
       {
-        date: "05/05/2023",
+        date: "5/05/2023",
         aforo: 30,
         sold: [],
         theater: 5,
@@ -1960,7 +1960,7 @@ export const obras = [
         hourEnd: "20:00",
       },
       {
-        date: "06/05/2023",
+        date: "6/05/2023",
         aforo: 20,
         sold: [],
         theater: 5,
@@ -2015,7 +2015,7 @@ export const obras = [
       "Es el resultante de mixturas de diferentes técnicas (Teatro de Papel Europeo, Pop Up, Títeres, etc.), junto a poéticas de artistas confluyendo en un montaje escénico desarrollado durante el primer año de la Pandemia.",
     dates: [
       {
-        date: "07/05/2023",
+        date: "7/05/2023",
         aforo: 30,
         sold: [],
         theater: 5,
@@ -2289,7 +2289,7 @@ export const obras = [
       "Un cabaret sobre la palabra, la poesía y la música. El verbo performa, engendra materia, detona la imaginación. La palabra es una fiesta del cuerpo.",
     dates: [
       {
-        date: "02/05/2023",
+        date: "2/05/2023",
         aforo: 30,
         sold: [],
         theater: 1,
@@ -2435,7 +2435,7 @@ export const obras = [
       "La casa grande es una mirada estética del conflicto, cuya validez reside en mostrarse a sí misma como una pieza literaria realizada a manera de discurso polifónico.",
     dates: [
       {
-        date: "05/05/2023",
+        date: "5/05/2023",
         aforo: 30,
         sold: [],
         theater: 1,

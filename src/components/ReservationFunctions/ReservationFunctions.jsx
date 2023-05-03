@@ -8,7 +8,7 @@ import { Appcontext } from "../../router/Router";
 import { useEffect } from "react";
 import { setLocalReserva } from "../../services/localInfoBoletas";
 import { motion } from "framer-motion";
-import { getShortDate } from "../../services/dateActual";
+import { getDateVerification, getShortDate } from "../../services/dateActual";
 import { useSelector } from "react-redux";
 const ReservationFunctions = ({
   opt = 1,
@@ -23,6 +23,7 @@ const ReservationFunctions = ({
   const { teatros } = useSelector((store) => store.teatros);
   const [teatro, setTeatro] = useState([]);
   const [currentDate, setCurrentDate] = useState("");
+  const [currentHour, setCurrentHour] = useState("");
   const [dates, setDates] = useState([]);
   const [animate, setanimate] = useState(false);
   const navigate = useNavigate();
@@ -45,7 +46,7 @@ const ReservationFunctions = ({
     let newdates = [];
     let today = new Date();
     array.forEach((item) => {
-      let fecha = new Date(item.date);
+      let fecha = getDateVerification(item.date);
       if (fecha.getTime() >= today.getTime()) {
         if (item.aforo >= boletas) {
           newdates.push(item.date);
@@ -58,11 +59,24 @@ const ReservationFunctions = ({
   const changeCurrentDate = () => {
     if (dates.length !== 0) {
       setCurrentDate(dates[0]);
+      if (value?.dates) {
+        const array = value.dates.filter((item) => item.date === dates[0]);
+        if (array) {
+          setCurrentHour(array[0].hourStart);
+        }
+      }
     } else {
       if (infoReserva?.currentDate) {
         setCurrentDate(infoReserva.currentDate);
+        setCurrentDate(infoReserva.currentHour);
       } else {
         setCurrentDate(dates[0]);
+        if (value?.dates) {
+          const array = value.dates.filter((item) => item.date === dates[0]);
+          if (array) {
+            setCurrentHour(array[0].hourStart);
+          }
+        }
       }
     }
   };
@@ -79,12 +93,12 @@ const ReservationFunctions = ({
   const handleSelectChange = (event) => {
     console.log("Entro");
     if (event.target.value) {
-      setCurrentDate(event.target.value);
+      setCurrentDate(event.target.value.date);
+      setCurrentHour(event.target.value.hourStart);
     }
   };
   useEffect(() => {
     console.log(currentDate);
-    console.log(getShortDate());
   }, [currentDate]);
   useEffect(() => {
     if (teatros.length !== 0) {
@@ -114,7 +128,7 @@ const ReservationFunctions = ({
                 className="select"
               >
                 {dates.map((item, index) => (
-                  <option key={index} value={item.date}>
+                  <option key={index} value={item}>
                     {item}
                   </option>
                 ))}
@@ -223,6 +237,7 @@ const ReservationFunctions = ({
                 boletas,
                 price,
                 currentDate,
+                currentHour,
                 total: boletas * price,
                 cod: value.cod,
                 name: value.name,
@@ -234,6 +249,7 @@ const ReservationFunctions = ({
                 boletas,
                 price,
                 currentDate,
+                currentHour,
                 total: boletas * price,
                 cod: value.cod,
                 name: value.name,

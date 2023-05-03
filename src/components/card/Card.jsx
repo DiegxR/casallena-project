@@ -10,6 +10,7 @@ import { IoIosInformationCircle } from "react-icons/io";
 import NoAuth from "../noAuth/NoAuth";
 import { handleFavoritesAsync } from "../../redux/actions/userActions";
 import { motion } from "framer-motion";
+import { getDateVerification } from "../../services/dateActual";
 
 const Card = ({ type, data }) => {
   const { formatterPeso, setShowModal } = useContext(Appcontext);
@@ -56,15 +57,17 @@ const Card = ({ type, data }) => {
     let today = new Date();
     setDisponible(false);
     array.forEach((item) => {
-      let fecha = new Date(item.date);
-      if (fecha.getTime() >= today.getTime()) {
+      console.log(item.date);
+      let fecha = getDateVerification(item.date);
+
+      if (!(fecha.getTime() < today.getTime())) {
         setDisponible(true);
       }
     });
   };
 
   useEffect(() => {
-    dateDisponibles(data?.dates);
+    if (data?.dates) dateDisponibles(data?.dates);
   }, [data]);
 
   return (

@@ -13,6 +13,7 @@ import { handleFavoritesAsync } from "../../redux/actions/userActions";
 import { Appcontext } from "../../router/Router";
 import { motion, useAnimate } from "framer-motion";
 import { notify } from "../../services/notify";
+import { getDateVerification } from "../../services/dateActual";
 
 const PlayDetail = () => {
   const { cod } = useParams();
@@ -69,8 +70,10 @@ const PlayDetail = () => {
     let today = new Date();
     setDisponible(false);
     array.forEach((item) => {
-      let fecha = new Date(item.date);
-      if (fecha.getTime() >= today.getTime()) {
+      console.log(item.date);
+      let fecha = getDateVerification(item.date);
+
+      if (!(fecha.getTime() < today.getTime())) {
         setDisponible(true);
       }
     });

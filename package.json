@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
-    "@terrestris/react-geo": "^22.4.0",
     "firebase": "^9.19.1",
     "framer-motion": "^10.11.2",
     "framer-motion-carousel": "^2.0.3",
