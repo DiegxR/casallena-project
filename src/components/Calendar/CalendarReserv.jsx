@@ -32,7 +32,8 @@ const CalendarReserv = ({ eventos, set, setCod }) => {
   }
   const handleClick = (e) => {
     set(true);
-    setCod(e.target.cod);
+    setCod(e.cod);
+    console.log(e);
   };
   return (
     <div className="calendar">

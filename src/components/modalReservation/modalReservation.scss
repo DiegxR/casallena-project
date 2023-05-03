@@ -11,6 +11,7 @@
   display: flex;
   top: 0;
   justify-content: center;
+  padding: 20px;
 
   .secModalReser__Card {
     width: fit-content;
@@ -21,7 +22,7 @@
     justify-content: space-around;
 
     .modalReser__img {
-      padding: 10px;
+      padding: 20px;
       height: 200px;
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
@@ -33,7 +34,7 @@
       gap: 5px;
       display: flex;
       flex-direction: column;
-      padding: 20px;
+      padding: 20px 20px 40px 20px;
 
       .QR {
         align-self: center;

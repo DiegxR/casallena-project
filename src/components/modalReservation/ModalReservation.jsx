@@ -39,7 +39,7 @@ const ModalReservation = ({ opt = 17 }) => {
       <article className="secModalReser__Card">
         <figure
           className="modalReser__img"
-          style={{ backgroundImage: `url(${data.img})` }}
+          style={{ backgroundImage: `url(${data?.img})` }}
         >
           <BiArrowBack
             onClick={() => {
@@ -52,7 +52,7 @@ const ModalReservation = ({ opt = 17 }) => {
         <div className="modalReser__info">
           <div className="modalReser__item">
             <FaTheaterMasks className="modalReser__icon" />
-            <h3>{data.name}</h3>
+            <h3>{data?.name}</h3>
           </div>
 
           <div className="modalReser__item">
@@ -60,19 +60,19 @@ const ModalReservation = ({ opt = 17 }) => {
               <MdLocationOn className="modalReser__icon" />
             </div>
             <p>
-              {data.teatro} {data.direccion}
+              {data?.teatro} {data?.direccion}
             </p>
           </div>
 
           <div className="modalReser__item">
             <AiOutlineCalendar className="modalReser__icon" />
-            <p>{data.currentDate}</p>
+            <p>{data?.currentDate}</p>
           </div>
 
           <div className="modalReser__item ">
             <HiTicket className="modalReser__icon" />
             <p>
-              {data.boletas} total: {data.total}
+              {data?.boletas} total: {data?.total}
             </p>
           </div>
 
@@ -84,7 +84,7 @@ const ModalReservation = ({ opt = 17 }) => {
                 maxWidth: "180px",
                 width: "180px",
               }}
-              value="hi"
+              value={`http://localhost:5173/detail/${opt}`}
               viewBox={`0 0 256 256`}
             />
           </div>
