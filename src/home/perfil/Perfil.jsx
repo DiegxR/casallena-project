@@ -29,7 +29,7 @@ const Perfil = () => {
       }
     });
   };
-  console.log(user);
+
   return (
     <>
       {user.name ? (

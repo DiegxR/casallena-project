@@ -48,11 +48,9 @@ const FormReserva = () => {
   };
 
   const validateEmail = (email) => {
-    console.log(email);
     const validate = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!validate.test(email)) {
       setErrorEmail("Debe ingresar un correo válido por favor");
-      console.log("entro");
     } else {
       setErrorEmail("");
     }
@@ -83,9 +81,6 @@ const FormReserva = () => {
   useEffect(() => {
     setCurrentObra(obras.filter((item) => item.cod === Number(id)));
   }, [obras]);
-  useEffect(() => {
-    console.log(infoReserva);
-  }, [infoReserva]);
 
   return (
     <section className="formCont">

@@ -95,15 +95,12 @@ const ReservationFunctions = ({
   }, [dates]);
 
   const handleSelectChange = (event) => {
-    console.log("Entro");
     if (event.target.value) {
       setCurrentDate(event.target.value.date);
       setCurrentHour(event.target.value.hourStart);
     }
   };
-  useEffect(() => {
-    console.log(currentDate);
-  }, [currentDate]);
+
   useEffect(() => {
     if (teatros.length !== 0) {
       if (value?.cod) {

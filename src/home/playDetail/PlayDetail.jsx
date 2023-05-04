@@ -71,7 +71,6 @@ const PlayDetail = () => {
     let today = new Date();
     setDisponible(false);
     array.forEach((item) => {
-      console.log(item.date);
       let fecha = getDateVerification(item.date);
 
       if (!(fecha.getTime() < today.getTime())) {

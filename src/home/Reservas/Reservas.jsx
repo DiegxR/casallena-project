@@ -19,13 +19,12 @@ const Reservas = () => {
   useEffect(() => {
     setEvents([]);
     user.dates.forEach((element) => {
-      console.log(element);
       const date = element.currentDate.split("/");
       const month =
         date[1].substring(0, 1) == "0"
           ? Number(date[1].substring(1))
           : Number(date[1]);
-      console.log(date, month);
+
       const hourStart = element.currentHour.split(":");
       const hourEnd = element.currentHourEnd.split(":");
       const event = {

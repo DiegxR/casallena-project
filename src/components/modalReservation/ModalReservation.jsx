@@ -25,10 +25,6 @@ const ModalReservation = ({ opt = 17 }) => {
     visible: { opacity: 1, y: "0%" },
   };
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-
   return (
     <motion.div
       className={`secModal `}

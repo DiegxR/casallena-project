@@ -23,9 +23,7 @@ const Favorites = () => {
   useEffect(() => {
     dispatch(getObras({ collectionName: "Obras", key: "", value: "" }));
   }, []);
-  useEffect(() => {
-    console.log(obras);
-  }, [obras]);
+
   return (
     <>
       <ModalAporte isOpen={showModal} Onclose={setShowModal} />
@@ -38,7 +36,7 @@ const Favorites = () => {
         <section className="secFavorites_container">
           <header className="secFavorites_head">
             <div className="secFavorites_logoContainer">
-            <BsFillChatHeartFill className="secFavorites_logo" />
+              <BsFillChatHeartFill className="secFavorites_logo" />
             </div>
 
             <h3 className="secFavorites_title">Favoritos</h3>
