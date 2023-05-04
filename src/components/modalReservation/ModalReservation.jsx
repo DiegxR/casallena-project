@@ -86,7 +86,7 @@ const ModalReservation = ({ opt = 17 }) => {
                 maxWidth: "180px",
                 width: "180px",
               }}
-              value={`http://localhost:5173/detail/${opt}`}
+              value={`https://casallena-project-7afp.vercel.app/detail/${opt}`}
               viewBox={`0 0 256 256`}
             />
           </div>
