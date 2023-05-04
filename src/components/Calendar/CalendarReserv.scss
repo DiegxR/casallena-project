@@ -10,10 +10,12 @@
 }
 .rbc-calendar {
   width: 100%;
+
   .rbc-toolbar {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-bottom: 20px;
     .rbc-btn-group {
       display: flex;
       gap: 5px;
