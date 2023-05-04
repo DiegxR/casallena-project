@@ -30,7 +30,7 @@ npm install
 npm run dev
 
 ## Sitio Web
-Patitas Happy.yuwgd
+casa
 
 ## Autores
 Diego Rojas - Angie Valderrama - Esteban Ardila 
