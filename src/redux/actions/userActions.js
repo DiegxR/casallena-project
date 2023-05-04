@@ -215,7 +215,7 @@ export const handleFavoritesAsync = (cod) => {
         });
       }
     } catch (error) {
-      console.log(error);
+     
       dispatch(handleFavorites(currentRes));
     }
   };
@@ -235,7 +235,7 @@ export const addDateAsync = (data) =>{
       await updateDoc(userRef,{dates: [...getState().user.user.dates, data] })
       dispatch(addDate(data))
     } catch (error) {
-      console.log(error)
+     
     }
   }
 }

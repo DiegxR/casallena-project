@@ -16,7 +16,7 @@ export const getUserCollection = async (uid) => {
     })
     return user[0]
   } catch (error) {
-    console.log(error)
+ 
     return null
   }
 }

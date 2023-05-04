@@ -16,7 +16,6 @@ const loadFilters = (data) => {
 };
 
 export const getObras = (data) => {
-  console.log(data);
   return async (dispatch) => {
     const opt = data.operator ? data.operator : "==";
     try {
@@ -64,13 +63,12 @@ export const getCurrentObraAsync = (cod) => {
       const obra = await getCollection({
         collectionName: "Obras",
         key: "cod",
-        operator: '==',
+        operator: "==",
         value: Number(cod),
       });
       dispatch(getCurrentObra(obra[0]));
-      console.log(obra);
     } catch (error) {
-      console.log(error);
+  
     }
   };
 };
@@ -80,40 +78,42 @@ export const filterSearchObras = (filter) => {
     try {
       const docs = await getCollection({
         collectionName: "Obras",
-        operator: '==',
-        key: '',
-        value: '',
+        operator: "==",
+        key: "",
+        value: "",
       });
-      const filterObras = docs.filter((obra) => obra.name.toLowerCase().includes(filter.toLowerCase()))
-      dispatch(loadObras(filterObras))
-    } catch (error) {
-
-    }
-  }
-}
+      const filterObras = docs.filter((obra) =>
+        obra.name.toLowerCase().includes(filter.toLowerCase())
+      );
+      dispatch(loadObras(filterObras));
+    } catch (error) {}
+  };
+};
 
 export const filterDates = (data) => {
   return async (dispatch) => {
     const obras = await getCollection({
       collectionName: "Obras",
-      operator: '==',
-      key: '',
-      value: '',
+      operator: "==",
+      key: "",
+      value: "",
     });
     let date;
-    const currentDay = new Date()
-    const day = currentDay.getDate()
-    const month = (currentDay.getMonth() + 1).toString().padStart(2, '0')
-    const year = currentDay.getFullYear()
-    date = `${data.day == 'today' ? day : day + 1}/${month}/${year}`
-    const filterObras = obras.filter((obra) =>{ 
+    const currentDay = new Date();
+    const day = currentDay.getDate();
+    const month = (currentDay.getMonth() + 1).toString().padStart(2, "0");
+    const year = currentDay.getFullYear();
+    date = `${data.day == "today" ? day : day + 1}/${month}/${year}`;
+    const filterObras = obras.filter((obra) => {
       let response = false;
-      obra.dates.map((item) => { 
-        if(item.date == date){ response= true } 
-      })
+      obra.dates.map((item) => {
+        if (item.date == date) {
+          response = true;
+        }
+      });
       return response;
-    })
-    dispatch(loadObras(filterObras))
-    console.log(filterObras, date)
-  }
-}
+    });
+    dispatch(loadObras(filterObras));
+    
+  };
+};

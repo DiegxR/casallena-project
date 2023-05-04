@@ -12,29 +12,51 @@ import Swal from "sweetalert2";
 import { handleFavoritesAsync } from "../../redux/actions/userActions";
 import { Appcontext } from "../../router/Router";
 import { motion, useAnimate } from "framer-motion";
-
-
+import { notify } from "../../services/notify";
+import { getDateVerification } from "../../services/dateActual";
+import SecLoading from "../../components/secLoading/SecLoading";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../firebase/firebaseConfig";
+import NoAuth from "../../components/noAuth/NoAuth";
 
 const PlayDetail = () => {
   const { cod } = useParams();
   const dispatch = useDispatch();
   const { currentObra } = useSelector((store) => store.obras);
   const { width } = useContext(Appcontext);
- 
+
   useEffect(() => {
     dispatch(getCurrentObraAsync(cod));
   }, []);
   useEffect(() => {
     if (currentObra.id) {
       setCurrentInfo(currentObra.data[0]);
+      dateDisponibles(currentObra.dates);
     }
     dispatch(handleFavoritesAsync());
   }, [currentObra]);
 
   const navigate = useNavigate();
+
   const [currentOpt, setCurrentOpt] = useState(0);
+  const [userLogeado,setUserLogeado]= useState(false)
   const [currentInfo, setCurrentInfo] = useState({});
-  const [anim, setAnim] = useState(true)
+  const [disponible, setDisponible] = useState(false);
+  const [anim, setAnim] = useState(true);
+  
+  
+  
+  useEffect(() => {
+    onAuthStateChanged(auth,(user)=> {
+     if(user){
+     setUserLogeado(true)
+     }
+    })
+  }, [])
+  
+   
+
+  
   const copyURLToClipboard = () => {
     const currentURL = window.location.href;
     navigator.clipboard.writeText(currentURL);
@@ -50,7 +72,6 @@ const PlayDetail = () => {
     });
   };
   const obtainDesc = (array) => {
-    console.log(array);
     let desc = "";
     array.forEach((item) => {
       if (item.type === 0) {
@@ -65,6 +86,18 @@ const PlayDetail = () => {
     });
     return desc;
   };
+  const dateDisponibles = (array) => {
+    let today = new Date();
+    setDisponible(false);
+    array.forEach((item) => {
+      let fecha = getDateVerification(item.date);
+
+      if (!(fecha.getTime() < today.getTime())) {
+        setDisponible(true);
+      }
+    });
+  };
+
   return (
     <>
       {width < 1200 ? (
@@ -103,7 +136,11 @@ const PlayDetail = () => {
                       className={`data_title`}
                       onClick={() => {
                         setCurrentOpt(item.cod);
-                        {item.cod > currentOpt ? setAnim(true) : setAnim(false)}
+                        {
+                          item.cod > currentOpt
+                            ? setAnim(true)
+                            : setAnim(false);
+                        }
                         setCurrentInfo(item);
                       }}
                     >
@@ -127,18 +164,32 @@ const PlayDetail = () => {
             </div>
             <div className="reservation">
               <p>No te quedes afuera</p>
-              <button
-                className="registerSec__btn"
-                onClick={() => {
-                  navigate(`/tickets/${cod}`);
-                }}
-              >
-                RESERVAR AHORA
-              </button>
+              {disponible ? (
+                <button
+                  onClick={() => userLogeado ? navigate(`/tickets/${cod}`) : navigate("/noauth")}
+                  className="register Sec__btn"
+                >
+                  RESERVAR AHORA
+                </button>
+                
+              ) : (
+                <button
+                  className="btnDesactiveReserva"
+                  onClick={() =>
+                    notify(
+                      "Aún no hay fechas disponibles",
+                      "#d80416",
+                      "#d80416"
+                    )
+                  }
+                >
+                  NO DISPONIBLE
+                </button>
+              )}
             </div>
           </motion.section>
         ) : (
-          <></>
+          <SecLoading />
         )
       ) : (
         <>
@@ -189,7 +240,11 @@ const PlayDetail = () => {
                             onClick={() => {
                               setCurrentOpt(item.cod);
                               setCurrentInfo(item);
-                              {item.cod > currentOpt ? setAnim(true) : setAnim(false)}
+                              {
+                                item.cod > currentOpt
+                                  ? setAnim(true)
+                                  : setAnim(false);
+                              }
                             }}
                           >
                             <h3>{item.name}</h3>
@@ -206,12 +261,27 @@ const PlayDetail = () => {
                     </div>
 
                     <div className="reservation">
-                      <button
-                        onClick={() => navigate(`/tickets/${cod}`)}
-                        className="registerSec__btn"
-                      >
-                        RESERVAR AHORA
-                      </button>
+                      {disponible ? (
+                        <button
+                          onClick={() => userLogeado ? navigate(`/tickets/${cod}`) : navigate("/noauth")}
+                          className="registerSec__btn"
+                        >
+                          RESERVAR AHORA
+                        </button>
+                      ) : (
+                        <button
+                          className="btnDesactiveReserva"
+                          onClick={() =>
+                            notify(
+                              "Aún no hay fechas disponibles",
+                              "#d80416",
+                              "#d80416"
+                            )
+                          }
+                        >
+                          NO DISPONIBLE
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -229,7 +299,7 @@ const PlayDetail = () => {
               </article>
             </motion.section>
           ) : (
-            <></>
+            <SecLoading />
           )}
         </>
       )}

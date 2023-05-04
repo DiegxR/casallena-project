@@ -19,7 +19,7 @@ const Register = () => {
   const [passWord, setPassWord] = useState("");
   const [errorPass, setErrorPass] = useState("");
   const validatePass = (value) => {
-    console.log(value);
+   
     if (!minPass.test(value)) {
       setErrorPass("Debe contener mínimo 6 dígitos");
     } else if (!upperPass.test(value)) {
@@ -34,7 +34,7 @@ const Register = () => {
 
   const validatePasswords = (passWordConf) => {
     if (passWord !== passWordConf) {
-      console.log("errorr");
+    
       setError("passwordConf", { message: "Las contraseñas no coinciden" });
     } else {
       setError("passwordConf", { message: "" });

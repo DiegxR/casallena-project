@@ -12,7 +12,7 @@ import PlayDetail from "../home/playDetail/PlayDetail";
 import Favorites from "../home/favorites/Favorites";
 import Reservations from "../home/reservations/Reservations";
 import LoadPhotoUser from "../login/register/loadPhotoUser/LoadPhotoUser";
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
 import { getUserCollection } from "../services/getUser";
 import { loginUser } from "../redux/actions/userActions";
@@ -23,6 +23,7 @@ import NoAuth from "../components/noAuth/NoAuth";
 import Reservas from "../home/Reservas/Reservas";
 import FormReserva from "../home/formReserva/FormReserva";
 import { getLocalReserva } from "../services/localInfoBoletas";
+import ModalReservation from "../components/modalReservation/ModalReservation";
 
 export const Appcontext = createContext({});
 

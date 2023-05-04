@@ -8,7 +8,8 @@ import { Appcontext } from "../../router/Router";
 import { useEffect } from "react";
 import { setLocalReserva } from "../../services/localInfoBoletas";
 import { motion } from "framer-motion";
-import { getShortDate } from "../../services/dateActual";
+import { getDateVerification, getShortDate } from "../../services/dateActual";
+import { useSelector } from "react-redux";
 const ReservationFunctions = ({
   opt = 1,
   set,
@@ -19,7 +20,11 @@ const ReservationFunctions = ({
   setBoletas,
 }) => {
   const { formatterPeso, setInfoReserva, infoReserva } = useContext(Appcontext);
+  const { teatros } = useSelector((store) => store.teatros);
+  const [teatro, setTeatro] = useState([]);
   const [currentDate, setCurrentDate] = useState("");
+  const [currentHour, setCurrentHour] = useState("");
+  const [currentHourEnd, setCurrentHourEnd] = useState("");
   const [dates, setDates] = useState([]);
   const [animate, setanimate] = useState(false);
   const navigate = useNavigate();
@@ -42,7 +47,7 @@ const ReservationFunctions = ({
     let newdates = [];
     let today = new Date();
     array.forEach((item) => {
-      let fecha = new Date(item.date);
+      let fecha = getDateVerification(item.date);
       if (fecha.getTime() >= today.getTime()) {
         if (item.aforo >= boletas) {
           newdates.push(item.date);
@@ -55,11 +60,27 @@ const ReservationFunctions = ({
   const changeCurrentDate = () => {
     if (dates.length !== 0) {
       setCurrentDate(dates[0]);
+      if (value?.dates) {
+        const array = value.dates.filter((item) => item.date === dates[0]);
+        if (array) {
+          setCurrentHour(array[0].hourStart);
+          setCurrentHourEnd(array[0].hourEnd);
+        }
+      }
     } else {
       if (infoReserva?.currentDate) {
         setCurrentDate(infoReserva.currentDate);
+        setCurrentDate(infoReserva.currentHour);
+        setCurrentDate(infoReserva.currentHourEnd);
       } else {
         setCurrentDate(dates[0]);
+        if (value?.dates) {
+          const array = value.dates.filter((item) => item.date === dates[0]);
+          if (array) {
+            setCurrentHour(array[0].hourStart);
+            setCurrentHourEnd(array[0].hourEnd);
+          }
+        }
       }
     }
   };
@@ -74,15 +95,21 @@ const ReservationFunctions = ({
   }, [dates]);
 
   const handleSelectChange = (event) => {
-    console.log("Entro");
     if (event.target.value) {
-      setCurrentDate(event.target.value);
+      setCurrentDate(event.target.value.date);
+      setCurrentHour(event.target.value.hourStart);
     }
   };
+
   useEffect(() => {
-    console.log(currentDate);
-    console.log(getShortDate());
-  }, [currentDate]);
+    if (teatros.length !== 0) {
+      if (value?.cod) {
+        setTeatro(
+          teatros.filter((item) => item.cod === value.dates[0].theater)
+        );
+      }
+    }
+  }, [value, teatros]);
 
   return (
     <>
@@ -102,7 +129,7 @@ const ReservationFunctions = ({
                 className="select"
               >
                 {dates.map((item, index) => (
-                  <option key={index} value={item.date}>
+                  <option key={index} value={item}>
                     {item}
                   </option>
                 ))}
@@ -156,10 +183,9 @@ const ReservationFunctions = ({
           ) : (
             <div className="ticketReservation__Container">
               {[...Array(3)].map((_, index) => (
-                <div className="ticketReservation">
-                  <p key={index + 1}>Entradas desde</p>
+                <div key={index} className="ticketReservation">
+                  <p>Entradas desde</p>
                   <button
-                    key={index}
                     className={`${
                       boletas !== 0 && currentDate !== "" && dates.length !== 0
                         ? "btnTicket"
@@ -191,7 +217,7 @@ const ReservationFunctions = ({
           initial={{ opacity: 0 }}
           transition={{ duration: 0.9 }}
           animate={{ opacity: 1 }}
-          className="ReservationFunctions"
+          className="ReservationFunctions "
         >
           <AiOutlineArrowLeft
             onClick={() => (set(0), setanimate(false))}
@@ -211,17 +237,27 @@ const ReservationFunctions = ({
                 boletas,
                 price,
                 currentDate,
+                currentHour,
+                currentHourEnd,
                 total: boletas * price,
                 cod: value.cod,
                 name: value.name,
+                img: value.img,
+                teatro: teatro[0]?.name,
+                direccion: teatro[0]?.direccion,
               });
               setLocalReserva({
                 boletas,
                 price,
                 currentDate,
+                currentHour,
+                currentHourEnd,
                 total: boletas * price,
                 cod: value.cod,
                 name: value.name,
+                img: value.img,
+                teatro: teatro[0]?.name,
+                direccion: teatro[0]?.direccion,
               });
             }}
             className="registerSec__btn btn_reservation"

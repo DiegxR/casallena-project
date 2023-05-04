@@ -45,22 +45,19 @@
   padding: 10px;
   background: transparent;
 }
-.errorMsg{
+.errorMsg {
   color: $main_color;
   font-size: 13px;
 }
 
-body{
-  background-color: $primary_black;
-}
-
 .registerSec__btn {
   background-color: $main_color;
-  color: $white_color;
-  align-self: flex-end;
-  border-radius: 20px;
-  padding: 10px 20px;
-  width: fit-content;
-  cursor: pointer;
   border: none;
+  padding: 15px;
+  border-radius: 20px;
+  color: $white_color;
+}
+
+body {
+  background-color: $primary_black;
 }

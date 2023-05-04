@@ -20,9 +20,7 @@ const LoadPhotoUser = () => {
       notify("Foto subida exitosamente", "#027087", "#027087");
     }
   }, [error]);
-  useEffect(() => {
-    console.log(user);
-  }, []);
+ 
 
   return (
     <motion.section

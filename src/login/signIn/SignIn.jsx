@@ -41,17 +41,13 @@ const SignIn = () => {
     }
     onAuthStateChanged(auth, async (user) => {
       if (user) {
-        console.log(user);
+    
         const currentUser = await getUserCollection(user.uid);
         navigate("/home");
         dispatch(loginUser(currentUser, { status: false, message: "" }));
       }
     });
   }, []);
-
-  const uploadDataBase = () => {
-    uploadArray(filters, "Filtros");
-  };
 
   return (
     <motion.section
@@ -129,7 +125,6 @@ const SignIn = () => {
           <AiOutlineGoogle className="login_google-icon" />
           <span>Entrar con Google</span>
         </button>
-        {/* <button onClick={uploadDataBase}>Subir a la base de datos</button> */}
       </article>
       {loading ? <Loading /> : <></>}
     </motion.section>

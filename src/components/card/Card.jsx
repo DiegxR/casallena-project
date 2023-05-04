@@ -10,6 +10,8 @@ import { IoIosInformationCircle } from "react-icons/io";
 import NoAuth from "../noAuth/NoAuth";
 import { handleFavoritesAsync } from "../../redux/actions/userActions";
 import { motion } from "framer-motion";
+import { getDateVerification } from "../../services/dateActual";
+
 const Card = ({ type, data }) => {
   const { formatterPeso, setShowModal } = useContext(Appcontext);
   const { width } = useContext(Appcontext);
@@ -55,20 +57,17 @@ const Card = ({ type, data }) => {
     let today = new Date();
     setDisponible(false);
     array.forEach((item) => {
-      let fecha = new Date(item.date);
-      if (fecha.getTime() >= today.getTime()) {
-        console.log("Entro");
+      let fecha = getDateVerification(item.date);
+
+      if (!(fecha.getTime() < today.getTime())) {
         setDisponible(true);
       }
     });
   };
 
   useEffect(() => {
-    dateDisponibles(data?.dates);
+    if (data?.dates) dateDisponibles(data?.dates);
   }, [data]);
-  useEffect(() => {
-    console.log(disponible);
-  }, [disponible]);
 
   return (
     <>
@@ -161,7 +160,7 @@ const Card = ({ type, data }) => {
                 />
               )}
             </article>
-            {data.price === 0 ? (
+            {data?.price === 0 ? (
               <IoIosInformationCircle
                 className="iconInfo"
                 onClick={() => {
@@ -179,17 +178,17 @@ const Card = ({ type, data }) => {
             </article>
             <article className="articl2Obra">
               <div>
-                <h3>{data.price === 0 ? "Aporte" : "General"}</h3>
+                <h3>{data?.price === 0 ? "Aporte" : "General"}</h3>
                 <h2>
-                  {data.price === 0
-                    ? `${formatterPeso.format(showPrice(data.aporte))} K`
-                    : `${formatterPeso.format(showPrice(data.price))} K`}
+                  {data?.price === 0
+                    ? `${formatterPeso.format(showPrice(data?.aporte))} K`
+                    : `${formatterPeso.format(showPrice(data?.price))} K`}
                 </h2>
               </div>
               <section
                 style={{ marginTop: "3px", cursor: "pointer" }}
                 onClick={() => {
-                  disponible ? navigate(`/detail/${data.cod}`) : "";
+                  navigate(`/detail/${data.cod}`);
                 }}
               >
                 {disponible == true ? (
@@ -207,7 +206,12 @@ const Card = ({ type, data }) => {
           </figcaption>
         </figure>
       ) : type === 3 ? (
-        <figure className="Card CardPrincipal">
+        <figure
+          className="Card CardPrincipal"
+          onClick={() => {
+            navigate(`/detail/${data.cod}`);
+          }}
+        >
           <img src={data.img} alt="" />
           <figcaption className="CardPrincipal__sec1">
             <article className="secTextos">

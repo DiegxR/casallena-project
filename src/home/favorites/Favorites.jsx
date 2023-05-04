@@ -12,6 +12,8 @@ import CardLoading from "../../components/cardLoading/CardLoading";
 import { useNavigate } from "react-router";
 import ModalAporte from "../../components/modalAporte/ModalAporte";
 import { BsFillChatHeartFill } from "react-icons/bs";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../firebase/firebaseConfig";
 const Favorites = () => {
   const dispatch = useDispatch();
   const { obras } = useSelector((store) => store.obras);
@@ -22,10 +24,13 @@ const Favorites = () => {
   const navigate = useNavigate();
   useEffect(() => {
     dispatch(getObras({ collectionName: "Obras", key: "", value: "" }));
+    onAuthStateChanged(auth,(user)=>{
+      if(!user){
+        navigate('/noauth')
+      }
+    })
   }, []);
-  useEffect(() => {
-    console.log(obras);
-  }, [obras]);
+
   return (
     <>
       <ModalAporte isOpen={showModal} Onclose={setShowModal} />
@@ -38,7 +43,7 @@ const Favorites = () => {
         <section className="secFavorites_container">
           <header className="secFavorites_head">
             <div className="secFavorites_logoContainer">
-            <BsFillChatHeartFill className="secFavorites_logo" />
+              <BsFillChatHeartFill className="secFavorites_logo" />
             </div>
 
             <h3 className="secFavorites_title">Favoritos</h3>
@@ -61,7 +66,7 @@ const Favorites = () => {
                   (index == obras.length - 1)
                 ) {
                   return (
-                    <div className="secFavorites_nofavorites">
+                    <div key={index} className="secFavorites_nofavorites">
                       <div className="secFavorites_nofavoritescontainer">
                         <img
                           src={logo}
