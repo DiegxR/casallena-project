@@ -145,14 +145,27 @@ const PlayDetail = () => {
             </div>
             <div className="reservation">
               <p>No te quedes afuera</p>
-              <button
-                className="registerSec__btn"
-                onClick={() => {
-                  navigate(`/tickets/${cod}`);
-                }}
-              >
-                RESERVAR AHORA
-              </button>
+              {disponible ? (
+                <button
+                  onClick={() => navigate(`/tickets/${cod}`)}
+                  className="registerSec__btn"
+                >
+                  RESERVAR AHORA
+                </button>
+              ) : (
+                <button
+                  className="btnDesactiveReserva"
+                  onClick={() =>
+                    notify(
+                      "Aún no hay fechas disponibles",
+                      "#d80416",
+                      "#d80416"
+                    )
+                  }
+                >
+                  NO DISPONIBLE
+                </button>
+              )}
             </div>
           </motion.section>
         ) : (
