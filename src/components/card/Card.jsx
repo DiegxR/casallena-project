@@ -206,7 +206,12 @@ const Card = ({ type, data }) => {
           </figcaption>
         </figure>
       ) : type === 3 ? (
-        <figure className="Card CardPrincipal">
+        <figure
+          className="Card CardPrincipal"
+          onClick={() => {
+            navigate(`/detail/${data.cod}`);
+          }}
+        >
           <img src={data.img} alt="" />
           <figcaption className="CardPrincipal__sec1">
             <article className="secTextos">
