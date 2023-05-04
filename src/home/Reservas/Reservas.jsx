@@ -20,8 +20,8 @@ const Reservas = () => {
             console.log(date, month)
             const event = {
                 title: element.name, 
-                start: new Date(Number(date[2]),month-1,Number(date[0])),
-                end: new Date(Number(date[2]),month-1,Number(date[0])),
+                start: new Date(Number(date[2]),month-1,Number(date[0]),12,0),
+                end: new Date(Number(date[2]),month-1,Number(date[0]),13,30),
                 color: '#d80416',
                 cod: element.cod
             }
