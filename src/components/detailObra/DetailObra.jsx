@@ -148,7 +148,7 @@ const DetailObra = ({ op = 0, info, value, anim }) => {
             />
           </div>
           <p>
-            <span style={{ fontWeight: "600" }}>Dirección:</span>{" "}
+            <span style={{ fontWeight: "600" }}>Dirección:</span>
             {teatro[0].direccion}
           </p>
         </motion.article>

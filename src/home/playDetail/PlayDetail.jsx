@@ -39,24 +39,19 @@ const PlayDetail = () => {
   const navigate = useNavigate();
 
   const [currentOpt, setCurrentOpt] = useState(0);
-  const [userLogeado,setUserLogeado]= useState(false)
+  const [userLogeado, setUserLogeado] = useState(false);
   const [currentInfo, setCurrentInfo] = useState({});
   const [disponible, setDisponible] = useState(false);
   const [anim, setAnim] = useState(true);
-  
-  
-  
-  useEffect(() => {
-    onAuthStateChanged(auth,(user)=> {
-     if(user){
-     setUserLogeado(true)
-     }
-    })
-  }, [])
-  
-   
 
-  
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUserLogeado(true);
+      }
+    });
+  }, []);
+
   const copyURLToClipboard = () => {
     const currentURL = window.location.href;
     navigator.clipboard.writeText(currentURL);
@@ -166,12 +161,16 @@ const PlayDetail = () => {
               <p>No te quedes afuera</p>
               {disponible ? (
                 <button
-                  onClick={() => userLogeado ? navigate(`/tickets/${cod}`) : navigate("/noauth")}
+                  onClick={() =>
+                    userLogeado
+                      ? navigate(`/tickets/${cod}`)
+                      : navigate("/noauth")
+                  }
                   className="register Sec__btn"
+                  style={{ borderRadius: "20px" }}
                 >
                   RESERVAR AHORA
                 </button>
-                
               ) : (
                 <button
                   className="btnDesactiveReserva"
@@ -263,7 +262,11 @@ const PlayDetail = () => {
                     <div className="reservation">
                       {disponible ? (
                         <button
-                          onClick={() => userLogeado ? navigate(`/tickets/${cod}`) : navigate("/noauth")}
+                          onClick={() =>
+                            userLogeado
+                              ? navigate(`/tickets/${cod}`)
+                              : navigate("/noauth")
+                          }
                           className="registerSec__btn"
                         >
                           RESERVAR AHORA
