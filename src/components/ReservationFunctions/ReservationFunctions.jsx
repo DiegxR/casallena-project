@@ -6,7 +6,10 @@ import "./reservationFunctions.scss";
 import { useContext } from "react";
 import { Appcontext } from "../../router/Router";
 import { useEffect } from "react";
-import { setLocalReserva } from "../../services/localInfoBoletas";
+import {
+  getLocalReserva,
+  setLocalReserva,
+} from "../../services/localInfoBoletas";
 import { motion } from "framer-motion";
 import { getDateVerification, getShortDate } from "../../services/dateActual";
 import { useSelector } from "react-redux";
@@ -22,9 +25,7 @@ const ReservationFunctions = ({
   const { formatterPeso, setInfoReserva, infoReserva } = useContext(Appcontext);
   const { teatros } = useSelector((store) => store.teatros);
   const [teatro, setTeatro] = useState([]);
-  const [currentDate, setCurrentDate] = useState("");
-  const [currentHour, setCurrentHour] = useState("");
-  const [currentHourEnd, setCurrentHourEnd] = useState("");
+  const [currentDate, setCurrentDate] = useState(infoReserva.currentDate);
   const [dates, setDates] = useState([]);
   const [animate, setanimate] = useState(false);
   const navigate = useNavigate();
@@ -56,30 +57,32 @@ const ReservationFunctions = ({
     });
     setDates(newdates);
   };
+  const localTostate = () => {
+    setInfoReserva({ ...getLocalReserva() });
+  };
 
   const changeCurrentDate = () => {
     if (dates.length !== 0) {
-      setCurrentDate(dates[0]);
       if (value?.dates) {
-        const array = value.dates.filter((item) => item.date === dates[0]);
-        if (array) {
-          setCurrentHour(array[0].hourStart);
-          setCurrentHourEnd(array[0].hourEnd);
-        }
-      }
-    } else {
-      if (infoReserva?.currentDate) {
-        setCurrentDate(infoReserva.currentDate);
-        setCurrentDate(infoReserva.currentHour);
-        setCurrentDate(infoReserva.currentHourEnd);
-      } else {
-        setCurrentDate(dates[0]);
-        if (value?.dates) {
+        const local = getLocalReserva();
+        if (!local.currentDate) {
           const array = value.dates.filter((item) => item.date === dates[0]);
-          if (array) {
-            setCurrentHour(array[0].hourStart);
-            setCurrentHourEnd(array[0].hourEnd);
-          }
+          setLocalReserva({
+            ...infoReserva,
+            currentDate: dates[0],
+            currentHour: array[0].hourStart,
+            currentHourEnd: array[0].hourEnd,
+            cod: value.cod,
+            name: value.name,
+            img: value.img,
+            teatro: teatro[0]?.name,
+            direccion: teatro[0]?.direccion,
+          });
+          localTostate();
+
+          setCurrentDate(dates[0]);
+        } else {
+          setInfoReserva({ ...local });
         }
       }
     }
@@ -89,17 +92,34 @@ const ReservationFunctions = ({
     if (value?.dates) {
       dateDisponibles(value.dates);
     }
-  }, [value, boletas]);
+    if (value?.cod) {
+      setLocalReserva({
+        ...infoReserva,
+        boletas,
+        price,
+        total: boletas * price,
+      });
+    }
+  }, [value, boletas, price]);
+
+  const handleSelectChange = (event) => {
+    const array = value.dates.filter(
+      (item) => item.date === event.target.value
+    );
+    setCurrentDate(event.target.value);
+    localTostate();
+    setLocalReserva({
+      ...infoReserva,
+      currentDate: event.target.value,
+      currentHour: array[0].hourStart,
+      currentHourEnd: array[0].hourEnd,
+    });
+    localTostate();
+  };
+
   useEffect(() => {
     changeCurrentDate();
   }, [dates]);
-
-  const handleSelectChange = (event) => {
-    if (event.target.value) {
-      setCurrentDate(event.target.value.date);
-      setCurrentHour(event.target.value.hourStart);
-    }
-  };
 
   useEffect(() => {
     if (teatros.length !== 0) {
@@ -124,9 +144,9 @@ const ReservationFunctions = ({
 
             {dates.length !== 0 ? (
               <select
-                onChange={handleSelectChange}
                 value={currentDate}
                 className="select"
+                onChange={handleSelectChange}
               >
                 {dates.map((item, index) => (
                   <option key={index} value={item}>
@@ -233,32 +253,6 @@ const ReservationFunctions = ({
           <button
             onClick={() => {
               navigate(`/confirmreservation/${value.cod}`);
-              setInfoReserva({
-                boletas,
-                price,
-                currentDate,
-                currentHour,
-                currentHourEnd,
-                total: boletas * price,
-                cod: value.cod,
-                name: value.name,
-                img: value.img,
-                teatro: teatro[0]?.name,
-                direccion: teatro[0]?.direccion,
-              });
-              setLocalReserva({
-                boletas,
-                price,
-                currentDate,
-                currentHour,
-                currentHourEnd,
-                total: boletas * price,
-                cod: value.cod,
-                name: value.name,
-                img: value.img,
-                teatro: teatro[0]?.name,
-                direccion: teatro[0]?.direccion,
-              });
             }}
             className="registerSec__btn btn_reservation"
           >

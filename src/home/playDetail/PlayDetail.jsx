@@ -167,7 +167,11 @@ const PlayDetail = () => {
                       : navigate("/noauth")
                   }
                   className="register Sec__btn"
-                  style={{ borderRadius: "20px" }}
+                  style={{
+                    borderRadius: "20px",
+                    fontSize: "14px",
+                    padding: "8px",
+                  }}
                 >
                   RESERVAR AHORA
                 </button>
