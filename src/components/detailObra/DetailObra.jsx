@@ -166,7 +166,7 @@ const DetailObra = ({ op = 0, info, value, anim }) => {
               obligatorio.
               <br />
               Recuerda llegar al teatro con un mínimo de 15 minutos antes de la
-              funsión.
+              función.
             </p>
           </div>
         </motion.section>
